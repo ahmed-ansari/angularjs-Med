@@ -1,0 +1,46 @@
+    <nav class="mrg-btm-20">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+
+   
+
+  </div>
+</nav>
+
+    <div class="container">
+        <div class="row">
+          <div class="center-align">
+            <i class="large material-icons">dashboard</i>
+          </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+      <form class="col s12" ng-submit="submitLogin(user)" novalidate name="loginform">
+        <div class="row">
+          <div class="input-field col s12" ng-class="{'has-errors':loginform.email.$invalid && submitted}">
+            <input id="email" type="text" name="email" class="validate" required ng-model="user.email">
+            <span ng-show="loginform.email.$invalid && submitted" class="errs">Username is required</span>
+            <label for="email">Email</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12" ng-class="{'has-errors':loginform.password.$invalid && submitted}">
+            <input id="password" type="password" name="password" class="validate" required ng-model="user.password">
+              <span ng-show="loginform.password.$invalid && submitted" ng-animate="'box'" class="errs on">Password is required</span>
+            <label for="password">Password</label>
+          </div>
+        </div>
+          <div class="row center-align"> 
+            <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="submitted=true"  >
+                Submit
+                <i class="material-icons right">send</i>
+            </button>
+            <button  class="btn waves-effect waves-light" ui-sref="root.profile">{{ 'TITLE' | translate }}</button>
+          </div>
+        </form>
+
+        {{loginform.$valid}}
+    </div>

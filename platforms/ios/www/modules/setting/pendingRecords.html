@@ -1,0 +1,39 @@
+<ion-list>
+    <div class="item item-divider offlineDivider">
+        <div class="row">
+            <div class="col">
+                <button class="button button-positive button-clear" ng-show="offlineData.SelectPendingAllIsVisible && (offlineData.offlineRecords.length > 0)" ng-click="offlineData.selectAllPendingItems()"><i class="icon ion-ios-checkmark-outline"></i> <!-- Select All --></button>
+                <button class="button button-positive button-clear" ng-hide="offlineData.SelectPendingAllIsVisible" ng-click="offlineData.deSelectAllPendingItems()"><i class="icon ion-ios-checkmark"></i><!-- Deselect All --></button>
+            </div>
+            <div class="col centerAlign"> <div class="selectedFont" ng-show="offlineData.countCheckPending > 0">({{offlineData.countCheckPending}})  {{"setting.pending-rec.selected" | translate}}</div></div>
+            <div class="col">
+                <button class="button button-assertive button-clear rightAlign" ng-click="offlineData.deleteRecords('pending')" ng-hide="offlineData.SelectPendingAllIsVisible"><i class="icon ion-trash-b"></i><!-- Delete --></button>
+            </div>
+        </div>
+    </div>
+    <ion-scroll direction="y" class="scroll-offline">
+        <ion-item ng-repeat="offlineRecord in offlineData.offlineRecords| orderBy: 'createdDate': true" class="item-module" ng-class="($root.freezePendingRecords == 'true') ? 'syncing' : 'noSyncing'">
+            <div class="row">
+            <div class="col-10">
+                <ion-checkbox ng-model="offlineRecord.checked" ng-click="offlineData.getSelectedPendingRecords(offlineData.offlineRecords)" ng-disabled="$root.freezePendingRecords == 'true'" class="check-top-20" >
+                 </ion-checkbox>
+                </div>
+                <div class="col-90">
+                    <a class="module-div pad-left5"  ng-click="offlineData.lockThenProceed(offlineRecord)">
+                        <h2 ng-bind="offlineRecord.Name" class="syncElem"></h2>
+                        <p class="module-name syncElem" ng-bind="offlineRecord.WOName"></p>
+                        <p class="module-name syncElem" ng-bind="offlineRecord.action"></p>
+                    </a>
+                </div>
+            </div>
+        </ion-item>
+
+        <div class="card" ng-show="offlineData.offlineRecords.length == 0">
+            <div class="item item-text-wrap">
+                {{"setting.pending-rec.no-pending-record" | translate}}
+            </div>
+        </div>
+
+    </ion-scroll>
+    
+</ion-list>

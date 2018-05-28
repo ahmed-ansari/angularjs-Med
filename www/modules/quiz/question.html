@@ -1,0 +1,32 @@
+<!-- {{qItem | json}} -->
+<!-- {{questionActive}} -->
+<div class="question-div">
+  <h4>{{qId}}.{{qTitle}}</h4>  
+</div>
+
+<div class="answer-div row-ans">
+  <div class="input-field" ng-repeat="ans in qAns"  >
+    <input id="q-{{qId}}-a-{{ans.id}}" type="radio" name="answer">
+    <label for="q-{{qId}}-a-{{ans.id}}"
+     user-input-answer
+       ng-click=""
+        q-quest="{{qId}}"
+          q-ans="{{ans.id}}" 
+           q-act="questionActive"
+            qa-item="qItem"
+            >
+            {{ans.answer}}
+        </label>
+  </div>
+  <div class="q_feedback">
+    <div class="desc_text"></div>
+    <button type="button" ng-click="go2()" id="quiz-btn">Next</button>
+  </div>
+</div>
+
+
+  <!-- <div class="input-field" ng-repeat="ans in qAns">
+    <input id="q-{{qId}}-a-{{ans.id}}" type="radio" name="answer">
+    <label for="q-{{qId}}-a-{{ans.id}}" user-input-answer q-act="qObj.questionActive">{{ans.answer}}</label>
+  </div> -->
+

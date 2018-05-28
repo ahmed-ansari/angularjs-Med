@@ -1,0 +1,49 @@
+<ion-list>
+    <div class="item item-divider offlineDivider pad-zero">
+        <div class="row">
+            <div class="col">
+                <button class="button button-positive button-clear" ng-show="offlineData.SelectFailedAllIsVisible && (offlineData.failedRecords.length > 0)" ng-click="offlineData.selectAllFailedItems()"> <i class="icon ion-ios-checkmark-outline"></i>
+                    <!-- Select All -->
+                </button>
+                <button class="button button-positive button-clear" ng-hide="offlineData.SelectFailedAllIsVisible" ng-click="offlineData.deSelectAllFailedItems()"><i class="icon ion-ios-checkmark"></i>
+                    <!-- Deselect All -->
+                </button>
+            </div>
+            <div class="col centerAlign">
+                <div class="selectedFont" ng-show="offlineData.countCheckFailed > 0">({{offlineData.countCheckFailed}}) {{"setting.index.setting.pending-rec.selected" | translate}}</div>
+            </div>
+            <div class="col">
+                <button class="button button-assertive button-clear rightAlign" ng-click="offlineData.deleteRecords('failed')" ng-hide="offlineData.SelectFailedAllIsVisible"><i class="icon ion-trash-b"></i>
+                    <!-- Delete -->
+                </button>
+                <button class="button button-positive button-clear rightAlign" ng-click="offlineData.manualSyncRecords()" ng-hide="offlineData.SelectFailedAllIsVisible"><i class="icon ion-android-sync"></i>
+                    <!-- Sync -->
+                </button>
+            </div>
+        </div>
+    </div>
+    <ion-scroll direction="y" class="scroll-offline">
+        <ion-item ng-repeat="failedRecord in offlineData.failedRecords | orderBy: 'timestamp' : true" class="item-module">
+            <div class="row">
+                <div class="col-10">
+                    <ion-checkbox ng-model="failedRecord.checked" ng-click="offlineData.getSelectedFailedRecords(offlineData.failedRecords)">
+                    </ion-checkbox>
+                </div>
+                <div class="col-90">
+                    <a class="module-div pad-left5 check-top-20">
+                        <h2 ng-bind="failedRecord.Name"></h2>
+                        <p class="module-name" ng-bind="failedRecord.WOName"></p>
+                        <p class="module-name" ng-bind="failedRecord.action"></p>
+                        <p class="module-name">{{"setting.success-rec.last-synced" | translate}} : <span ng-bind="failedRecord.timestamp"></span></p>
+                        <p class="module-name"><span color="red-text"> {{"setting.success-rec.reason" | translate}} : </span><span class="error-reason" ng-bind="(failedRecord.error) ? failedRecord.error : ' Network Failure' "></span></p>
+                    </a>
+                </div>
+            </div>
+        </ion-item>
+        <div class="card" ng-show="offlineData.failedRecords.length == 0">
+            <div class="item item-text-wrap">
+                {{"setting.success-rec.no-failed-record" | translate}} 
+            </div>
+        </div>
+    </ion-scroll>
+</ion-list>

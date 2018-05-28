@@ -1,0 +1,43 @@
+<ion-view title="Instruction Tests">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content>
+        
+            <ion-list>
+                <ion-item ng-repeat="testInstructionTestnow in testinstruction.res | orderBy:'val.Id'">
+
+                    <ion-item ng-repeat="steps in testInstructionTestnow.val | orderBy:'MedConnectDev__Instruction_Steps__r.MedConnectDev__Step_Number__c'">
+                    <ion-item ng-show="$first" >
+                          <h2>{{steps.MedConnectDev__Instruction_Section__r.Name}}</h2>
+                     </ion-item>
+                     <ion-item ng-show="$first">
+                     <div class="row">
+                            <div class="col">Step # </div>
+                            <div class="col">Steps </div>
+                            <div class="col">Result </div>
+                        </div>
+                     </ion-item>
+                        <div class="row">
+                            <div class="col item-text-wrap">{{steps.MedConnectDev__Instruction_Steps__r.MedConnectDev__Step_Number__c}} </div>
+                            <div class="col item-text-wrap">{{steps.MedConnectDev__Instruction_Steps__r.MedConnectDev__Step_Instruction__c}} </div>
+                        
+                            <div class="col" showfields resultType="{{steps.MedConnectDev__Instruction_Steps__r.MedConnectDev__Result_Type__c}}" options="{{steps.MedConnectDev__Instruction_Steps__r.MedConnectDev__Options__c}}" result="steps.MedConnectDev__Result__c"></div>
+                        </div>
+                    </ion-item>
+                </ion-item>
+               
+            </ion-list>
+             <div class="row" ng-show="testinstruction.res.length > 0">
+                    <span class="button button-positive" ng-click="testinstruction.checkValues()">Save</span>
+                </div>
+            <br>
+            <div class="card" ng-show="testinstruction.res.length == 0">
+                <div class="item item-text-wrap">
+                    No Record Found!
+                </div>
+            </div>
+    </ion-content>
+</ion-view>

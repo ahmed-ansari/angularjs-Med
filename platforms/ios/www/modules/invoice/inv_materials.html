@@ -1,0 +1,40 @@
+<div class="wo-expense" ng-show="singleInvoiceDetail.invoiceMaterial.length > 0">
+    <ion-list>
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col"><b class="ellipses">Product</b></div>
+                <div class="col"><b class="ellipses">Quantity</b></div>
+                <div class="col"><b class="ellipses">Unit Price</b></div>
+                <div class="col"><b class="ellipses">Discount</b></div>
+                <div class="col"><b class="ellipses">Discount Type</b></div>
+                <div class="col"><b class="ellipses">Line Amount</b></div>
+                <div class="col"><b class="ellipses">Gross Line Amount</b></div>
+                <div class="col"><b class="ellipses">Billable</b></div>
+                <div class="col"></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+            <ion-item ng-repeat="invoiceMaterial in singleInvoiceDetail.invoiceMaterial">
+                <div class="row">
+                    <div class="col"><span class="ellipses">{{getVariableDataFromObject(invoiceMaterial,'Product__r','Name')}}</span></a>
+                    </div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Quantity__c')}}</div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Unit_Price__c')}}</div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Discount__c')}}</div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Discount_Type__c')}}</div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Line_Amount__c')}}</div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Gross_Line_Amount__c')}}</div>
+                    <div class="col">{{getVariableDataFromObject(invoiceMaterial,'Billable__c')}}</div>
+                    <div class="col">
+                            <a href="#/app/add-invoice-material/{{invoiceMaterial.Id}}/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetailName}}/{{singleInvoiceDetail.invoiceDetail.MedConnectDev__Work_Order__c}}/{{invoiceMaterial.Name}}"><i class="icon ion-edit"></i></a> 
+                    </div>
+                </div>
+            </ion-item>
+    </ion-scroll>
+</ion-list>
+</div>
+<div class="card" ng-show="singleInvoiceDetail.invoiceMaterial.length === 0">
+    <div class="item item-text-wrap">
+        No Materials Found!
+    </div>
+</div>

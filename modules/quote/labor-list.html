@@ -1,0 +1,42 @@
+<ion-list ng-show="singleQuote.labours.length !== 0">
+    <ion-item>
+        <div class="row titleHdr">
+            <div class="col ellipsis"><b>Activity Type</b></div>
+            <div class="col ellipsis"><b>Hours Worked</b></div>
+            <div class="col"><b>Rate</b></div>
+            <div class="col"><b>Discount</b></div>
+            <div class="col ellipsis"><b>Discount Type</b></div>
+            <div class="col ellipsis"><b>Gross Line Amounts</b></div>
+            <div class="col ellipsis"><b>Line Amount</b></div>
+            <div class="col"><b>Billable</b></div>
+            <div class="col"></div>
+        </div>
+    </ion-item>
+    <ion-scroll class="accScroll" direction="y">
+        <ion-item ng-repeat="labour in singleQuote.labours">
+            <div class="row">
+                <div class="col">
+                    <!-- <a ng-href="#/app/quote-labour/{{labour.Id}}" ng-show="labour.Id"> -->
+                    <span class="ellipsis">{{labour.MedConnectDev__Activity_Type__c}}</span>
+                    <!-- </a> -->
+                </div>
+                <div class="col">{{labour.MedConnectDev__Hours_Worked__c}}</div>
+                <div class="col">{{labour.MedConnectDev__Rate__c}}</div>
+                <div class="col">{{labour.MedConnectDev__Discount__c}}</div>
+                <div class="col">{{labour.MedConnectDev__Discount_Type__c}}</div>
+                <div class="col">{{labour.MedConnectDev__Gross_Line_Amount__c}}</div>
+                <div class="col">{{labour.MedConnectDev__Line_Amount__c}}</div>
+                <div class="col">{{labour.MedConnectDev__Billable__c}}</div>
+                <div class="col">
+                         <a href="#/app/add-quote-labour/{{labour.Id}}/{{labour.MedConnectDev__Quote__c}}/{{labour.MedConnectDev__Quote__r.Name}}" ng-hide="singleQuote.sign"><i class="icon ion-edit"></i></a>    
+                </div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+</ion-list>
+
+<div class="card" ng-show="singleQuote.labours.length == 0">
+    <div class="item item-text-wrap">
+        No Record Found!
+    </div>
+</div>

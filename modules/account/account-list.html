@@ -1,0 +1,56 @@
+<ion-view title="Accounts">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar-light bar-subheader">
+        <div class="bar bar-header item-input-inset listHdrBar">
+            <div class="centerAlign noMarginTop">Filtered by +/- <span>{{::filterDays}}</span> days</div>
+
+            <div class="searchDivBox">  
+            <label class="item-input-wrapper textbox-search searchDivBox">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Search Accounts" ng-model="accountlist.searchaccount" />
+            </label>
+            <i class="icon ion-close-round" ng-click="accountlist.searchaccount = ''" ng-show="accountlist.searchaccount.length > 0"></i>
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <br>
+        <br>
+        <ion-list>
+            <ion-item ng-repeat="account in accountlist.accounts | filter:accountlist.searchaccount | orderBy: 'Name'" class="item-module">
+                <div class="row">
+                    <div class="col col-70">
+                        <a href="#/app/accounts/{{account.Id}}" class="module-div">
+                            <h2 href="#/app/accounts/{{account.Id}}" ng-bind="account.Name"> </h2>
+                            <p class="module-name" ng-bind="account.AccountNumber | AccountNumber"></p>
+                            <div>
+                                <span class="module-number" ng-bind="account.Phone | AccountCallOn"></span>
+                                <span class="module-website" ng-bind="::account.Website | AccountWebsite"></span>
+                            </div>
+                            <p></p>
+                        </a>
+                    </div>
+                    <div class="col col-9">
+                        <a class="button" ng-href="#/app/account-map/{{account.Id}}" ">
+                            <i class="icon ion-ios-location "></i>
+                        </a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="card" ng-show="(accountlist.accounts | filter:accountlist.searchaccount).length==0 ">
+            <div class="item item-text-wrap " ng-bind="accountlist.no_account ">
+            </div>
+        </div>
+        <div class="card" ng-show="!accountlist.accounts ">
+            <div class="item item-text-wrap" ng-bind="accountlist.no_account ">
+            </div>
+        </div>
+</ion-view>

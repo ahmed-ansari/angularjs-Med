@@ -1,0 +1,116 @@
+<ion-view title="Contact">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail">
+            <div class="col">
+                <h2 ng-bind="singlecontact.contact.Name"></h2> &nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subCtHdr">
+            <div class="col col-30">
+                <p>Contact</p>
+                <b ng-bind="singlecontact.contact.Phone"></b>
+                <b ng-bind="singlecontact.contact.Email" ng-click="singlecontact.sendEmail()" class="underline"></b>
+            </div>
+            <div class="col col-30">
+                <p>Account</p>
+                <a class="hyperLinks" ng-href="#/app/accounts/{{singlecontact.contact.AccountId}}">
+                    <b ng-bind="singlecontact.contact.Account.Name"></b>
+                </a>                
+                <a class="hyperLinks" ng-href="#/app/accounts/{{singlecontact.contact.AccountId}}">
+                    <b ng-bind="singlecontact.contact.Account.AccountNumber"></b>
+                </a> 
+            </div>
+            <div class="col col-30">
+                <p>Contact Type</p>
+                <b>{{getVariableDataFromObject(singlecontact.contact, 'Type__c')}}</b>
+                
+            </div>
+            <div class="col col-30">
+                <p>Record Type</p>
+                 <b>{{singlecontact.contact.RecordType.Name}}</b>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Incidents</a>
+                            <a href="javascript:;" class="ion-home1">Open Activities</a>
+                            <a href="javascript:;" class="ion-home1">Activity History</a>
+                            <a href="javascript:;" class="ion-home1">Notes & Attachments</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div ng-include src="'modules/contact/generalInfo.html'"></div>
+                    </ion-slide>
+                    <ion-slide> 
+                        <ion-list ng-show="singlecontact.incidents.length > 0">
+                            <ion-item class="cntInfo">
+                                <div class="row">
+                                    <div class="col"><b>Incident</b></div>
+                                    <div class="col"><b>Priority</b></div>
+                                    <div class="col"><b>Subject</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scrollCtHt">
+                                <ion-item ng-repeat="incident in singlecontact.incidents">
+                                    <div class="row">
+                                        <div class="col">{{incident.Name}}</div>
+                                        <div class="col">{{getVariableDataFromObject(incident, 'Priority__c')}}</div>
+                                        <div class="col">{{getVariableDataFromObject(incident, 'Subject__c')}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singlecontact.incidents.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    
+                    <ion-slide>
+                        <ion-list ng-show="singlecontact.open_activity.length > 0">
+                            <ion-item class="cntInfo">
+                                <div class="row">
+                                    <div class="col"><b>Subject</b></div>
+                                    <div class="col"><b>Name</b></div>
+                                    <div class="col"><b>Related to</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scrollCtHt">
+                                <ion-item ng-repeat="open_activity in singlecontact.open_activity">
+                                    <div class="row">
+                                        <div class="col ellipsis">{{open_activity.Subject}}</div>
+                                        <div class="col">{{open_activity.Who.Name}}</div>
+                                        <div class="col ellipsis">{{open_activity.What.Name}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singlecontact.open_activity.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div ng-include src="'modules/contact/activity_history.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div ng-include src="'modules/contact/notes_attachment.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

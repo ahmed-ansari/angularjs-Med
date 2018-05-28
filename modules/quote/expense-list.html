@@ -1,0 +1,38 @@
+<ion-list ng-show="singleQuote.expenses.length !== 0">
+    <ion-item>
+        <div class="row titleHdr">
+            <div class="col"><b class="ellipsis">Expense Type</b></div>
+            <div class="col"><b class="ellipsis">Expense Amount</b></div>
+            <div class="col"><b class="ellipsis">Discount</b></div>
+            <div class="col"><b class="ellipsis">Discount Type</b></div>
+            <div class="col"><b class="ellipsis">Gross Line Item</b></div>
+            <div class="col"><b class="ellipsis">Line Amount</b></div>
+            <div class="col"><b class="ellipsis">Billable</b></div>
+            <div class="col"></div>
+        </div>
+    </ion-item>
+    <ion-scroll class="accScroll" direction="y">
+        <ion-item ng-repeat="expense in singleQuote.expenses">
+            <div class="row">
+                <div class="col">
+                    <!-- <a ng-href="#/app/quote-expense/{{expense.Id}}" ng-show="expense.Id"> -->
+                     <span class="ellipsis">{{expense.MedConnectDev__Expense_Type__c}}</span>
+                    <!-- </a> -->
+                </div>
+                <div class="col">{{expense.MedConnectDev__Expense_Amount__c}}</div>
+                <div class="col">{{expense.MedConnectDev__Discount__c}}</div>
+                <div class="col">{{expense.MedConnectDev__Discount_Type__c}}</div>
+                <div class="col">{{expense.MedConnectDev__Gross_Line_Amount__c}}</div>
+                <div class="col">{{expense.MedConnectDev__Line_Amount__c}}</div>
+                <div class="col">{{expense.MedConnectDev__Billable__c}}</div>
+                <div class="col"><a href="#/app/add-quote-expense/{{expense.Id}}/{{expense.MedConnectDev__Quote__c}}/{{expense.MedConnectDev__Quote__r.Name}}" ng-hide="singleQuote.sign"><i class="icon ion-edit"></i></a>    </div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+</ion-list>
+
+<div class="card" ng-show="singleQuote.expenses.length == 0">
+    <div class="item item-text-wrap">
+        No Record Found!
+    </div>
+</div>

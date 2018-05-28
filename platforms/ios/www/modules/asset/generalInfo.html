@@ -1,0 +1,46 @@
+<ion-scroll direction="y" class="scrollAtHtGI">
+    <div class="list">
+        <div class="item">
+            Asset Name<span class="item-note" ng-bind="singleasset.asset.Name"></span>
+        </div>
+        <div class="item">
+            Account
+            <span class="item-note">
+            {{getVariableDataFromObject(singleasset.asset,'Account__r','Name')}}
+        </span>
+        </div>
+        <div class="item">
+            Product
+            <span class="item-note">
+            {{getVariableDataFromObject(singleasset.asset,'Product__r','Name')}}
+        </span>
+        </div>
+        <div class="item">
+            Serial No <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Serial_No__c')}}</span>
+        </div>
+        <div class="item">
+            Type <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Type__c')}}</span>
+        </div>
+        <div class="item">
+            Referenceable <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Referenceable__c')}}</span>
+        </div>
+        <div class="item">
+            UDI <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'UDI__c')}}</span>
+        </div>
+        <div class="item">
+            Usage Status <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Usage_Status__c')}}</span>
+        </div>
+        <div class="item">
+            Installed Date <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Installed_Date__c')}}</span>
+        </div>
+        <div class="item">
+            Installed By <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Installed_By__r','Name')}}</span>
+        </div>
+        <div class="item">
+            Expiration Date <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Expiration_Date__c')}}</span>
+        </div>
+        <div class="item">
+            Service Due On <span class="item-note">{{getVariableDataFromObject(singleasset.asset,'Service_Due_On__c')}}</span>
+        </div>
+    </div>
+</ion-scroll>

@@ -1,0 +1,8 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list" ng-click="singleWOInvoice.popover.hide()">
+            <a class="item" href="#/app/add-invoice/{{singleWOInvoice.invoice.MedConnectDev__Work_Order__c}}/{{singleWOInvoice.invoice.MedConnectDev__Account__c}}/{{singleWOInvoice.invoice.MedConnectDev__Contact__c}}/{{singleWOInvoice.invoice.MedConnectDev__Status__c}}/{{singleWOInvoice.Id}}/{{singleWOInvoice.invoice.Name}}" ><i class="icon ion-edit"></i> Edit</a>
+            <a class="item" href="#/app/add-invoice-detail/{{singleWOInvoice.invoice.MedConnectDev__Work_Order__c}}/{{singleWOInvoice.Id}}/{{singleWOInvoice.invoice.Name}}/null/null" ><i class="icon ion-android-add-circle"></i> Invoice Detail</a>
+        </div>
+    </ion-content>
+</ion-popover-view>

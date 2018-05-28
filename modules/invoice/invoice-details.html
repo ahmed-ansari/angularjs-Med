@@ -1,0 +1,61 @@
+<ion-view view-title="Invoice Detail">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div ng-show="singleInvoiceDetail.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div>
+        <span class="step size-32">
+            <i class="icon ion-grid" ng-click="singleInvoiceDetail.popover.show($event)"></i>        
+        </span>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row detail-top-blue-banner white-btm-border contact-detail">
+            <div class="col">
+                 <h3 ng-bind="::singleInvoiceDetail.invoiceDetail.Name"></h3>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner module-detail">
+            <div class="col">
+                <p>Invoice</p>
+                <span ng-bind="::singleInvoiceDetail.invoiceDetail.MedConnectDev__Invoice__r.Name"></span>
+            </div>
+            <div class="col col-30">
+                <p>Work Order</p>
+                <span ng-bind="::singleInvoiceDetail.invoiceDetail.MedConnectDev__Work_Order__r.Name"></span>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Materials</a>
+                            <a href="javascript:;" class="ion-home1">Labour</a>
+                            <a href="javascript:;" class="ion-home1">Expenses</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                    <!-- General Info-->
+                         <div dynamic-height class="scroll-height" ng-include src="'modules/invoice/inv_detail_generalInfo.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                    <!-- Materials-->
+                         <div dynamic-height class="scroll-height" ng-include src="'modules/invoice/inv_materials.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                    <!-- Labour-->
+                         <div dynamic-height class="scroll-height" ng-include src="'modules/invoice/inv_labour.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <!-- Expenses-->
+                        <div dynamic-height class="scroll-height" ng-include src="'modules/invoice/inv_expenses.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

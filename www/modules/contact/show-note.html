@@ -1,0 +1,19 @@
+<ion-view title="Note">
+   <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <div class="card">
+            <div class="item item-divider">
+               {{shownote.notes[0].Title}}
+            </div>
+            <div class="item item-text-wrap">
+                {{shownote.notes[0].Body}}
+                
+            </div>
+           
+        </div>
+    </ion-content>
+</ion-view>

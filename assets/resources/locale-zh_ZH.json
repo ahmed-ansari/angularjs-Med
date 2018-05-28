@@ -1,0 +1,40 @@
+{
+	"calendar.index.calendar" : "日历",
+	"calendar.index.map" : "地图",
+	"calendar.index.day" : "天",
+	"calendar.index.week" : "周",
+	"calendar.index.month" : "月",
+
+	"contact.contact-list.contacts": "往来",
+	"contact.contact-list.search-contact": "搜索联系人",
+
+	"nav.nav.contacts" : "往来",
+	"nav.nav.accounts" : "帐号",
+	"nav.nav.products" : "制品",
+	"nav.nav.assets" : "资产",
+	"nav.nav.inventory" : "库存",
+	"nav.nav.calendar" : "日历",
+	"nav.nav.setting" : "设置",
+	"nav.nav.logout" : "登出",
+
+	"setting.index.setting" : "设置",
+	"setting.index.offline-data": "离线数据",
+	"setting.index.sync": "同步",
+	"setting.index.language": "语言",
+
+
+	"setting.pending-rec.no-pending-record": "没有待定的记录！",
+	"setting.pending-rec.selected": "选",
+	"setting.success-rec.last-synced": "上次同步",
+	"setting.success-rec.no-success-record": "没有成功记录!",
+	"setting.success-rec.reason": "原因!",
+	"setting.success-rec.no-failed-record": "没有失败的记录!",
+	"setting.sync-setting.filter": "过滤",
+	"setting.sync-setting.sync": "同步",
+	"setting.sync-setting.cancel": "取消",
+	"setting.offline-data.pending-queue": "待处理队列",
+	"setting.offline-data.success-log": "成功日志",
+	"setting.offline-data.failure-log": "故障日志",
+	"setting.filter.day": "天",
+	"setting.filter.days": "天"
+  }

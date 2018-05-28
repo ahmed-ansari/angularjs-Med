@@ -1,0 +1,16 @@
+<div class="list">
+    <div class="item">
+        Type<span class="item-note" ng-bind="::singleWorkOrder.WO.MedConnectDev__Type__c"></<span>
+    </div>
+    <div class="item">
+        Processing Status <span class="item-note" ng-bind="::singleWorkOrder.WO.MedConnectDev__Processing_Status__c"></span>
+    </div>
+    <div class="item">
+        Service Request <span class="item-note" ng-bind="::singleWorkOrder.WO.MedConnectDev__Service_Request__r.Name">
+        </span>
+    </div>
+    <div class="item item-divider">
+        Comments
+    </div>
+    <span class="item" ng-bind="::singleWorkOrder.WO.MedConnectDev__Comments__c"></span>
+</div>

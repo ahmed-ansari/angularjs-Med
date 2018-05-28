@@ -1,0 +1,37 @@
+<div class="wo-expense" ng-show="singleInvoiceDetail.invoiceExpense.length > 0">
+    <ion-list>
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col"><b class="ellipses">Expense Type</b></div>
+                <div class="col"><b class="ellipses" >Expense Amount</b></div>
+                <div class="col"><b class="ellipses">Discount</b></div>
+                <div class="col"><b class="ellipses">Discount Type</b></div>
+                <div class="col"><b class="ellipses">Line Amount</b></div>
+                <div class="col"><b class="ellipses">Gross Line Amount</b></div>
+                <div class="col"><b class="ellipses">Billable</b></div>
+                <div class="col"></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="invoiceExpense in singleInvoiceDetail.invoiceExpense">
+            <div class="row">
+                <div class="col"><span class="ellipses">{{getVariableDataFromObject(invoiceExpense,'Expense_Type__c')}}</span></a> </div>
+                <div class="col">{{getVariableDataFromObject(invoiceExpense,'Expense_Amount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceExpense,'Discount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceExpense,'Discount_Type__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceExpense,'Line_Amount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceExpense,'Gross_Line_Amount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceExpense,'Billable__c')}}</div>
+                <div class="col">
+                <a href="#/app/add-invoice-expense/{{invoiceExpense.Id}}/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetailName}}/{{invoiceExpense.Name}}"><i class="icon ion-edit"></i></a> 
+                </div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+    </ion-list>
+</div>
+<div class="card" ng-show="singleInvoiceDetail.invoiceExpense.length === 0">
+    <div class="item item-text-wrap">
+        No Expenses Found!
+    </div>
+</div>

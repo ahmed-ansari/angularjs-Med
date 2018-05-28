@@ -1,0 +1,39 @@
+<div class="wo-expense" ng-show="singleInvoiceDetail.invoiceLabour.length > 0">
+    <ion-list>
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col"><b class="ellipses">Activity Type</b></div>
+                <div class="col"><b class="ellipses">Hours Worked</b></div>
+                <div class="col"><b class="ellipses">Rate</b></div>
+                <div class="col"><b class="ellipses">Discount</b></div>
+                <div class="col"><b class="ellipses">Discount Type</b></div>
+                <div class="col"><b class="ellipses">Line Amount</b></div>
+                <div class="col"><b class="ellipses">Gross Line Amount</b></div>
+                <div class="col"><b class="ellipses">Billable</b></div>
+                <div class="col"></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="invoiceLabour in singleInvoiceDetail.invoiceLabour">
+            <div class="row">
+                <div class="col"><span class="ellipses">{{getVariableDataFromObject(invoiceLabour,'Activity_Type__c')}}</span></a> </div>
+                <div class="col"><span class="ellipses">{{getVariableDataFromObject(invoiceLabour,'Hours_Worked__c')}}</span></div>
+                <div class="col"><span class="ellipses">{{getVariableDataFromObject(invoiceLabour,'Rate__c')}}</span></div>
+                <div class="col">{{getVariableDataFromObject(invoiceLabour,'Discount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceLabour,'Discount_Type__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceLabour,'Line_Amount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceLabour,'Gross_Line_Amount__c')}}</div>
+                <div class="col">{{getVariableDataFromObject(invoiceLabour,'Billable__c')}}</div>
+                <div class="col">
+                      <a href="#/app/add-invoice-labor/{{invoiceLabour.Id}}/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetailName}}/{{invoiceLabour.Name}}"><i class="icon ion-edit"></i></a>
+                </div>               
+            </div>
+        </ion-item>
+    </ion-scroll>
+    </ion-list>
+</div>
+<div class="card" ng-show="singleInvoiceDetail.invoiceLabour.length === 0">
+    <div class="item item-text-wrap">
+        No Labours Found!
+    </div>
+</div>

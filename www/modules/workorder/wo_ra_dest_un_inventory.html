@@ -1,0 +1,62 @@
+<ion-modal-view style="width:94%; left: 3%; right: 3%;">
+   <ion-header-bar>
+      <h1 class = "title">Destination Inventory</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+   <ion-content>
+
+        <div class="searchDivBox">  
+          <label class="item-input-wrapper textbox-search searchDivBox">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="search" placeholder='Search Destination Inventory' ng-model="unDestInvSearch" class="search-input">
+          </label>
+          <i class="icon ion-close-round search-cross" ng-click="unDestInvSearch = ''" ng-show="unDestInvSearch.length > 0"></i>
+        </div>
+
+
+      	<ion-list>
+          <ion-item>
+            <div class="row">
+                <div class="col item-text-wrap"><b>Name</b></div>
+                <div class="col item-text-wrap"><b>Owner(Account)</b></div>
+                <div class="col item-text-wrap"><b>Owner(Technician)</b></div>
+                <div class="col item-text-wrap"><b>Technician User</b></div>
+                <div class="col item-text-wrap"><b>Location</b></div>
+            </div> 
+          </ion-item>
+      		<ion-item ng-repeat="destInventory in uninstallAsset.destInventoryRecords |filter:unDestInvSearch| orderBy: 'Name'"">
+      			<div class="row">
+              <div class="col item-text-wrap">
+                <a href="#" ng-click="uninstallAsset.fetchDestInventory(destInventory.Id, destInventory.Name)">{{destInventory.Name}}</a>
+              </div>
+              
+              <div class="col item-text-wrap">
+                {{destInventory.MedConnectDev__Owner_Account__r.Name}}
+              </div> 
+ 
+              <div class="col item-text-wrap">
+                {{destInventory.MedConnectDev__Owner_Technician__r.Name}}
+              </div>  
+
+              <div class="col item-text-wrap">
+                {{destInventory.MedConnectDev__Technician_User__c}}
+              </div>  
+
+              <div class="col item-text-wrap">
+                {{destInventory.MedConnectDev__Location__r.Name}}
+              </div>  
+
+            </div>
+      		</ion-item>
+  		  </ion-list>
+
+      <div class="card" ng-show="uninstallAsset.destInventory.length == 0">
+        <div class="item item-text-wrap">
+            <p>No destination inventory found</p>
+        </div>
+      </div>
+
+   </ion-content>
+   
+</ion-modal-view>

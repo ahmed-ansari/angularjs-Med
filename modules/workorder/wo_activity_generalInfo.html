@@ -1,0 +1,37 @@
+<div class="act-detail">
+    <div class="list">
+        <div class="item">
+            Assigned To - Primary <span class="item-note">{{singleActivity.activity.MedConnectDev__Assigned_To_Primary__r.Name}}</span>
+        </div>
+        <div class="item">
+            Assigned To - Secondary <span class="item-note">{{singleActivity.activity.MedConnectDev__Assigned_To_Secondary__r.Name}}</span>
+        </div>
+        <div class="item">
+            Type <span class="item-note">{{singleActivity.activity.MedConnectDev__Type__c}}</span>
+        </div>
+        <div class="item">
+            Priority <span class="item-note">{{singleActivity.activity.MedConnectDev__Priority__c}}</span>
+        </div>
+        <div class="item">
+            Status <span class="item-note">{{singleActivity.activity.MedConnectDev__Status__c}}</span>
+        </div>
+        <div class="item">
+            Billable <span class="item-note">{{singleActivity.activity.MedConnectDev__Billable__c}}</span>
+        </div>
+        <div class="item">
+            Start Time <span class="item-note">{{singleActivity.activity.MedConnectDev__Start_Time__c | date:'medium'}}</span>
+        </div>
+        <div class="item">
+            End Time <span class="item-note">{{singleActivity.activity.MedConnectDev__End_Time__c | date:'medium'}}</span>
+        </div>
+        <div class="item">
+            Travel Time <span class="item-note">{{singleActivity.activity.MedConnectDev__Travel_Time_mins__c}}</span>
+        </div>
+        <div class="item">
+            Training Time<span class="item-note">{{singleActivity.activity.MedConnectDev__Training_Time_mins__c}}</span>
+        </div>
+        <div class="item">
+            Description <span class="item-note">{{singleActivity.activity.MedConnectDev__Description__c}}</span>
+        </div>
+    </div>
+</div>

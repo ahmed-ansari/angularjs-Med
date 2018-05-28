@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "b8d7aecb-2c01-0010-b91d-8b84fe05c7ba++228",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "b8d7aecb-2c01-0010-b91d-8b84fe05c7ba++228" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "b8d7aecb-2c01-0010-b91d-8b84fe05c7ba++228" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BE50CBDD-FCB6-42A6-8F55-58BBAB6178AD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "b8d7aecb-2c01-0010-b91d-8b84fe05c7ba++228" : "Medvantage\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Medvantage",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "platforms\/ios\/Medvantage.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/c2p.cognizant.com\/repository\/Mobile_CoE_Projects",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "b8d7aecb-2c01-0010-b91d-8b84fe05c7ba++228"
+    }
+  ]
+}

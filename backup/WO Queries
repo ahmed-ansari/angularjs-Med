@@ -1,0 +1,34 @@
+SELECT
+ Id, Name, MedConnectDev__Assigned_Start_Time__c, MedConnectDev__Assigned_End_Time__c, MedConnectDev__Installed_Location__c,  MedConnectDev__Asset__r.Name, MedConnectDev__Product__c 
+
+ FROM
+  MedConnectDev__Work_Order__c 
+  Where 
+
+  MedConnectDev__Asset__c != null AND MedConnectDev__Processing_Status__c <> 'Completed'
+
+   And  MedConnectDev__Appointed_Technician__r.MedConnectDev__User__c = <LoggedInUserId>
+
+   And  MedConnectDev__Assigned_Start_Time__c != null AND MedConnectDev__Assigned_End_Time__c != null
+
+   AND  (
+   			(	MedConnectDev__Assigned_Start_Time__c >= <CalendarStartDate>
+   				And  MedConnectDev__Assigned_End_Time__c <= <CalendarEndDate>
+   			)
+
+    	Or  
+    		(	MedConnectDev__Assigned_Start_Time__c >= <CalendarStartDate>
+   				And MedConnectDev__Assigned_Start_Time__c <= <CalendarEndDate>
+   			)
+   		Or 
+   			(	MedConnectDev__Assigned_End_Time__c >= <CalendarStartDate>
+   				And MedConnectDev__Assigned_End_Time__c <= <CalendarEndDate>
+   			)
+   		Or 
+   			(	MedConnectDev__Assigned_Start_Time__c <= <CalendarStartDate>
+   				And MedConnectDev__Assigned_End_Time__c >= <CalendarEndDate>
+   			)
+   		)
+
+
+   ORDER BY MedConnectDev__Assigned_Start_Time__c

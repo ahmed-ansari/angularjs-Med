@@ -1,0 +1,23 @@
+<ion-list>
+    <ion-item>
+        <div class="row">
+            <div class="col"><b>Subject</b></div>
+            <div class="col"><b>Name</b></div>
+            <div class="col"><b>Related to</b></div>
+        </div>
+    </ion-item>
+    <ion-scroll class="accScroll" direction="y">
+        <ion-item ng-repeat="acc_history in singleaccount.acc_history.records">
+            <div class="row">
+                <div class="col ellipsis">{{acc_history.Subject}}</div>
+                <div class="col">{{acc_history.Who.Name}}</div>
+                <div class="col ellipsis">{{acc_history.Account.Name}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+</ion-list>
+<div class="card" ng-show="singleaccount.acc_history.records == null">
+    <div class="item item-text-wrap">
+        No Data Found!
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<ion-view title="Work Order Rejection">
+
+    <ion-nav-buttons side="right">
+            <div syncup></div>
+            <div offline></div>
+            <div username></div>
+    </ion-nav-buttons>
+    
+    <ion-content>
+
+        <div class="row detail-top-blue-banner contact-detail">
+            <div class="col col-30">
+                <p>Work Order</p>
+                <p ng-bind="acceptRejectOrder.woName"></p>
+            </div>
+            <div class="col col-30"></div>
+            <div class="col col-30">
+                <p>Rejection Date</p>
+                <b ng-bind="acceptRejectOrder.currentDate"></b>
+            </div>
+        </div>
+        <div class="woActionButtons">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">User Name</span>
+                    <input type="text" placeholder="Enter User Name" ng-model= "acceptRejectOrder.userId" input-has-value/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="Enter Password" ng-model="acceptRejectOrder.password" />
+                </label>
+                 <label class="item item-input item-stacked-label">
+                    <span class="input-label">Alternate Time</span>
+                    <input type="datetime-local" ng-model="acceptRejectOrder.altTime" />
+                </label>
+                 <label class="item item-input item-stacked-label">
+                    <span class="input-label">Reason for Rejection</span>
+                    <input type="text" placeholder="Enter here" ng-model="acceptRejectOrder.reason" />
+                </label>
+            </div>
+            <button class="button button-block button-positive" ng-click="acceptRejectOrder.isApplicableForWOAcceptReject('RejectWorkOrder')">Electronically Sign</button>
+             <button class="button button-block button-clear button-assertive" ng-click="acceptRejectOrder.clearFields('RejectWorkOrder')">Clear</button>
+        </div>
+    </ion-content>
+</ion-view>

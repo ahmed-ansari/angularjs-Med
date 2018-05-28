@@ -1,0 +1,104 @@
+<ion-view title="Asset">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail subTopHdr">
+            <div class="col">
+                <h2 ng-bind="::singleasset.asset.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subtmHdr">
+            <div class="col col-40">
+                <a class="hyperLinks" ng-href="#/app/accounts/{{getVariableDataFromObject(singleasset.asset,'Account__c')}}">
+                    <b>{{getVariableDataFromObject(singleasset.asset,'Account__r','Name')}}</b>
+                </a>
+            </div>
+            <div class="col col-40">
+                <a class="hyperLinks" ng-href="#/app/products/{{getVariableDataFromObject(singleasset.asset,'Product__c')}}">
+                    <b>{{getVariableDataFromObject(singleasset.asset,'Product__r','Name')}}</b>
+                </a>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Work Orders</a>
+                            <a href="javascript:;" class="ion-home1">Service Contracts</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div ng-include src="'modules/asset/generalInfo.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list ng-show="singleasset.work_order.length > 0">
+                            <ion-item class="cntInfo">
+                                <div class="row">
+                                    <div class="col"><b>WorkOrder ID</b></div>
+                                    <div class="col"><b>Processing Status</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scrollAtHt">
+                                <ion-item ng-repeat="work_order in singleasset.work_order | orderBy : 'Name'">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div ng-switch="(work_order.MedConnectDev__Appointed_Technician__r.MedConnectDev__User__c && work_order.MedConnectDev__Appointed_Technician__r.MedConnectDev__User__c.substr(0, 15) == userTechId) && (work_order.MedConnectDev__Processing_Status__c == 'Open' || work_order.MedConnectDev__Processing_Status__c == 'In progress' || work_order.MedConnectDev__Processing_Status__c == 'Pending Completion' || work_order.MedConnectDev__Processing_Status__c == 'Accepted by FSE/Scheduled')">
+                                                <div ng-switch-when="true">
+                                                    <a ng-href="#/app/workorder/{{work_order.Id}}">{{work_order.Name}} 
+                                                </a>
+                                                </div>
+                                                <div ng-switch-default>
+                                                    {{work_order.Name}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">{{getVariableDataFromObject(work_order,'Processing_Status__c')}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleasset.work_order.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list ng-show="singleasset.service_contract.length > 0">
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col item-text-wrap"><b>Service Contract</b></div>
+                                    <div class="col item-text-wrap"><b>Service Contract Number</b></div>
+                                    <div class="col item-text-wrap"><b>Active</b></div>
+                                    <div class="col item-text-wrap"><b>Contract Date</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scrollAtHt">
+                                <ion-item ng-repeat="service_contract in singleasset.service_contract">
+                                    <div class="row">
+                                        <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract,'Service_Maintenance_Contract__r','Name')}}</div>
+                                        <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract,'Service_Maintenance_Contract__r','MedConnectDev__Contract_Number__c')}}</div>
+                                        <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract,'Service_Maintenance_Contract__r','MedConnectDev__Active__c')}}</div>
+                                        <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract,'Service_Maintenance_Contract__r','MedConnectDev__Contract_Signed__c')}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleasset.service_contract.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

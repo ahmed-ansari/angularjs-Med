@@ -1,0 +1,74 @@
+.add-quote-expense {
+    .checkbox input:before,
+    .checkbox .checkbox-icon:before {
+        border-color: #515151;
+    }
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .item-checkbox {
+    	float:left;
+    }
+    .button {
+        width: 125px;
+    }
+    .exp-checkbox {  
+        padding-top: 20px;  	
+        .item {
+            border: 0;
+        }
+        span {
+        color: #444;
+    font-size: 16px;
+        }
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+    }
+    .input-label {
+        display: inline;
+    }
+}
+.grey-color {
+	color: grey;
+}
+
+.add-quote {
+    .input-label {
+    display: block;
+        width: 100%;
+    }
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.grey-color {
+    color: #808080;
+}
+
+#clearqsignid,
+#setqsignid {
+    display: none;
+}
+
+.btn-right-div {
+    width: 100%;
+    float: right;
+    clear:both;
+
+}
+
+.padding-30 {
+    padding: 30px
+}
+
+.full-text {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+}

@@ -1,0 +1,87 @@
+.rede {
+    color: green;
+}
+
+.cal-button {
+    .button {
+        border-color: #d8d8d8;
+    }
+}
+
+.fc-left {
+    h2 {
+        color: #4c4c4c;
+        font-size: 23px;
+    }
+}
+
+.calendar_page {
+    .tabbed-slidebox .tsb-icons {
+        background-color: #fff;
+    }
+    .tabbed-slidebox .tsb-icons a {
+        color: #6c6c6c;
+    }
+    .tabbed-slidebox .tsb-icons a.active {
+        color: #5a5a5a;
+    }
+    div.fc-scroller.fc-time-grid-container {
+        // overflow-y: scroll;
+        /* height: 100vh !important;*/
+        overflow-y: scroll;
+        /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+.text-capitilize {
+    text-transform: capitalize;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+div[offline] {
+    margin-right: 5px;
+    padding-top: 3px;
+    .offline-img {
+        display: none;
+    }
+}
+
+div[syncup] {
+    margin-right: 5px;
+    padding-top: 3px;
+    .syncup-img {
+        display: none;
+        width: 30px;
+    }
+}
+
+offline {
+    display: inline-block;
+    div.offline-div {
+        margin-right: 5px;
+        padding-top: 3px;
+        .offline-img {
+            display: none;
+        }
+    }
+}
+
+syncup {
+    display: inline-block;
+    div.syncup-div {
+        margin-right: 5px;
+        padding-top: 3px;
+        .syncup-img {
+            display: none;
+            width: 30px;
+        }
+    }
+}
+
+username {
+    display: inline-block;
+}

@@ -1,0 +1,73 @@
+<ion-view title="Analysis Code">
+<ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+	<ion-content>
+		<h3 class="padMedLeft">Applicable Codes</h3>
+		<ion-list ng-show="analysisCode.applicableCodes.length > 0">
+            <ion-item>
+                <div class="row">
+                	<div class="col"><b>S.No</b></div>
+                    <div class="col"><b>Code Name</b></div>
+                    <div class="col"><b>Code Number</b></div>
+                    <div class="col"><b>Code Level</b></div>
+                </div>
+            </ion-item>
+            <ion-item ng-repeat="data in analysisCode.applicableCodes">
+                <div class="row">
+                	<div class="col">
+                		<ion-checkbox ng-model="analysisCode.isApplicableChecked[$index]" value={{data}} ng-show="data.showChecked"></ion-checkbox>
+                	</div>
+                    <div class="col" ng-if="data.MedConnectDev__Codes__r != null"><a href="#/app/child-code/{{data.Id}}">{{data.Name}}</a></div>
+                    <div class="col" ng-if="data.MedConnectDev__Codes__r == null">{{data.Name}}</div>
+                    <div class="col">{{data.MedConnectDev__Code_Number__c}}</div>
+                    <div class="col">{{data.MedConnectDev__Code_Level__c}}</div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <div class="card" ng-show="analysisCode.applicableCodes.length == 0">
+            <div class="item item-text-wrap">
+                No Record Found!
+            </div>
+        </div>
+
+        <br/>
+
+        <h3 class="padMedLeft">Available Codes</h3>
+		<ion-list ng-show="analysisCode.availableCodes.length > 0">
+            <ion-item>
+                <div class="row">
+                	<div class="col item-text-wrap"><b>S.No</b></div>
+                    <div class="col item-text-wrap"><b>Code Name</b></div>
+                    <div class="col item-text-wrap"><b>Code Number</b></div>
+                    <div class="col item-text-wrap"><b>Code Level</b></div>
+                </div>
+            </ion-item>
+            <ion-item ng-repeat="data in analysisCode.availableCodes">
+                <div class="row">
+                	<div class="col">
+                		<ion-checkbox ng-model="analysisCode.isAvailableChecked[$index]" value={{data}} ng-show="data.showChecked"></ion-checkbox>
+                	</div>
+                    <div class="col item-text-wrap" ng-if="data.MedConnectDev__Codes__r != null"><a href="#/app/child-code/{{data.Id}}">{{data.Name}}</a></div>
+                    <div class="col item-text-wrap" ng-if="data.MedConnectDev__Codes__r == null">{{data.Name}}</div>
+                    <div class="col item-text-wrap">{{data.MedConnectDev__Code_Number__c}}</div>
+                    <div class="col item-text-wrap">{{data.MedConnectDev__Code_Level__c}}</div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <div class="card" ng-show="analysisCode.availableCodes.length == 0">
+            <div class="item item-text-wrap">
+                No Record Found!
+            </div>
+        </div>
+
+	</ion-content>
+	<ion-footer-bar class="wo-footer"> 
+        <button class="button button-balanced height-60 medBtn" ng-click="analysisCode.assignAnalysisCode()">Assign</button>
+        <button class="button button-clear button-outline button-assertive leftMargin relative" ng-click="analysisCode.cancelAnalysisCode()">Cancel</button>
+    </ion-footer-bar>
+</ion-view>

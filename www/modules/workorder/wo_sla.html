@@ -1,0 +1,16 @@
+<div class="wo_timer">
+    <div class="row" ng-repeat="(key, value) in singleWorkOrder.slaArray">
+        <div class="col col-33">{{value.header}}</div>
+        <div class="col col-67">
+            <div class="row timer-row" countdown='' date={{value.date}}>
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <div class="card" ng-show="singleWorkOrder.slaArray.length  == 0">
+        <div class="item item-text-wrap">
+            <p>No SLA found</p>
+        </div>
+    </div>
+</div>

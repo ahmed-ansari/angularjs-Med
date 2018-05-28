@@ -1,0 +1,25 @@
+<ion-list>
+    <ion-item>
+        <div class="row">
+            <div class="col item-text-wrap"><b>RMO Name</b></div>
+            <div class="col item-text-wrap"><b>Product </b></div>
+            <div class="col item-text-wrap"><b>Status</b></div>
+            <div class="col item-text-wrap"><b>Order Line Item</b></div>
+        </div>
+    </ion-item>
+    <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="rma_records in singleRMA.return_actions">
+            <div class="row">
+                <div class="col item-text-wrap"><a ng-href="#/app/returnaction/{{rma_records.Id}}">{{rma_records.Name}}</a></div>
+                <div class="col item-text-wrap">{{getVariableDataFromObject(rma_records,'Product__r','Name')}}</div>
+                <div class="col item-text-wrap">{{getVariableDataFromObject(rma_records,'Status__c')}}</div>
+                <div class="col item-text-wrap">{{getVariableDataFromObject(rma_records,'Order_Line_Item__r','Name')}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+    <div class="card" ng-show="!singleRMA.return_actions">
+        <div class="item item-text-wrap" style="text-align:center;">
+            <p>No Return actions found!</p>
+        </div>
+    </div>
+</ion-list>

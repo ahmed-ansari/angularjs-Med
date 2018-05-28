@@ -1,0 +1,58 @@
+<div class="tabs_head">
+    <h3>Notes</h3></div>
+<div class="notes" ng-show="singlecontact.acc_notes != null">
+    <ion-list>
+        <ion-item>
+            <div class="row">
+                <div class="col item-text-wrap"><b>Type</b></div>
+                <div class="col item-text-wrap"><b>Title</b></div>
+                <div class="col item-text-wrap"><b>Related To</b></div>
+                <div class="col item-text-wrap"><b>Last Modified</b></div>
+                <div class="col item-text-wrap"><b>Created By</b></div>
+            </div>
+        </ion-item>
+        <ion-item ng-repeat="acc_note in singlecontact.acc_notes.records">
+            <div class="row">
+                <div class="col item-text-wrap">{{acc_note.attributes.type}}</div>
+                <div class="col item-text-wrap"><a href="#/app/show-note/{{acc_note.Id}}">{{acc_note.Title}}</a></div>
+                <div class="col item-text-wrap">{{acc_note.Parent.Name}}</div>
+                <div class="col item-text-wrap">{{acc_note.LastModifiedDate | date : 'medium' : 'UTC'}}</div>
+                <div class="col item-text-wrap">{{acc_note.CreatedBy.Name}}</div>
+            </div>
+        </ion-item>
+    </ion-list>
+</div>
+    <div class="card" ng-show="singlecontact.acc_notes == null">
+        <div class="item item-text-wrap">
+            No Notes Available!
+        </div>
+    </div>
+<div class="tabs_head">
+    <h3>Attachment</h3></div>
+<div class="attachments" ng-show="singlecontact.acc_attachments != null">
+    <ion-list>
+        <ion-item>
+            <div class="row">
+                <div class="col item-text-wrap"><b>Type</b></div>
+                <div class="col item-text-wrap"><b>Title</b></div>
+                <div class="col item-text-wrap"><b>Related To</b></div>
+                <div class="col item-text-wrap"><b>Last Modified</b></div>
+                <div class="col item-text-wrap"><b>Created By</b></div>
+            </div>
+        </ion-item>
+        <ion-item ng-repeat="acc_attachment in singlecontact.acc_attachments.records">
+            <div class="row">
+                <div class="col item-text-wrap">{{acc_attachment.attributes.type}}</div>
+                <div class="col item-text-wrap"><a href="#/app/show-attachment/{{acc_attachment.Id}}">{{acc_attachment.Name}}</a></div>
+                <div class="col item-text-wrap">{{acc_attachment.Parent.Name}}</div>
+                <div class="col item-text-wrap">{{acc_attachment.LastModifiedDate}}</div>
+                <div class="col item-text-wrap">{{acc_attachment.CreatedBy.Name}}</div>
+                          </div>
+        </ion-item>
+    </ion-list>
+</div>
+    <div class="card" ng-show="singlecontact.acc_attachments == null">
+        <div class="item item-text-wrap">
+            No Attachments Available!
+        </div>
+    </div>

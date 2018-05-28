@@ -1,0 +1,43 @@
+<ion-view title='Assets'>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar-light bar-subheader">
+        <div class="bar bar-header item-input-inset listHdrBar">
+            <div class="centerAlign noMarginTop">Filtered by +/- <span>{{::assetlist.filterDays}}</span> days</div>
+            <div class="searchDivBox">
+                <label class="item-input-wrapper textbox-search searchDivBox">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="search" placeholder='Search Asset' ng-model="assetlist.searchasset">
+                </label>
+                <i class="icon ion-close-round" ng-click="assetlist.searchasset = ''" ng-show="assetlist.searchasset.length > 0"></i>
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <br><br>
+        <ion-list>
+            <ion-item ng-repeat="asset in assetlist.assets | filter:assetlist.searchasset| orderBy: 'Name'" class="item-avatar-left1 item-icon-right1 item-button-right1 item-module">
+                <div class="row">
+                    <div class="col">
+                        <a href="#/app/assets/{{asset.Id}}" class="module-div">
+                            <h2 href="#/app/assets/{{asset.Id}}" ng-bind="::asset.Name"> </h2>
+                            <p class="module-name">{{getVariableDataFromObject(asset,'Serial_No__c')}}</p>
+                        </a>
+                    </div>
+                </div>
+            </ion-item>
+            <div class="card " ng-show="(assetlist.assets | filter:assetlist.searchasset).length==0 ">
+                <div class="item item-text-wrap " ng-bind="assetlist.no_asset"> </div>
+            </div>
+            <div class="card " ng-show="!assetlist.assets ">
+                <div class="item item-text-wrap " ng-bind="assetlist.no_asset"> </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

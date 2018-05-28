@@ -1,0 +1,47 @@
+<ion-view view-title="Expense">
+    <ion-nav-buttons side="right">
+        <div offline></div>
+        <div syncup></div>
+
+        <span class="step size-32">
+            <i class="icon ion-grid" ng-click="singleExpense.popover.show($event)"></i>        
+        </span>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row detail-top-blue-banner white-btm-border module-detail">
+            <div class="col">
+                <h3 ng-bind="::singleExpense.expense.Name"></h3>
+                <a href="#/app/workorder/{{singleExpense.expense.MedConnectDev__Work_Order__c}}" class="whiteLink"><i class="icon ion-link"></i>
+                <span ng-bind="::singleExpense.expense.MedConnectDev__Work_Order__r.Name"></span></a>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div class="expense-detail">
+                            <div class="list">
+                                <div class="item">
+                                    Type <span class="item-note" ng-bind="singleExpense.expense.MedConnectDev__Type__c"></span>
+                                </div>
+                                <div class="item">
+                                    Amount <span class="item-note" ng-bind="singleExpense.expense.MedConnectDev__Cost__c"></span>
+                                </div>
+                                <div class="item">
+                                    Billable <span class="item-note" ng-bind="singleExpense.expense.MedConnectDev__Billable__c"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

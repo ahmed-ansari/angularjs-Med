@@ -1,0 +1,61 @@
+<ion-view view-title="Invoice">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div ng-show="singleWOInvoice.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div>
+        <span class="step size-32">
+            <i class="icon ion-grid" ng-click="singleWOInvoice.popover.show($event)"></i>        
+        </span>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+         <div class="row detail-top-blue-banner white-btm-border contact-detail" scroll="false">
+            <div class="col">
+                 <h3 ng-bind="singleWOInvoice.invoice.Name"></h3>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner module-detail">
+            <div class="col">
+                <p>Work Order</p>
+                <span ng-bind="singleWOInvoice.invoice.MedConnectDev__Work_Order__r.Name"></span>
+            </div>
+            <div class="col col-30">
+                <p>Account</p>
+                <a href="#/app/accounts/{{singleWOInvoice.invoice.MedConnectDev__Account__c}}" class="whiteLink">
+                <span ng-bind="singleWOInvoice.invoice.MedConnectDev__Account__r.Name"></span></a>
+            </div>
+            <div class="col col-30">
+                <p>Contact</p>
+                <a href="#/app/contacts/{{singleWOInvoice.invoice.MedConnectDev__Contact__c}}" class="whiteLink">
+                <span ng-bind="singleWOInvoice.invoice.MedConnectDev__Contact__r.Name"></span></a>
+            </div>
+            <div class="col col-30">
+                <p>Phone</p>
+                <div><b ng-bind="singleWOInvoice.invoice.MedConnectDev__Contact__r.MobilePhone"></b></div>
+              </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Invoice Details</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <!-- General Info-->
+                        <div dynamic-height class="scroll-height" ng-include src="'modules/invoice/inv_generalInfo.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <!-- Invoice Details-->
+                        <div dynamic-height class="scroll-height" ng-include src="'modules/invoice/inv_details.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

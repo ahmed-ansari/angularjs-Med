@@ -1,0 +1,10 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list" ng-click="singleInvoiceDetail.popover.hide()">
+            <a class="item" href="#/app/add-invoice-detail/{{singleInvoiceDetail.invoiceDetail.MedConnectDev__Work_Order__c}}/{{singleInvoiceDetail.invoiceDetail.MedConnectDev__Invoice__c}}/{{singleInvoiceDetail.invoiceDetailName}}/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetail.MedConnectDev__Quote__r.Name}}" ><i class="icon ion-edit"></i> Edit</a>
+              <a class="item"  href="#/app/add-invoice-material/null/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetail.Name}}/{{singleInvoiceDetail.invoiceDetail.MedConnectDev__Work_Order__c}}/null" ><i class="icon ion-android-add-circle"></i> Material</a>
+            <a class="item"  href="#/app/add-invoice-labor/null/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetail.Name}}/null" ><i class="icon ion-android-add-circle"></i> Labor</a>
+             <a class="item"  href="#/app/add-invoice-expense/null/{{singleInvoiceDetail.invoiceDetailId}}/{{singleInvoiceDetail.invoiceDetail.Name}}/null" ><i class="icon ion-android-add-circle"></i> Expense</a>
+        </div>
+    </ion-content>
+</ion-popover-view>

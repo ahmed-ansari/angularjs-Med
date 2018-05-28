@@ -1,0 +1,25 @@
+<div class="wo-invoice" ng-show="singleWorkOrder.invoice.length > 0">
+    <ion-list>
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col"><b>Invoice Name</b></div>
+                <div class="col"><b>Status</b></div>
+                <div class="col"><b class="ellipsis">Total Invoice Detail Amount</b></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="invoice in singleWorkOrder.invoice">
+            <div class="row">
+                <div class="col"> <a href="#/app/invoice/{{invoice.Id}}">{{invoice.Name}}</a> </div>
+                <div class="col"> {{getVariableDataFromObject(invoice,'Status__c')}}</div>
+                <div class="col"> {{getVariableDataFromObject(invoice,'Total_Invoice_Detail_Amount__c')}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+    </ion-list>
+</div>
+<div class="card" ng-show="singleWorkOrder.invoice.length == 0">
+    <div class="item item-text-wrap">
+        No Invoice Found!
+    </div>
+</div>

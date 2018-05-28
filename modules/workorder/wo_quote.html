@@ -1,0 +1,26 @@
+<div class="wo-quote" ng-show="singleWorkOrder.quote.length > 0">
+    <ion-list>
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col col-50"><b>Quote No</b></div>
+                <div class="col"><b>Status</b></div>
+                <div class="col col-33"><b class="ellipsis">Total Payable Amount</b></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="quote in singleWorkOrder.quote">
+            <div class="row">
+                <div class="col col-50"> <a href="#/app/quote/{{quote.Id}}/{{singleWorkOrder.workOrderID}}">{{quote.Name}}</a> </div>
+                <div class="col"> {{getVariableDataFromObject(quote,'Status__c')}}</div>
+                <div class="col col-33"> {{getVariableDataFromObject(quote,'Total_Payble_Amount__c')}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+    </ion-list>
+</div>
+
+<div class="card" ng-show="singleWorkOrder.quote.length == 0">
+    <div class="item item-text-wrap">
+        No Quote Found!
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<ion-modal-view>
+   <ion-header-bar>
+      <h1 class = "title">Products</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+   <ion-content>
+      	<ion-list>
+      		<ion-item ng-repeat="product in createTool.prodRecords">
+      			<a href="#" ng-click="createTool.fetchSrcFromProd(product.Id, product.Name)">{{product.Name}}</a>
+      		</ion-item>
+  		</ion-list>
+
+      <div class="card" ng-show="createTool.prodRecords.length  == 0">
+        <div class="item item-text-wrap">
+            <p>No Product lookup found</p>
+        </div>
+      </div>
+
+   </ion-content>
+   
+</ion-modal-view>

@@ -1,0 +1,24 @@
+<ion-scroll direction="y" class="scrollPtHt">
+<div >
+    <ion-list class="attachments" ng-show="singleRA.Attachments != null && singleRA.Attachments.records.length > 0">
+        <ion-item>
+            <div class="row">
+                <div class="col"><b>Attachment ID</b></div>
+                <div class="col"><b>Link to attachment</b></div>
+            </div>
+        </ion-item>
+        <ion-item ng-repeat="attachment in singleRA.Attachments.records">
+            <div class="row">
+                <div class="col">{{attachment.Id}}</div>
+                <div class="col"><a href="#/app/show-attachment/{{attachment.Id}}">{{attachment.Name}}</a></div>
+                          </div>
+        </ion-item>
+    </ion-list>
+
+    <div class="card" ng-show="singleRA.Attachments == null || singleRA.Attachments.length == 0">
+        <div class="item item-text-wrap">
+            No Attachments Available!
+        </div>
+    </div>
+</div>
+</ion-scroll>

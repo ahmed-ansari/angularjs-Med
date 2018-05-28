@@ -1,0 +1,138 @@
+<ion-view title="Labor">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add-quote-expense">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                     <h3 ng-bind="(invoiceLabor.laborId && invoiceLabor.laborId !== 'null') ? 'Edit Labor' : 'Create Labor'"></h3>
+                </div>
+            </div>
+            <div class="row contact-detail">
+                <div class="col">
+                 <br>
+                    <span class="grey-color"> Invoice Detail: </span><span ng-bind="invoiceLabor.invoiceName"></span>
+                </div>
+            </div>
+
+    
+
+            <form name="invoiceLabor.laborForm" novalidate="" ng-submit="invoiceLabor.laborSave(invoiceLabor.laborForm)">
+                <div class="row">
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="invoiceLabor.labor.Activitytype" ng-change="invoiceLabor.changeRateOnActivity(invoiceLabor.labor.Activitytype)">
+                            <option value="">Activity Type</option>
+                            <option value="Callback">Callback</option>
+                            <option value="Clinical Support">Clinical Support</option>
+                            <option value="Demonstration">Demonstration</option>
+                            <option value="Diagnostic">Diagnostic</option>
+                            <option value="Dispatch">Dispatch</option>
+                            <option value="Inspection">Inspection</option>
+                            <option value="Installation">Installation</option>
+                            <option value="Uninstallation">Uninstallation</option>
+                            <option value="Repair">Repair</option>
+                            <option value="Service Request">Service Request</option>
+                            <option value="Preventive Maintenance">Preventive Maintenance</option>
+                            <option value="Receiving">Receiving</option>
+                            <option value="Shipping">Shipping</option>
+                            <option value="Transfer">Transfer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="invoiceLabor.labor.RateType">
+                            <option value="">Applied Rate Type</option>
+                            <option value="Per Hour">Per Hour</option>
+                            <option value="Flat Rate">Flat Rate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceLabor.laborForm.hours.$invalid && invoiceLabor.laborForm.hours.$dirty}">
+                            <span class="input-label">Hours Worked</span>
+                            <input type="tel" name="hours" ng-required="true" ng-model="invoiceLabor.labor.hours" ng-pattern="/^[0-9]{1,7}$/" required ng-maxlength="3">
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceLabor.laborForm.hours.$error" ng-show='invoiceLabor.laborForm.$submitted || invoiceLabor.laborForm.hours.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern">Invalid Number <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="maxlength">Length Not More than 3<i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceLabor.laborForm.rate.$invalid && invoiceLabor.laborForm.rate.$dirty}">
+                            <span class="input-label">Rate</span>
+                            <input type="tel" name="rate" ng-required="true" ng-model="invoiceLabor.labor.rate" ng-pattern="/^[0-9]{1,7}$/" required>
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceLabor.laborForm.rate.$error" ng-show='invoiceLabor.laborForm.$submitted || invoiceLabor.laborForm.rate.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern">Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceLabor.laborForm.discount.$invalid && invoiceLabor.laborForm.discount.$dirty}">
+                            <span class="input-label">Discount</span>
+                            <input type="tel" name="discount" ng-required="false" ng-model="invoiceLabor.labor.discount" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" required>
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceLabor.laborForm.discount.$error" ng-show='invoiceLabor.laborForm.$submitted || invoiceLabor.laborForm.discount.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern">Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="invoiceLabor.labor.discountType">
+                            <option value="">Discount Type</option>
+                            <option value="Percent">Percent</option>
+                            <option value="Amount">Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="invoiceLabor.labor.billable"> </ion-checkbox>
+                        <span>Billable</span>
+                    </div>
+                     <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="invoiceLabor.labor.applyWarranty"> </ion-checkbox>
+                        <span class="apply-warranty">Apply Warranty</span>
+                    </div>
+                    <div class="col exp-checkbox">
+                        <i class="ion-ios-checkmark" ng-show="invoiceLabor.labor.warrantyValid"></i>
+                        <i class="ion-ios-circle-outline" ng-hide="invoiceLabor.labor.warrantyValid"></i>
+                        <span class="warranty-field">Warranty Valid</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="description" id="" cols="30" rows="5" ng-model="invoiceLabor.labor.description" ng-maxlength="240"></textarea>
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceLabor.laborForm.description.$error" ng-show='invoiceLabor.laborForm.$submitted || invoiceLabor.laborForm.description.$dirty'>                           
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="invoiceLabor.laborId.length > 4 && invoiceLabor.laborId !== 'null'">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="invoiceLabor.takeMeBack()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

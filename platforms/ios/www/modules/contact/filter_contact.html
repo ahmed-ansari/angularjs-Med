@@ -1,0 +1,21 @@
+<ion-modal-view>
+   <ion-header-bar>
+      <h1 class = "title">Filter</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+   <ion-content>
+      <ion-list>
+        <ion-radio ng-model="contactlist.filterContact" ng-value="1">1 day</ion-radio>
+        <ion-radio ng-model="contactlist.filterContact" ng-value="3">3 days</ion-radio>
+        <ion-radio ng-model="contactlist.filterContact" ng-value="7">7 days</ion-radio>
+        <ion-radio ng-model="contactlist.filterContact" ng-value="15">15 days</ion-radio>
+        <ion-radio ng-model="contactlist.filterContact" ng-value="30">30 days</ion-radio>
+        <ion-radio ng-model="contactlist.filterContact" ng-value="60">60 days</ion-radio>
+  		</ion-list>
+      <div class="row filterBtn">
+        <button class="button button-block button-positive" style="margin: auto;" ng-click="contactlist.filterProductList()">Filter</button>
+      </div>
+   </ion-content>
+   
+</ion-modal-view>

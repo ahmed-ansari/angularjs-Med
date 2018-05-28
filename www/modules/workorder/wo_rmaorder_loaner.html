@@ -1,0 +1,25 @@
+<ion-list>
+    <ion-item>
+        <div class="row">
+            <div class="col"><b>Loaner Name</b></div>
+            <div class="col"><b>Product </b></div>
+            <div class="col"><b>Status</b></div>
+        </div>
+    </ion-item>
+
+    <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="rma_loaner in singleRMA.loaner_actions">
+            <div class="row">
+                <div class="col"><a ng-href="#/app/loaner/{{rma_loaner.Id}}">{{rma_loaner.Name}}</a></div>
+                <div class="col">{{getVariableDataFromObject(rma_loaner,'Product__r','Name')}}</div>
+                <div class="col">{{getVariableDataFromObject(rma_loaner,'Order_Status__c')}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+
+    <div class="card" ng-show="!singleRMA.loaner_actions">
+        <div class="item item-text-wrap" style="text-align:center;">
+            <p>No Loaner records found!</p>
+        </div>
+    </div>
+</ion-list>

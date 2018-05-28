@@ -1,0 +1,55 @@
+<div class="list">
+    <div class="item">
+        RMA Order Name 
+        <span class="item-note" ng-bind="::singleRMA.RMAorder_data.Name"></<span>
+    </div>
+    <div class="item">
+        RMA Order Status 
+
+         <span class="item-note" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'RMA_Order_Status__c')}}</span>
+
+    </div>
+    <div class="item">
+         Work Order ID
+        
+          <span class="item-note" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'Work_Order__r','Name')}}</span>
+        
+    </div>
+    <div class="item">
+         Account 
+  
+       <span class="item-note item-text-wrap" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'Account__r','Name')}}</span>
+
+         
+        </span>
+    </div>
+     <div class="item">
+         Contact 
+        
+         <span class="item-note item-text-wrap" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'Contact__r','Name')}}</span>
+
+        </span>
+    </div>
+
+    <div class="item">
+        Service Request 
+
+        <span class="item-note item-text-wrap" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'Service_Request__r','Name')}}</span>
+        
+        
+    </div>
+    <div class="item">
+         Incident Number
+        
+         <span class="item-note item-text-wrap" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'Incident__r','Name')}}</span>
+        
+    </div>
+    <div class="item">
+         Reason for Return 
+
+         <span class="item-note item-text-wrap" > {{getVariableDataFromObject(singleRMA.RMAorder_data,'Reason_for_Return__c')}}</span>
+         
+        
+    </div>
+</div>
+

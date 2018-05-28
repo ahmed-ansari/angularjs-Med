@@ -1,0 +1,27 @@
+<ion-list>
+    <ion-item>
+        <div class="row titleHdr">
+            <div class="col"><b>Contact Name</b></div>
+            <div class="col"><b>Department</b></div>
+            <div class="col"><b>Mobile</b></div>
+        </div>
+    </ion-item>
+    <ion-scroll class="accScroll" direction="y">
+        <ion-item ng-repeat="contact in singleaccount.acontacts">
+            <div class="row">
+                <div class="col">
+                    <!-- <a ng-href="#/app/contacts/{{contact.Id}}"> -->
+                    {{contact.Name}}
+                    <!-- </a> -->
+                </div>
+                <div class="col">{{contact.Department}}</div>
+                <div class="col">{{contact.Phone}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+</ion-list>
+<div class="card" ng-show="singleaccount.acontacts.length == 0">
+    <div class="item item-text-wrap">
+        No Record Found!
+    </div>
+</div>

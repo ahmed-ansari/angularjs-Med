@@ -1,0 +1,19 @@
+<ion-view title="Filter">
+<ion-nav-buttons side="right">
+      <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+	<ion-content>
+		<div class="list card">
+            <div class="item item-body">
+		        <ion-radio ng-model="filter.filterDays" ng-value="1" ng-change="filter.changeFilter(filter.filterDays)">1 {{"setting.filter.day" | translate}}</ion-radio>
+		        <ion-radio ng-model="filter.filterDays" ng-value="3" ng-change="filter.changeFilter(filter.filterDays)">3  {{"setting.filter.days" | translate}}</ion-radio>
+		        <ion-radio ng-model="filter.filterDays" ng-value="7" ng-change="filter.changeFilter(filter.filterDays)">7  {{"setting.filter.days" | translate}}</ion-radio>
+		        <ion-radio ng-model="filter.filterDays" ng-value="15" ng-change="filter.changeFilter(filter.filterDays)">15  {{"setting.filter.days" | translate}}</ion-radio>
+		        <ion-radio ng-model="filter.filterDays" ng-value="30" ng-change="filter.changeFilter(filter.filterDays)">30  {{"setting.filter.days" | translate}}</ion-radio>
+		        <ion-radio ng-model="filter.filterDays" ng-value="60" ng-change="filter.changeFilter(filter.filterDays)">60  {{"setting.filter.days" | translate}}</ion-radio>
+            </div>
+        </div>
+	</ion-content>
+</ion-view>

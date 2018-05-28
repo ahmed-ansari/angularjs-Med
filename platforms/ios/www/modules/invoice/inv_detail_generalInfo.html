@@ -1,0 +1,22 @@
+<div class="list">
+    <div class="item">
+        Total Payable Amount <span class="item-note">{{getVariableDataFromObject(singleInvoiceDetail.invoiceDetail,'Total_Payable_Amount__c')}}</<span>
+    </div>
+    <div class="item">
+        Discount <span class="item-note">{{getVariableDataFromObject(singleInvoiceDetail.invoiceDetail,'Discount__c')}}</span>
+    </div> 
+    <div class="item">
+        Total Billable Line Amount <span class="item-note">{{getVariableDataFromObject(singleInvoiceDetail.invoiceDetail,'Total_Billable_Line_Amount__c')}}</span>
+    </div> 
+    <div class="item">
+        Status <span class="item-note">{{getVariableDataFromObject(singleInvoiceDetail.invoiceDetail,'Status__c')}}</span>
+    </div>
+    <div class="item">
+        Quote <span class="item-note"><a class="hyper" ng-href="#/app/quote/{{getVariableDataFromObject(singleInvoiceDetail.invoiceDetail,'Quote__c')}}">{{getVariableDataFromObject(singleInvoiceDetail.invoiceDetail,'Quote__r','Name')}}</a></span>
+    </div>
+</div>
+<div class="card" ng-show="singleInvoiceDetail.invoiceDetail.length == 0">
+    <div class="item item-text-wrap">
+        No Invoice Detail General Info found!
+    </div>
+</div>

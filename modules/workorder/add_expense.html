@@ -1,0 +1,69 @@
+<ion-view title="Work Order">
+ <ion-nav-buttons side="right">
+    <div syncup></div>
+    <div offline></div>  
+
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add-expense">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                    <h3 ng-bind="(expense.expenseId && expense.expenseId != 'null') ? 'Edit Expense': 'New Expense'"></h3>
+                </div>
+            </div> 
+            <form name="expense.expenseForm" novalidate="" ng-submit="expense.expenseSave(expense.expenseForm)">
+                <div class="row">
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="expense.exp.type">
+                            <option value="">--Type--</option>
+                            <option value="Consumable Charge">Consumable Charge</option>
+                            <option value="Airfare">Airfare</option>
+                            <option value="Entertainment">Entertainment</option>    
+                            <option value="Food - Breakfast">Food - Breakfast</option>
+                            <option value="Food - Lunch">Food - Lunch</option>
+                            <option value="Food - Dinner">Food - Dinner</option>
+                            <option value="Gas">Gas</option>
+                            <option value="Lodging">Lodging</option>
+                            <option value="Mileage">Mileage</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                            <option value="Parking">Parking</option>
+                            <option value="Parts">Parts</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Rental Cars">Rental Cars</option>
+                            <option value="Tolls">Tolls</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="col exp-checkbox">
+                            <ion-checkbox ng-model="expense.exp.billable">Billable</ion-checkbox>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : expense.expenseForm.cost.$invalid && expense.expenseForm.cost.$dirty}">
+                            <span class="input-label">Amount</span>
+                            <input type="tel" name="cost" ng-model="expense.exp.cost"  ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/">
+                        </label>
+                        <div class="form-errors" ng-messages="expense.expenseForm.cost.$error" ng-show='expense.expenseForm.cost.$invalid && expense.expenseForm.cost.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="expense.backToWorkOrder()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

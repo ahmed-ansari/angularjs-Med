@@ -1,0 +1,38 @@
+<ion-view title="Work Order Acceptance">
+<ion-nav-buttons side="right">
+      <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row detail-top-blue-banner contact-detail">
+            <div class="col col-30">
+                <p>Work Order</p>
+                <p ng-bind="::acceptRejectOrder.woName"></p>
+            </div>
+            <div class="col col-30"></div>
+            <div class="col col-30">
+                <p>Acceptance Date</p>
+                <b ng-bind="::acceptRejectOrder.currentDate"></b>
+            </div>
+        </div>
+        <div class="woActionButtons">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">User Name</span>
+                    <input type="text" placeholder="Enter User Name" ng-model= "acceptRejectOrder.userId" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="Enter Password" ng-model="acceptRejectOrder.password" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Signature Comments</span>
+                    <input type="text" id="acceptBtnComments" ng-disabled=true ng-model="acceptRejectOrder.signComments" />
+                </label>
+            </div>
+             <button class="button button-block button-positive" ng-click="acceptRejectOrder.isApplicableForWOAcceptReject('AcceptWorkOrder')">Electronically Sign</button>
+             <button class="button button-block button-clear button-assertive" ng-click="acceptRejectOrder.clearFields('AcceptWorkOrder')">Clear</button>
+        </div>
+    </ion-content>
+</ion-view>

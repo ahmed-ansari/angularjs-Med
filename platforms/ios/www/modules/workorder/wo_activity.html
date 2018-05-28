@@ -1,0 +1,23 @@
+<div class="wo-activity">
+    <ion-list ng-show="singleWorkOrder.activities.length > 0">
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col"><b>Name</b></div>
+                <div class="col"><b>Status</b></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+            <ion-item ng-repeat="activity in singleWorkOrder.activities">
+                <div class="row">
+                    <div class="col"><a href="#/app/activity/{{activity.Id}}">{{activity.Name}}</a></div>
+                    <div class="col"> {{activity.MedConnectDev__Status__c}}</div>
+                </div>
+            </ion-item>
+        </ion-scroll>
+    </ion-list>
+    <div class="card" ng-show="singleWorkOrder.activities.length == 0">
+        <div class="item item-text-wrap">
+            No Activity Found!
+        </div>
+    </div>
+</div>

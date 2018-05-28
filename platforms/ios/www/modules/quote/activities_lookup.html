@@ -1,0 +1,28 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Select Activity</h1>
+        <span ng-click="closeModal()">X</span>
+    </ion-header-bar>
+    <ion-content>
+        <div class="searchDivBox search-bar">
+            <label class="item-input-wrapper textbox-search searchDivBox wid-92">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder='Search Activity' ng-model="quoteMaterial.searchactivity" class="width-100">            
+            </label>    <i class="icon ion-close-round" ng-click="quoteMaterial.searchactivity = ''" ng-show="quoteMaterial.quoteMaterial.length > 0"></i>
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="activity in quoteMaterial.activities | filter:quoteMaterial.searchactivity">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" ng-click="quoteMaterial.select_the_activity(activity.Id, activity.Name)">{{activity.Name}}</a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="card" ng-show="(quoteMaterial.activities | filter:quoteMaterial.searchactivity).length==0">
+            <div class="item item-text-wrap">
+                <p>No Activity found</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

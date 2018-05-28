@@ -1,0 +1,27 @@
+<ion-modal-view>
+   <ion-header-bar>
+      <h1 class = "title">Select Child Analysis Codes</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+   <ion-content>
+      	<ion-list>
+      		<ion-item>
+                <div class="row">
+                	<div class="col"><b>S.No</b></div>
+                    <div class="col"><b>Code Name</b></div>
+                    <div class="col"><b>Code Number</b></div>
+                    <div class="col"><b>Code Level</b></div>
+                </div>
+            </ion-item>
+  		</ion-list>
+
+      <div class="card" ng-show="createTool.prodRecords.length  == 0">
+        <div class="item item-text-wrap">
+            <p>No Product lookup found</p>
+        </div>
+      </div>
+
+   </ion-content>
+   
+</ion-modal-view>

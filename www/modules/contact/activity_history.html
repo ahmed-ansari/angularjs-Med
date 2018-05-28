@@ -1,0 +1,23 @@
+<ion-list>
+    <ion-item class="subCtHdr">
+        <div class="row">
+            <div class="col"><b>Subject</b></div>
+            <div class="col"><b>Name</b></div>
+            <div class="col"><b>Related to</b></div>
+        </div>
+    </ion-item>
+    <ion-scroll direction="y" class="scrollCtHt">
+        <ion-item ng-repeat="history in singlecontact.history.records">
+            <div class="row">
+                <div class="col ellipsis">{{history.Subject}}</div>
+                <div class="col">{{history.Who.Name}}</div>
+                <div class="col ellipsis">{{history.What.Name}}</div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+</ion-list>
+<div class="card" ng-show="singlecontact.history == null">
+    <div class="item item-text-wrap">
+        No Data Available!
+    </div>
+</div>

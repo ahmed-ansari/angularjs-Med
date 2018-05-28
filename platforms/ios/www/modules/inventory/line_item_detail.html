@@ -1,0 +1,67 @@
+<ion-view title="Inventory">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row detail-top-blue-banner white-btm-border contact-detail NameHdr">
+            <div class="col">
+                <h2 ng-bind="lineitem.detail.Name"></h2>
+            </div>
+             <div class="col">
+                <p>Inventory ID</p>
+                <span ng-bind="lineitem.detail.MedConnectDev__Inventory__r.Name"></span>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box>
+                    <ion-slide>
+                        <ion-scroll>
+                            <div class="list">
+                                <div class="item">
+                                    Status<span class="item-note">{{getVariableDataFromObject(lineitem.detail, 'Status__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Serial Number<span class="item-note">{{getVariableDataFromObject(lineitem.detail, 'Serial_No__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Quantity<span class="item-note">{{getVariableDataFromObject(lineitem.detail, 'Quantity__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Product<span class="item-note"><a href="#/app/products/{{lineitem.detail.MedConnectDev__Product__c}}">{{lineitem.detail.MedConnectDev__Product__r.Name}}</a></span>
+                                </div>
+                                <div class="item">
+                                    Lot Master<span class="item-note">{{lineitem.detail.MedConnectDev__Lot_Master__r.Name}}</span>
+                                </div>
+                                <div class="item">
+                                    Batch Master<span class="item-note">{{lineitem.detail.MedConnectDev__Batch_No__r.Name}}</span>
+                                </div>
+                              <div class="item">
+                                    Asset<span class="item-note"><a href="#/app/assets/{{lineitem.detail.MedConnectDev__Asset__c}}">{{lineitem.detail.MedConnectDev__Asset__r.Name}}</a></span>
+                                </div>
+                                <div class="item">
+                                    Condition<span class="item-note">{{getVariableDataFromObject(lineitem.detail, 'Condition__c')}}</span>
+                                </div>
+                                  <div class="item">
+                                    Created By<span class="item-note">{{lineitem.detail.CreatedBy.Name}}</span>
+                                </div>
+                                  <div class="item">
+                                    Last Modified By<span class="item-note">{{lineitem.detail.LastModifiedBy.Name}}</span>
+                                </div>
+                            </div>
+                        </ion-scroll>
+                    </ion-slide>
+                </ion-slide-box>
+                </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

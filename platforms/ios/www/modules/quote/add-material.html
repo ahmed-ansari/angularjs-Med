@@ -1,0 +1,163 @@
+<ion-view title="Material">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+        <!--   <div ng-show="expense.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div> -->
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add-quote-expense">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+            <br>
+                <div class="col">
+                    <h3 ng-bind="(quoteMaterial.materialId && quoteMaterial.materialId !== 'null') ? 'Edit Material' : 'Create Material'"></h3>
+                </div>
+            </div>
+            <div class="row contact-detail">
+                <div class="col">
+                <br>
+                <span class="grey-color">Quote:</span>
+                     <span ng-bind="quoteMaterial.quoteName"></span>
+                </div>
+            </div>
+            <form name="quoteMaterial.materialForm" novalidate="" ng-submit="quoteMaterial.materialSave(quoteMaterial.materialForm)">
+               
+                <!-- <div class="row"  ng-if="!quoteMaterial.materialId || quoteMaterial.materialId == 'null'"> -->
+                <div class="row">
+                    <!-- <div class="col">
+                        <label class="assign-user">Product</label>
+                        <angucomplete-alt id="ex1" placeholder="Search Product" pause="100" selected-object="quoteMaterial.selectedProductF" local-data="quoteMaterial.products" search-fields="Name" title-field="Name" minlength="0" input-class="form-control form-control-small" initial-value="quoteMaterial.selectedProduct" field-required="true">
+                        </angucomplete-alt>
+                        <div class="form-errors" ng-show='quoteMaterial.product_error'>
+                            <div class="form-error"> This field is required  <i class="ion-information-circled"></i>  </div>
+                        </div>
+                    </div> -->
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteMaterial.materialForm.product.$invalid && quoteMaterial.materialForm.product.$dirty}">
+                            <span class="input-label">Product</span>
+                            <input type="text" name="product" ng-required="true" ng-model="quoteMaterial.selected_product_name" required readonly>
+
+                        </label> 
+                        <div class="form-errors" ng-messages="quoteMaterial.materialForm.product.$error" ng-show='quoteMaterial.materialForm.$submitted || quoteMaterial.materialForm.product.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col col-10 padding-30 ">
+                     <span class="step size-24">
+                        <i class="ion-search icon" ng-click="quoteMaterial.showProducts()"></i>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Activity</span>
+                            <input type="text" name="activity"  ng-model="quoteMaterial.selected_activity_name" readonly>
+
+                        </label> 
+                      
+                    </div>
+                    <div class="col col-10 padding-30 ">
+                     <span class="step size-24">
+                        <i class="ion-search icon" ng-click="quoteMaterial.showActivities()"></i>
+                        </span>
+                    </div>
+                    <!-- <div class="col">
+                        <label class="assign-user">Activity</label>
+                        <angucomplete-alt id="ex1" placeholder="Search Activity" pause="100" selected-object="quoteMaterial.selectedActivityF" local-data="quoteMaterial.activities" search-fields="Name" title-field="Name" minlength="0" input-class="form-control form-control-small" initial-value="quoteMaterial.selectedActivity">
+                        </angucomplete-alt>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteMaterial.materialForm.quantity.$invalid && quoteMaterial.materialForm.quantity.$dirty}">
+                            <span class="input-label">Quantity</span>
+                            <input type="text" name="quantity" ng-required="true" ng-model="quoteMaterial.mat.quantity" ng-pattern="/^[0-9]{1,7}$/" required ng-maxlength="4">
+                        </label>
+                        <div class="form-errors" ng-messages="quoteMaterial.materialForm.quantity.$error" ng-show='quoteMaterial.materialForm.$submitted || quoteMaterial.materialForm.quantity.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength">Length Not More than 4<i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteMaterial.materialForm.unitPrice.$invalid && quoteMaterial.materialForm.unitPrice.$dirty}">
+                            <span class="input-label">Unit Price</span>
+                            <input type="text" name="unitPrice" ng-model="quoteMaterial.mat.unitPrice" readonly ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="quoteMaterial.materialForm.unitPrice.$error" ng-show='quoteMaterial.materialForm.$submitted || quoteMaterial.materialForm.unitPrice.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteMaterial.materialForm.discount.$invalid && quoteMaterial.materialForm.discount.$dirty}">
+                            <span class="input-label">Discount</span>
+                            <input type="tel" name="discount" ng-model="quoteMaterial.mat.discount" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/">
+                        </label>
+                        <div class="form-errors" ng-messages="quoteMaterial.materialForm.discount.$error" ng-show='quoteMaterial.materialForm.$submitted || quoteMaterial.materialForm.discount.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col images">
+                        <select name="discountType" id="discountType" class="select_parent_width custom-select" ng-model="quoteMaterial.mat.discountType">
+                            <option value="">--Discount Type--</option>
+                            <option value="Percent">Percent</option>
+                            <option value="Amount">Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="quoteMaterial.mat.billable"> </ion-checkbox>
+                        <span>Billable</span>
+                    </div>
+                    <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="quoteMaterial.mat.apply_warranty"> </ion-checkbox>
+                        <span class="apply-warranty">Apply Warranty</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="description" id="" cols="30" rows="5" ng-model="quoteMaterial.mat.description" ng-maxlength="240"></textarea>
+                        </label>
+                         <div class="form-errors" ng-messages="quoteMaterial.materialForm.description.$error" ng-show='quoteMaterial.materialForm.$submitted || quoteMaterial.materialForm.description.$dirty'>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  <div class="row" ng-if="quoteMaterial.materialId.length > 4 && quoteMaterial.materialId != 'null'">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Reason for Change</span>
+                            <textarea name="change_reason" id="" cols="30" rows="5" ng-required="true" ng-model="quoteMaterial.mat.change_reason" ng-maxlength="240"></textarea>
+                        </label>
+                        <div class="form-errors" ng-messages="quoteMaterial.materialForm.change_reason.$error" ng-show='quoteMaterial.materialForm.$submitted || quoteMaterial.materialForm.change_reason.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                        <!-- ng-disabled="activity.activityForm.$invalid || activity.activityForm.$pending" -->
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="quoteMaterial.takeMeBack()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

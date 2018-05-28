@@ -1,0 +1,56 @@
+<ion-view title='{{"calendar.index.calendar" | translate}}'>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+       <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content class="calendar_page"  has-bouncing="false" scroll="false">
+        <tab-slide-box>
+            <div class="tsb-icons">
+                <div class="tsb-ic-wrp">
+                    <ion-scroll direction="x" class="tsb-hscroll">
+                        <a href="javascript:;" class="ion-home1">{{"calendar.index.calendar" | translate}}</a>
+                        <a href="javascript:;" class="ion-imap">{{"calendar.index.map" | translate}}</a>
+                    </ion-scroll>
+                </div>
+            </div>
+            <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                <ion-slide>
+                    <!-- <p>Err {{alertMessage}}</p> -->
+                    <div class="row" class="dateBtns">
+                        <div class="col col-30">
+                            <div class="button-bar cal-button">
+                                <button class="button  " ng-class="{'button-positive': selectedButton== 'AgendaDay'  }" ng-click="changeView('agendaDay', 'myCalendar1');buttonClick('AgendaDay')">{{"calendar.index.day" | translate}}</button>
+                                <button class="button " ng-class="{'button-positive': selectedButton== 'AgendaWeek'  }" ng-click="changeView('agendaWeek', 'myCalendar1');buttonClick('AgendaWeek')">{{"calendar.index.week" | translate}}</button>
+                                <button class="button " ng-class="{'button-positive': selectedButton== 'Month'  }" ng-click="changeView('month', 'myCalendar1');buttonClick('Month')">{{"calendar.index.month" | translate}}</button>
+                            </div>
+                        </div>
+                        <div class="col col-70"></div>
+                    </div>
+                    
+                        <div class="calendar" ng-model="eventSources2 " calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+                    
+                </ion-slide>
+                <ion-slide>
+                <div style="text-align:center;"></div>
+                    <div class="card" ng-show="disableMap">
+                        <div class="item item-text-wrap">{{disableMapMsg}}</div>
+                    </div>
+
+                    <!-- <ng-map zoom="{{zoom}}" center="{{lat}},{{long}}" style="height:90%"> -->
+                    <ng-map zoom="{{zoom}}" center="{{usr_addr_map}}" style="height:90%" map-initialized="mycallback()" ng-disabled="disableBtns" ng-hide="disableMap">
+                        <directions draggable="true" panel="directions-panel" zoom-to-include-markers="{{zoomtrue}}" suppress-markers="{{suppressmarkers}}" travel-mode="DRIVING" origin="{{usr_addr_map}}" waypoints="{{wayPoints2}}" destination="{{destination}}">
+                        </directions>
+                    </ng-map>
+
+                    <div id="directions-panel" ng-disabled="disableBtns" style="width: 100%; float:left; height: 100%; overflow: auto; padding: 0px 5px;padding-bottom: 500px" ng-hide="disableMap">
+                    </div>
+
+                </ion-slide>
+            </ion-slide-box>
+        </tab-slide-box>
+    </ion-content>
+</ion-view>

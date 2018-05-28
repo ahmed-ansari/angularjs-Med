@@ -1,0 +1,11 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list" ng-click="singleActivity.popover.hide()">
+            <a class="item" href="#/app/add-activity/{{singleActivity.workOrderID}}/{{singleActivity.activityId}}" ><i class="icon ion-edit"></i> Edit</a>
+            
+        <a class="item" ng-click="singleActivity.goToRA()"><i class="icon ion-android-add-circle"></i> Repair Analysis</a> 
+          <a class="item" href="#" ng-click="singleActivity.checkForAssignTools()"><i class="icon ion-android-add-circle"></i> Assign Tool</a>
+
+        </div>
+    </ion-content>
+</ion-popover-view>

@@ -1,0 +1,18 @@
+{
+    "AddressBook.framework": 3,
+    "libsqlite3.tbd": 2,
+    "libz.tbd": 3,
+    "libxml2.tbd": 2,
+    "AddressBookUI.framework": 2,
+    "CoreLocation.framework": 4,
+    "Foundation.framework": 2,
+    "MessageUI.framework": 2,
+    "QuartzCore.framework": 2,
+    "Security.framework": 2,
+    "SystemConfiguration.framework": 2,
+    "UIKit.framework": 2,
+    "ImageIO.framework": 3,
+    "CoreTelephony.framework": 2,
+    "AVFoundation.framework": 1,
+    "AudioToolbox.framework": 1
+}

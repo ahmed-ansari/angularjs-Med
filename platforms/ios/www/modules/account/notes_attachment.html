@@ -1,0 +1,31 @@
+<ion-scroll class="accScroll" direction="y">
+<div class="tabs_head">
+    <h3>Notes</h3></div>
+<div class="notes">
+    <ion-list ng-show="singleaccount.acc_notes.records.length > 0 ">
+        <ion-item>
+            <div class="row">
+                <div class="col item-text-wrap"><b>Type</b></div>
+                <div class="col item-text-wrap"><b>Title</b></div>
+                <div class="col item-text-wrap"><b>Related To</b></div>
+                <div class="col item-text-wrap"><b>Last Modified</b></div>
+                <div class="col item-text-wrap"><b>Created By</b></div>
+            </div>
+        </ion-item>
+        <ion-item ng-repeat="acc_note in singleaccount.acc_notes.records">
+            <div class="row">
+                <div class="col item-text-wrap">{{acc_note.attributes.type}}</div>
+                <div class="col item-text-wrap">{{acc_note.Title}}</div>
+                <div class="col item-text-wrap">{{acc_note.Parent.Name}}</div>
+                <div class="col item-text-wrap">{{acc_note.LastModifiedDate | date : 'medium'}}</div>
+                <div class="col item-text-wrap">{{acc_note.CreatedBy.Name}}</div>
+            </div>
+        </ion-item>
+    </ion-list>
+     <div class="card" ng-show="singleaccount.acc_notes == null">
+        <div class="item item-text-wrap">
+            No Notes Available!
+        </div>
+    </div>
+</div>
+</ion-scroll>

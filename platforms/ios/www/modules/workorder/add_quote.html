@@ -1,0 +1,102 @@
+<ion-view title="Quote">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div ng-show="quote.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div>
+    </ion-nav-buttons>
+    <ion-content padding="true">
+        <div class="add-quote">
+            <br>
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                    <h3 ng-bind="(quote.quoteId && quote.quoteId != 'null') ? 'Edit Quote': 'New Quote'"></h3>
+                </div>
+            </div>
+            <form name="quote.quoteForm" novalidate="" ng-submit="quote.quoteSave(quote.quoteForm)">
+                <div class="row">
+                    <div class="col">
+                        <label class="input-label">Work Order</label>
+                        <label class="input-label">{{quote.workOrderName}}</label>
+                    </div>
+                    <div class="col">
+                        <label class="input-label">Account</label>
+                        <label class="input-label">{{quote.accountName}}</label>
+                    </div>
+                    <div class="col">
+                        <label class="input-label">Contact</label>
+                        <label class="input-label">{{quote.contactName}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="input-label">Status</label>
+                        <select name="type" id="statusType" class="select_parent_width custom-select images" ng-model="quote.quo.statusType">
+                            <option value="">--Type--</option>
+                            <option value="Draft">Draft</option>
+                            <option value="Presented">Presented</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Revised">Revised</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="input-label">Discount Type</label>
+                        <select name="type" id="discountType" class="select_parent_width custom-select images" ng-model="quote.quo.discountType">
+                            <option value="">--Type--</option>
+                            <option value="Percent">Percent</option>
+                            <option value="Amount">Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col images">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="description" id="" cols="30" rows="5" ng-model="quote.quo.description" ng-maxlength="240"></textarea>
+                        </label>
+                        <div class="form-errors" ng-messages="quote.quoteForm.description.$error" ng-show='quote.quoteForm.$submitted || quote.quoteForm.description.$dirty'>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col images" style="padding-bottom: 1%;">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quote.quoteForm.valid_till.$invalid && quote.quoteForm.valid_till.$dirty}">
+                            <span class="input-label">Valid Till</span>
+                            <input type="datetime-local" name="start_time" ng-model="quote.quoteForm.valid_till" required>
+                        </label>
+                        <div class="form-errors" ng-messages="quote.quoteForm.valid_till.$error" ng-show='quote.quoteForm.$submitted || quote.quoteForm.valid_till.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                        </div>
+                </div>
+                <div class="row" ng-if="quote.quoteId.length > 4 && quote.quoteId != 'null'">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Reason for Change</span>
+                            <textarea name="change_reason" id="" cols="30" rows="5" ng-required="true" ng-model="quote.quo.change_reason" ng-maxlength="240"></textarea>
+                        </label>
+                        <div class="form-errors" ng-messages="quote.quoteForm.change_reason.$error" ng-show='quote.quoteForm.$submitted || quote.quoteForm.change_reason.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="quote.backToWorkOrder()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

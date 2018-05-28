@@ -1,0 +1,30 @@
+<ion-view title="Work Order">
+    <ion-content>
+        <div class="row detail-top-blue-banner white-btm-border contact-detail">
+            <div class="col">
+                <h2 ng-bind="::singleWorkOrder.WO.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail">
+            <div class="col col-30">
+                <p>Contact</p>
+                <a class="hyperLinks" ng-href="#/app/contacts/{{singleWorkOrder.WO.MedConnectDev__Contact__c}}"><b ng-bind="::singleWorkOrder.WO.MedConnectDev__Contact__r.Name"></b></a>
+                <!-- <b ng-bind="::singleWorkOrder.WO.MedConnectDev__Contact__r.Phone"></b> -->
+            </div>
+            <div class="col col-30">
+                <p>Account</p>
+                <a class="hyperLinks" ng-href="#/app/accounts/{{singleWorkOrder.WO.MedConnectDev__Account__c}}"><b ng-bind="::singleWorkOrder.WO.MedConnectDev__Account__r.Name"></b></a>
+            </div>
+            <div class="col col-30">
+                <p> Scheduled At:</p>
+                <b>{{singleWorkOrder.WO.MedConnectDev__Assigned_Start_Time__c - MedConnectDev__Assigned_End_Time__c}}</b>
+            </div>
+        </div>
+        <div class="tab-container">
+            <md-tabs md-selected="selectedTab" md-dynamic-height>
+                <md-tab label="General Info">
+                    <div ng-include src="'modules/work_order/generalInfo.html'"></div>
+                </md-tab>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Products</h1>
+        <span ng-click="closeModal()">X</span>
+    </ion-header-bar>
+    <ion-content>
+        <div class="searchDivBox search-bar">
+            <label class="item-input-wrapper textbox-search searchDivBox">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder='Search product' ng-model="invoiceMaterial.searchproduct" class="width-100">
+                <i class="icon ion-close-round" ng-click="invoiceMaterial.searchproduct = ''" ng-show="invoiceMaterial.searchproduct.length > 0"></i>
+            </label>
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="product in invoiceMaterial.products | filter:invoiceMaterial.searchproduct">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" ng-click="invoiceMaterial.select_the_product(product.Id, product.Name)">{{product.Name}}</a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="card" ng-show="invoiceMaterial.products.length  == 0">
+            <div class="item item-text-wrap">
+                <p>No Products found</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

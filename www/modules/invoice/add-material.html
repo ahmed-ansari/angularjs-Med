@@ -1,0 +1,136 @@
+<ion-view title="Material">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add-quote-expense">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                     <h3 ng-bind="(invoiceMaterial.materialId && invoiceMaterial.materialId !== 'null') ? 'Edit Material' : 'Create Material'"></h3>
+                </div>
+            </div>
+            <div class="row contact-detail">
+                <div class="col">
+                <br>
+                <span class="grey-color">Invoice Detail:</span>
+                     <span ng-bind="invoiceMaterial.invoiceName"></span>
+                </div>
+            </div>
+            <form name="invoiceMaterial.materialForm" novalidate="" ng-submit="invoiceMaterial.materialSave(invoiceMaterial.materialForm)">
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceMaterial.materialForm.product.$invalid && invoiceMaterial.materialForm.product.$dirty}">
+                            <span class="input-label">Product</span>
+                            <input type="text" name="product" ng-required="true" ng-model="invoiceMaterial.selected_product_name" required readonly>
+
+                        </label> 
+                        <div class="form-errors" ng-messages="invoiceMaterial.materialForm.product.$error" ng-show='invoiceMaterial.materialForm.$submitted || invoiceMaterial.materialForm.product.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col col-10 padding-30 ">
+                     <span class="step size-24">
+                        <i class="ion-search icon" ng-click="invoiceMaterial.showProducts()"></i>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Activity</span>
+                            <input type="text" name="activity"  ng-model="invoiceMaterial.selected_activity_name" readonly>
+
+                        </label> 
+                      
+                    </div>
+                    <div class="col col-10 padding-30 ">
+                     <span class="step size-24">
+                        <i class="ion-search icon" ng-click="invoiceMaterial.showActivities()"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceMaterial.materialForm.quantity.$invalid && invoiceMaterial.materialForm.quantity.$dirty}">
+                            <span class="input-label">Quantity</span>
+                            <input type="tel" name="quantity" ng-required="true" ng-model="invoiceMaterial.material.quantity" ng-pattern="/^[0-9]{1,7}$/" required>
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceMaterial.materialForm.quantity.$error" ng-show='invoiceMaterial.materialForm.$submitted || invoiceMaterial.materialForm.quantity.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceMaterial.materialForm.unitPrice.$invalid && invoiceMaterial.materialForm.unitPrice.$dirty}">
+                            <span class="input-label">Unit Price</span>
+                            <input type="tel" name="unitPrice" ng-model="invoiceMaterial.material.unitPrice" readonly ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceMaterial.materialForm.unitPrice.$error" ng-show='invoiceMaterial.materialForm.$submitted || invoiceMaterial.materialForm.unitPrice.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceMaterial.materialForm.discount.$invalid && invoiceMaterial.materialForm.discount.$dirty}">
+                            <span class="input-label">Discount</span>
+                            <input type="tel" name="discount" ng-required="false" ng-model="invoiceMaterial.material.discount" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" required>
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceMaterial.materialForm.discount.$error" ng-show='invoiceMaterial.materialForm.$submitted || invoiceMaterial.materialForm.discount.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col images">
+                        <select name="discountType" id="discountType" class="select_parent_width custom-select" ng-model="invoiceMaterial.material.discountType">
+                            <option value="">Discount Type</option>
+                            <option value="Percent">Percent</option>
+                            <option value="Amount">Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="invoiceMaterial.material.billable"> </ion-checkbox>
+                        <span>Billable</span>
+                    </div>
+                    <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="invoiceMaterial.material.applyWarranty"> </ion-checkbox>
+                        <span class="apply-warranty">Apply Warranty</span>
+                    </div>
+                    <div class="col exp-checkbox">
+                        <i class="ion-ios-checkmark" ng-show="invoiceMaterial.material.warrantyValid"></i>
+                        <i class="ion-ios-circle-outline" ng-hide="invoiceMaterial.material.warrantyValid"></i>
+                        <span class="warranty-field">Warranty Valid</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="description" id="" cols="30" rows="5" ng-model="invoiceMaterial.material.description" ng-maxlength="240"></textarea>
+                        </label>
+                         <div class="form-errors" ng-messages="invoiceMaterial.materialForm.description.$error" ng-show='invoiceMaterial.materialForm.$submitted || invoiceMaterial.materialForm.description.$dirty'>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="invoiceMaterial.materialId.length > 4 && invoiceMaterial.materialId != 'null'">
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="invoiceMaterial.takeMeBack()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

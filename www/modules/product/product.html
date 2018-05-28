@@ -1,0 +1,118 @@
+<ion-view title="Product">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail subTopHdr">
+            <div class="col">
+                <h2 ng-bind="singleproduct.product.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subtmHdr">
+            <div class="col col-30">
+                <p>Effective Start Date</p>
+                <b>
+                     {{getVariableDataFromObject(singleproduct.product,'Effective_Start_Date__c')}}
+                </b>
+            </div>
+            <div class="col col-30">
+                <p>Effective End Date</p>
+                <b>
+                     {{getVariableDataFromObject(singleproduct.product,'Effective_End_Date__c')}}
+                </b>
+            </div>
+            <div class="col col-30">
+                <p>Company Product</p>
+                <b>
+                    {{getVariableDataFromObject(singleproduct.product,'Company_Product__c')}}
+                </b>
+            </div>
+            <div class="col col-30">
+                <p> Therapeutic Area</p>
+                <b>
+                    {{getVariableDataFromObject(singleproduct.product,'Therapeutic_Area__c')}}
+                </b>
+            </div>
+            <div class="col col-30">
+                <p> Product Line</p>
+                <b>
+                    {{getVariableDataFromObject(singleproduct.product,'Product_Line__c')}}
+                </b>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="">General Info</a>
+                            <a href="javascript:;" class="">Parts</a>
+                            <a href="javascript:;" class="">Activity Instructions</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div ng-include src="'modules/product/generalInfo.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list ng-show="singleproduct.part_list.length > 0">
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Name</b></div>
+                                    <div class="col"><b>Company Product</b></div>
+                                    <div class="col"><b>Product Category</b></div>
+                                    <div class="col"><b>Price Type</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scrollPtHt">
+                                <ion-item ng-repeat="part_list in singleproduct.part_list">
+                                    <div class="row">
+                                        <div class="col">{{part_list.Name}}</div>
+                                        <div class="col">
+                                            {{part_list.MedConnectDev__Company_Product__c}}
+                                        </div>
+                                        <div class="col">{{getVariableDataFromObject(part_list,'Product_Category__c')}}</div>
+                                        <div class="col">{{getVariableDataFromObject(part_list,'Price_Type__c')}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleproduct.part_list.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list ng-show="singleproduct.activity.length > 0">
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Name</b></div>
+                                    <div class="col"><b>Type</b></div>
+                                    <div class="col"><b>Steps</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="cntInfo">
+                                <ion-item ng-repeat="activity in singleproduct.activity">
+                                    <div class="row">
+                                        <div class="col">{{activity.Name}}</div>
+                                        <div class="col">{{getVariableDataFromObject(activity,'Activity_Type__c')}}</div>
+                                        <div class="col">{{getVariableDataFromObject(activity,'Activity_Sub_Type__c')}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleproduct.activity.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

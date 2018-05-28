@@ -1,0 +1,78 @@
+<ion-view title="Repair Analysis">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <span class="step size-32">
+        <i class="icon ion-grid" ng-click="singleRA.popover.show($event)"></i>        
+    </span>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="subTopHdr">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail">
+            <div class="col">
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail">
+            <div class="col">
+                <h2 ng-bind="singleRA.repair_analysis.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail">
+            <div class="col">
+             <p> Work Order ID</p>
+                <p><a href="#/app/workorder/{{singleRA.repair_analysis.MedConnectDev__Work_Order__c}}">{{singleRA.repair_analysis.MedConnectDev__Work_Order__r.Name}}</a></p>
+            </div>
+            <div class="col">
+            <p> Activity Number</p>
+                <p ng-show="singleRA.repair_analysis.MedConnectDev__Activity__c !== null"><a href="#/app/activity/{{singleRA.repair_analysis.MedConnectDev__Activity__c}}">{{singleRA.repair_analysis.MedConnectDev__Activity__r.Name}}</a></p>
+            </div>
+            <div class="col">
+                <p> Part name</p>
+                <p ng-show="singleRA.repair_analysis.MedConnectDev__Part_Name_Product__c !== null">
+                <a href="#/app/products/{{singleRA.repair_analysis.MedConnectDev__Part_Name_Product__c}}">{{singleRA.repair_analysis.MedConnectDev__Part_Name_Product__r.Name}}</a></p>
+            </div>
+        </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Codes</a>
+                            <a href="javascript:;" class="ion-home1">Instruction Tests</a>
+                            <a href="javascript:;" class="ion-home1">Hierarchy</a>
+                            <a href="javascript:;" class="ion-home1">Attachments</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div ng-include src="'modules/workorder/wo_ra_general_info.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div ng-include src="'modules/workorder/wo_ra_codes.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div ng-include src="'modules/workorder/wo_ra_instruction_tests.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                            <div class="card" ng-show="singleRA.HierarchyItems.length == 0">
+                                <div class="item item-text-wrap">
+                                    <div> No Data Available!</div>
+                                </div>
+                            </div>
+                        <div class="bom_chart">                            
+                            <br>
+                            <br>
+                            <div id="Hierarchy_chart_div" ng-show="singleRA.HierarchyItems.length > 0"></div>                            
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div ng-include src="'modules/workorder/wo_ra_attachments.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

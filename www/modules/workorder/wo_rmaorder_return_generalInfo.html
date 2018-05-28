@@ -1,0 +1,43 @@
+<div class="list">
+    
+    <div class="item">
+        RMO Name 
+
+        <span class="item-note" ng-bind="::returnaction.ReturnOrder_data.Name"></<span>
+    </div>
+    <div class="item">
+        Product
+
+        <span class="item-note" > {{getVariableDataFromObject(returnaction.ReturnOrder_data,'Product__r','Name')}}</span>
+
+    </div>
+    <div class="item">
+        Order Status
+        
+        <span class="item-note" > {{getVariableDataFromObject(returnaction.ReturnOrder_data,'Order_Status__c')}}</span>
+    </div>
+    <div class="item">
+         Order Type 
+
+       <span class="item-note"> {{getVariableDataFromObject(returnaction.ReturnOrder_data, 'Order_Type__c')}}
+
+
+        </span>
+    </div>
+     <div class="item">
+         UDI 
+        
+
+          <span class="item-note" > {{getVariableDataFromObject(returnaction.ReturnOrder_data,'UDI__c')}}</span>
+        
+    </div>
+     <div class="item">
+         Order Line Item 
+         
+         <span class="item-note" > {{getVariableDataFromObject(returnaction.ReturnOrder_data,'Order_Line_Item__r','Name')}}</span>
+        
+    </div>
+
+    
+</div>
+

@@ -1,0 +1,13 @@
+<div class="list">
+    <div class="item">
+        Total Invoice Detail Amount <span class="item-note">{{getVariableDataFromObject(singleWOInvoice.invoice,'Total_Invoice_Detail_Amount__c')}}</<span>
+    </div>
+    <div class="item">
+        Status <span class="item-note">{{getVariableDataFromObject(singleWOInvoice.invoice,'Status__c')}}</span>
+    </div>
+</div>
+<div class="card" ng-show="singleWOInvoice.invoice.length == 0">
+    <div class="item item-text-wrap">
+        No Invoice General Info found!
+    </div>
+</div>

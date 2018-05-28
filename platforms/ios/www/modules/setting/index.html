@@ -1,0 +1,23 @@
+<ion-view title='{{"setting.index.setting" | translate}}'>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+        <ion-content class="padding">
+            <div class="list">
+                <a class="item item-icon-left" href="#/app/settings/offline">
+                    <i class="icon ion-loop"></i> {{"setting.index.offline-data" | translate}}
+                </a>
+                <a class="item item-icon-left" ng-href="#/app/settings/sync">
+                    <i class="icon ion-archive "></i> {{"setting.index.sync" | translate}}
+                </a>
+                 <a class="item item-icon-left">
+                    <i class="icon ion-earth"></i><div ng-translate-language-select></div>
+                </a>
+            </div>
+        </ion-content>
+</ion-view>

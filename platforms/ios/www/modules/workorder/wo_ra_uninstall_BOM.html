@@ -1,0 +1,27 @@
+<ion-modal-view>
+   <ion-header-bar>
+      <h1 class = "title">Material BOM</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+   <ion-content>
+      	<ion-list>
+
+      		<ion-item ng-repeat="bom in uninstallAsset.BOMRecords">
+      			<div class="row">
+              <div class="col">
+                <a href="#" ng-click="uninstallAsset.fetchBOM(bom.Id, bom.Name)">{{bom.Name}}</a>
+              </div>   
+            </div>
+      		</ion-item>
+  		  </ion-list>
+
+      <div class="card" ng-show="uninstallAsset.BOMRecords.length  == 0">
+        <div class="item item-text-wrap">
+            <p>No Material BOM lookup found</p>
+        </div>
+      </div>
+
+   </ion-content>
+   
+</ion-modal-view>

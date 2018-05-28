@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_replace -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body contenteditable="false">
+
+<p>Click the button to replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+
+<p id="demo">Visit W3Schools!</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    var str = document.getElementById("demo").innerHTML; 
+    var res = str.replace("Microsoft", "W3Schools");
+    document.getElementById("demo").innerHTML = res;
+}
+</script>
+
+
+
+</body></html>

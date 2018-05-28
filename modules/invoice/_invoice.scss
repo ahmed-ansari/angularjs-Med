@@ -1,0 +1,51 @@
+.ellipses {
+	overflow: hidden;
+	text-overflow: ellipsis !important;
+    display: inline-block;
+    width: 90px;
+}
+.ellipses150 {
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    display: inline-block;
+    width: 150px;
+}
+
+.add_invoice {
+	
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+     .item-floating-label .input-label {
+        opacity: 1;
+    }
+    .input-label {
+        display: inline;
+    }
+}
+
+.add-quote-expense {
+    i.ion-ios-checkmark {
+        font-size: 2.2em;
+        color: #328BF3;
+    }
+    i.ion-ios-circle-outline {
+        padding-top: 20px;      
+        .item {
+            border: 0;
+        }
+        font-size: 2.2em;
+    }
+}
+.warranty-field {
+    position: relative;
+    bottom: 10px;
+    left: 12px;
+}
+
+.apply-warranty {
+    padding-left:6px;
+}

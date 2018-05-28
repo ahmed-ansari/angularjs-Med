@@ -1,0 +1,40 @@
+<ion-list>
+    <div class="item item-divider offlineDivider pad-zero">
+        <div class="row">
+            <div class="col">
+                <button class="button button-positive button-clear" ng-show="offlineData.SelectSuccessAllIsVisible && (offlineData.successRecords.length > 0)" ng-click="offlineData.selectAllSuccessItems()"><i class="icon ion-ios-checkmark-outline"></i><!-- Select All --></button>
+                <button class="button button-positive button-clear" ng-hide="offlineData.SelectSuccessAllIsVisible" ng-click="offlineData.deSelectAllSuccessItems()"><i class="icon ion-ios-checkmark"></i><!-- Deselect All --></button>
+            </div>
+            <div class="col centerAlign"> <div class="selectedFont" ng-show="offlineData.countCheckSuccess > 0">({{offlineData.countCheckSuccess}}) {{"setting.pending-rec.selected" | translate}}</div></div>
+            <div class="col">
+                <button class="button button-assertive button-clear rightAlign" ng-click="offlineData.deleteRecords('success')" ng-hide="offlineData.SelectSuccessAllIsVisible"><i class="icon ion-trash-b"></i><!-- Delete --></button>
+            </div>
+        </div>
+    </div>
+    <ion-scroll direction="y" class="scroll-offline">
+        <ion-item ng-repeat="successRecord in offlineData.successRecords | orderBy: 'timestamp' : true" class="item-module">
+            <div class="row">
+                <div class="col-10">
+                    <ion-checkbox type="checkbox" ng-model="successRecord.checked" ng-click="offlineData.getSelectedSuccessRecords(offlineData.successRecords)" class="check-top-20"></ion-checkbox>
+                    </div>
+                    <div class="class-90">
+                        <a class="pad-left5 module-div">
+                        <h2 ng-bind="successRecord.Name"> </h2>
+                        <p class="module-name" ng-bind="successRecord.WOName"></p>
+                        <p class="module-name" ng-bind="successRecord.action"></p>
+                        <p class="module-name">{{"setting.success-rec.last-synced" | translate}}: <span ng-bind="successRecord.timestamp"></span></p>
+                    </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </ion-item>
+
+        <div class="card" ng-show="offlineData.successRecords.length == 0">
+            <div class="item item-text-wrap">
+                {{"setting.success-rec.no-success-record" | translate}}
+            </div>
+        </div>
+    </ion-scroll>
+
+</ion-list>

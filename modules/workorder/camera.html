@@ -1,0 +1,30 @@
+<ion-view title="Add Image">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <div class="row">
+            <div class="col">
+                <button class="button button-full button-positive" ng-click="camera.uploadImage('takePicture')">
+                    <i class="icon ion-camera"></i> Take Picture
+                </button>
+                <button class="button button-full button-positive" ng-click="camera.uploadImage('browseGallery')">
+                    <i class="icon ion-ios-browsers"></i> Browse Gallery
+                </button>
+            </div>
+        </div>
+        <div class="list card image-div" ng-show="camera.attach_img">
+            <div class="button-bar">
+                <span class="button button-positive" ng-click="camera.submitImage()"><i class="icon ion-android-upload"></i> Upload File</span>
+                <span class="button button-assertive" ng-click="camera.cancelImage()"><i class="icon ion-ios-close"></i> Cancel</span>
+            </div>
+            <br>
+            <br>
+            <div class="item item-image">
+                <img ng-src="data:image/png;base64,{{camera.attach_img}}" style="width: 80%;" />
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

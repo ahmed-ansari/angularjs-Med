@@ -1,0 +1,62 @@
+<ion-view title="Quote">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <span class="step size-32">
+        <i class="icon ion-grid" ng-click="invoiceMaterial.popover.show($event)"></i>
+    </span>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail NameHdr">
+            <div class="col">
+                <h2 ng-bind="invoiceMaterial.material.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subDetailsHdr">
+            <div class="col col-30">
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box>
+                    <ion-slide>
+                        <div class="list">
+                            <div class="item">
+                                Product<span class="item-note">{{::invoiceMaterial.material.MedConnectDev__Product__r.Name}}</span>
+                            </div>
+                            <div class="item">
+                                Activity<span class="item-note">{{invoiceMaterial.material.MedConnectDev__Activity__r.Name}}</span>
+                            </div>
+                            <div class="item">
+                                Quantity<span class="item-note">{{getVariableDataFromObject(invoiceMaterial.material, 'Quantity__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Unit Price<span class="item-note">{{getVariableDataFromObject(invoiceMaterial.material, 'Unit_Price__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Discount<span class="item-note">{{getVariableDataFromObject(invoiceMaterial.material, 'Discount__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Discount Type<span class="item-note">{{getVariableDataFromObject(invoiceMaterial.material, 'Discount_Type__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Billable<span class="item-note">{{getVariableDataFromObject(invoiceMaterial.material, 'Billable__c')}}</span>
+                            </div>
+                            <div class="item item-divider">
+                                Description Information
+                            </div>
+                            <span class="item">{{getVariableDataFromObject(invoiceMaterial.material, 'Description__c')}}</span>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

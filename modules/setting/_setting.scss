@@ -1,0 +1,77 @@
+.has-error {
+    border-left: 3px solid #B83E2C;
+}
+
+.form-error {
+    direction: rtl;
+}
+
+.sync-setting-button {
+    width: 90%;
+    margin: 10px auto;
+    display: block;
+}
+
+.rightAlign {
+    float: right;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+.selectedFont {
+    font-size: 1.25em;
+    margin-top: 10px;
+}
+
+.item-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.check-top-20 {
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.col-3 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 10%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+    max-width: 3%;
+}
+
+.syncing {
+    .syncElem {
+        color: #ddd;
+    }
+}
+
+.error-reason {
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    color: red;
+}
+
+.pad-zero{
+    /*padding: 0;*/
+}
+
+.pad-left5 {
+    padding-left:5px !important;
+}
+
+.red-text {
+    color: red !important;
+}
+
+.item1 {
+    border:none;
+    padding: 0 !important;
+}

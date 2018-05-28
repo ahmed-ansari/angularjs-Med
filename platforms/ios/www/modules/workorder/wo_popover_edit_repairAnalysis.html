@@ -1,0 +1,15 @@
+<ion-popover-view class="full-popover">
+    <ion-content>
+        <div class="list" ng-click="singleRA.popover.hide()">
+            <a class="item" href="#/app/add-repair-analysis/{{singleRA.workOrderID}}/{{singleRA.ra_id}}" ><i class="icon ion-edit"></i> Edit</a>
+            <a class="item" href="#/app/analysis-code"><i class="icon ion-android-add-circle"></i> Analysis  </a>
+            <a class="item" href="#/app/fault-code"><i class="icon ion-android-add-circle"></i> Fault </a>
+            
+            <a class="item" ng-click="singleRA.goToTest()" ><i class="icon ion-android-add-circle"></i> Test </a>
+            <a class="item" ng-click="singleRA.goToUninstall()"><i class="icon ion-minus-circled"></i> Uninstall</a>     
+           
+            <a class="item" ng-click="singleRA.goToInstall()" ><i class="icon ion-android-add-circle"></i> Install</a>
+	    	          
+        </div>
+    </ion-content>
+</ion-popover-view>

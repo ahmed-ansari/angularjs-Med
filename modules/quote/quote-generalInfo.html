@@ -1,0 +1,46 @@
+
+<!-- <ion-scroll direction="y" class="scrollPtHtGI"> -->
+<div class="list">
+       <div class="item">
+      Parent Quote  <span class="item-note">
+      <a href="#/app/quote/{{singleQuote.quote.MedConnectDev__Parent_Quote__c}}/singleQuote.workOrderID" ng-show="singleQuote.quote.MedConnectDev__Parent_Quote__c">{{singleQuote.quote.MedConnectDev__Parent_Quote__r.Name}}</a>
+      </span>
+    </div>
+    <div class="item">
+        Status<span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Status__c')}}</span>
+    </div>
+    <div class="item">
+        Discount<span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Discount__c')}}</span>
+    </div>
+        <div class="item">
+        Total Billable Line Amount<span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Total_Billable_Line_Amount__c')}}</span>
+    </div>
+    <!-- <div class="item">
+        Total Gross Amount<span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Total_Gross_Amount__c')}}</span>
+    </div> -->
+         <div class="item">
+        Total Payable Amount<span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Total_Payble_Amount__c')}}</span>
+    </div>
+     <div class="item">
+       Valid Till<span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Valid_Till__c') | date:'dd-MM-yyyy'}}</span>
+    </div>
+         <div class="item">
+       Material Warranty Coverage <span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Material_Warranty_Coverage__c')}}</span>
+    </div>
+             <div class="item">
+      Labor Warranty Coverage  <span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Labour_Warranty_Coverage__c')}}</span>
+    </div>
+      <div class="item">
+     Expense Warranty Coverage   <span class="item-note">{{getVariableDataFromObject(singleQuote.quote, 'Expense_Warranty_Coverage__c')}}</span>
+    </div>
+  <!--          <div class="item item-divider">
+        Description Information
+    </div>
+    <p class="item full-text">{{getVariableDataFromObject(singleQuote.quote, 'Description__c')}}</p>-->
+
+  
+    
+
+
+</div>
+<!-- </ion-scroll> -->

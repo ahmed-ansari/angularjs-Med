@@ -1,0 +1,128 @@
+<div class="list">
+    <div class="item item-divider">
+        Contact Information
+    </div>
+<ion-scroll direction="y" class="scrollCtHtGI">
+    <div class="item">
+        First Name <span class="item-note" ng-bind="singlecontact.contact.FirstName"></span>
+    </div>
+    <div class="item">
+        Last Name <span class="item-note" ng-bind="singlecontact.contact.LastName">
+        </span>
+    </div>
+        <div class="item">
+        Title<span class="item-note" ng-bind="singlecontact.contact.Title"></<span>
+    </div>
+    <div class="item">
+        Gender <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Gender__c')}}
+        <span>
+    </div>
+    <div class="item">
+        Department <span class="item-note" ng-bind="singlecontact.contact.Department"></span>
+    </div>
+    <div class="item" ng-show="singlecontact.contact.RecordType.DeveloperName == 'Licensed_Non_Prescribers' || singlecontact.contact.RecordType.DeveloperName == 'Prescribers'">
+        Therapeutic Area 
+        <span class="item-note" >{{getVariableDataFromObject(singlecontact.contact,'Therapeutic_Area__c')}}</span>
+    </div>
+    <div class="item">
+        Speciality <span class="item-note" >{{getVariableDataFromObject(singlecontact.contact,'Speciality__c')}}</span>
+    </div>
+    <div class="item">
+        Other Speciality 1 
+        <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Other_Speciality_1__c')}}</span>
+    </div>
+    <div class="item">
+        Other Speciality 2 <span class="item-note" >{{getVariableDataFromObject(singlecontact.contact,'Other_Speciality_2__c')}}</span>
+    </div>
+    <div class="item">
+        Buying Role <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Buying_Role__c')}}</span>
+    </div>
+   
+    <div class="item">
+        Adaptability to Change <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Adaptability_to_Change__c')}}</span>
+    </div>
+    <div class="item">
+        Our Status <span class="item-note" >{{getVariableDataFromObject(singlecontact.contact,'Our_Status__c')}}</span>
+    </div>
+    <div class="item">
+        Coverage <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Coverage__c')}}</span>
+    </div>
+    <div class="item" ng-show="singlecontact.contact.RecordType.DeveloperName == 'Licensed_Non_Prescribers' ||
+        singlecontact.contact.RecordType.DeveloperName == 'Non_licensed_Patient_Care'">
+        Type <span class="item-note" >{{getVariableDataFromObject(singlecontact.contact,'Type__c')}}</span>
+    </div>
+    <div class="item">
+        Best day to Call <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Best_Day_to_Call__c')}}</span>
+    </div>
+        <div class="item" ng-show="singlecontact.contact.RecordType.DeveloperName == 'Licensed_Non_Prescribers'">
+        Phone <span class="item-note" ng-bind="singlecontact.contact.Phone"></span>
+    </div>
+    <div class="item">
+        Home Phone <span class="item-note" ng-bind="singlecontact.contact.HomePhone"></span>
+    </div>
+     <div class="item">
+        Mobile <span class="item-note" ng-bind="singlecontact.contact.MobilePhone"></span>
+    </div>
+
+    <div class="item">
+        Other Phone <span class="item-note" ng-bind="singlecontact.contact.OtherPhone"></span>
+    </div>
+     <div class="item fax">
+        Fax <span class="item-note" ng-bind="singlecontact.contact.Fax"></span>
+    </div>
+    
+    
+    <div class="item">
+        Assistant <span class="item-note" ng-bind="singlecontact.contact.AssistantName"></span>
+    </div>
+    <div class="item">
+        Assistant Phone Number <span class="item-note" ng-bind="singlecontact.contact.AssistantPhone"></span>
+    </div>
+    <div class="item item-divider">
+        Description Information
+    </div>
+    <div class="item">
+        Overall description of the contact <span class="item-note" ng-bind="singlecontact.contact.Description"></span>
+    </div>
+    <div class="item item-divider">
+        Address Information
+    </div>
+    <div class="item">
+        Mailing Street <span class="item-note" ng-bind="singlecontact.contact.MailingStreet"></<span>
+    </div>
+    <div class="item">
+        Mailing City <span class="item-note" ng-bind="singlecontact.contact.MailingCity"></span>
+    </div>
+    <div class="item">
+        Mailing State / Province <span class="item-note" ng-bind="singlecontact.contact.MailingState"></span>
+    </div>
+    <div class="item">
+        Mailing Zip / Postal Code <span class="item-note" ng-bind="singlecontact.contact.MailingPostalCode"></span>
+    </div>
+    <div class="item">
+        Mailing Country <span class="item-note" ng-bind="singlecontact.contact.MailingCountry"></span>
+    </div>
+    <div class="item">
+        Other Street <span class="item-note" ng-bind="singlecontact.contact.OtherStreet"></span>
+    </div>
+    <div class="item">
+        Other City <span class="item-note" ng-bind="singlecontact.contact.OtherCity"></span>
+    </div>
+    <div class="item">
+        Other State / Province <span class="item-note" ng-bind="singlecontact.contact.OtherState"></span>
+    </div>
+    <div class="item">
+        Other Zip/ Postal Code <span class="item-note" ng-bind="singlecontact.contact.OtherPostalCode"></span>
+    </div>
+    <div class="item">
+        Other Country <span class="item-note" ng-bind="singlecontact.contact.OtherCountry"></span>
+    </div>
+    <div class="item item-divider">
+        Additional Information
+    </div>
+    <div class="item">
+        Languages <span class="item-note">{{getVariableDataFromObject(singlecontact.contact,'Languages__c')}}</span>
+    </div>
+
+</ion-scroll>
+</div>

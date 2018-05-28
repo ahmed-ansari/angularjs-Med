@@ -1,0 +1,26 @@
+<ion-view view-title="Title">
+    <ion-content>
+        <h1>Hello</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, quia accusantium, sit quod labore unde iure cupiditate at, minima omnis cumque aliquid voluptas consequatur odit velit laudantium illum suscipit esse.</p>
+        <tab-slide-box>
+            <div class="tsb-icons">
+                <div class="tsb-ic-wrp">
+                    <ion-scroll direction="x" class="tsb-hscroll">
+                        <a href="javascript:;" class="ion-home1">Home</a>
+                        <a href="javascript:;" class="ion-ios-game-controller-b1">Games</a>
+                    </ion-scroll>
+                </div>
+            </div>
+            <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                <ion-slide>
+                <ion-scroll style="height:100%" delegate-handle="slide1Scroll">
+                    <h3>Home cweontent</h3>
+                    </ion-scroll>
+                </ion-slide>
+                <ion-slide>
+                    <h3>Games content</h3>
+                </ion-slide>
+            </ion-slide-box>
+        </tab-slide-box>
+    </ion-content>
+</ion-view>

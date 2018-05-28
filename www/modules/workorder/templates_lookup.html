@@ -1,0 +1,36 @@
+<ion-modal-view>
+   <ion-header-bar>
+      <h1 class = "title">Template</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+   <ion-content>
+        <div class="searchDivBox search-bar">
+            <label class="item-input-wrapper textbox-search searchDivBox">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder='Search Template' ng-model="testinstruction.searchtemplate" class="width-100">
+            </label>
+        </div>
+      	<ion-list>
+      		<ion-item ng-repeat="temp in testinstruction.temps | filter:testinstruction.searchtemplate">
+      			<div class="row">
+              <div class="col">
+                <a href="#" ng-click="testinstruction.select_the_template(temp.Id, temp.Name)">{{temp.Name}}</a>
+              </div>   
+            </div>
+      		</ion-item>
+  		  </ion-list>
+      <div class="card" ng-show="testinstruction.temps.length  == 0">
+        <div class="item item-text-wrap">
+            <div>No Template found</div>
+        </div>
+      </div>
+       <div class="card" ng-show="(testinstruction.temps | filter:testinstruction.searchtemplate).length==0 ">
+                <div class="item item-text-wrap">
+                  <div>No Template found</div>
+                </div>
+        </div>
+
+   </ion-content>
+   
+</ion-modal-view>

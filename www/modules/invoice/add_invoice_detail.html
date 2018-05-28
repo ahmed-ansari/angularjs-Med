@@ -1,0 +1,63 @@
+<ion-view title="Invoice Detail">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div ng-show="invoice.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div>
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add_invoice">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                     <h3 ng-bind="(createInvoiceDetail.invoiceDetailId && createInvoiceDetail.invoiceDetailId !== 'null') ? 'Edit Invoice Detail' : 'Create Invoice Detail'"></h3> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Invoice</p>
+                    <span>{{createInvoiceDetail.invoiceName}}</span>
+                </div>
+                <div class="col col-30">
+                    <p>Work Order</p>
+                    <span>{{createInvoiceDetail.workOrderName}}</span>
+                </div>
+            </div>
+            <div class="row">
+                  <!-- <div class="col images">
+                        <select name="status" id="status" class="select_parent_width custom-select" ng-model="createInvoiceDetail.status">
+                            <option value="null">Select Status</option>
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="Paid">Paid</option>
+                        </select>
+                    </div> -->
+                <div class="col">
+                    <label class=" item-floating-label">
+                        <span class="input-label">Quote</span>
+                        <input type="text" name="quote" ng-model="createInvoiceDetail.selected_quote_name" ng-show="createInvoiceDetail.invoiceDetailId.length < 5" style="width: 100%;"/><br>
+                        <span ng-show="createInvoiceDetail.invoiceDetailId.length > 5" ng-bind="createInvoiceDetail.selected_quote_name"></span>
+                    </label>
+                    <div class="form-errors">
+                        <div class="form-error" ng-bind="createInvoiceDetail.err_msg"> </div>
+                    </div>
+                </div>
+                <div class="col col-10 padding-30" ng-show="createInvoiceDetail.invoiceDetailId.length < 5">
+                 <span class="step size-24">
+                    <i class="ion-search icon" ng-click="createInvoiceDetail.showQuotes()"></i>
+                    </span>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="button button-block button-positive" ng-click="createInvoiceDetail.getFromQuote()" ng-show="createInvoiceDetail.invoiceDetailId.length < 5">Get from Quote</div>
+                    <div class="button button-block button-positive" ng-click="createInvoiceDetail.getFromActuals()" ng-show="createInvoiceDetail.invoiceDetailId.length < 5">Get from Actuals</div>
+                    <div  class="button button-block button-positive" ng-show="createInvoiceDetail.invoiceDetailId.length > 5" ng-click="createInvoiceDetail.save()">Save</div>
+                    <div class="button button-block button-assertive" ng-click="createInvoiceDetail.takeMeBack()">Cancel</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

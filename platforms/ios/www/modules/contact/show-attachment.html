@@ -1,0 +1,23 @@
+<ion-view title="Attachment">
+   <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <div class="list card">
+            <div class="item item-avatar">                
+                <h2>{{showattachment.attached[0].Name}}</h2>
+               
+            </div>
+            <div class="item item-image">
+                <!-- <img src="{{showattachment.attached[0].Body}}"> -->
+                <img ng-src="data:image/png;base64,{{showattachment.attach_img}}" style="width: 80%;" />
+                 <!-- data-err-src="http://google.com/favicon.ico"  -->
+        
+            </div>        
+       
+           
+        </div>
+    </ion-content>
+</ion-view>

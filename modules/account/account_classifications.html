@@ -1,0 +1,29 @@
+<ion-list>
+    <ion-item>
+        <div class="row">
+            <div class="col"><b>AC Name</b></div>
+            <div class="col"><b>RAG Classification</b></div>
+        </div>
+    </ion-item>
+    <ion-item ng-repeat="acc_classification in singleaccount.acc_classifications">
+        <div class="row">
+            <div class="col">{{acc_classification.Name}}</div>
+            <div class="col">
+                <span class="step size-24">
+                 <i class="icon ion-record red-cirle" ng-show="acc_classification.MedConnectDev__Ability_to_Penetrate__c < 4"></i>
+            </span>
+                <span class="step size-24">
+              <i class="icon ion-record amber-cirle" ng-show="acc_classification.MedConnectDev__Ability_to_Penetrate__c >= 4 &&  acc_classification.MedConnectDev__Ability_to_Penetrate__c >= 7 "></i>
+             </span>
+                <span class="step size-24">
+                  <i class="icon ion-record green-cirle" ng-show="acc_classification.MedConnectDev__Ability_to_Penetrate__c >= 7"></i>
+                </span>
+            </div>
+        </div>
+    </ion-item>
+</ion-list>
+<div class="card" ng-show="singleaccount.acc_classifications.length == 0">
+    <div class="item item-text-wrap">
+        No Record Found!
+    </div>
+</div>

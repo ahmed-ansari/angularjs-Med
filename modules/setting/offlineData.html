@@ -1,0 +1,34 @@
+<ion-view title="Offline Data">
+    <ion-nav-buttons side="right" class="offline-header">
+      <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">     
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">{{"setting.offline-data.pending-queue" | translate}} (<span ng-bind="offlineData.offlineRecords.length"></span>)</a>
+                            <a href="javascript:;" class="ion-home1">{{"setting.offline-data.success-log" | translate}} (<span ng-bind="offlineData.successRecords.length"></span>)</a>
+                            <a href="javascript:;" class="ion-home1">{{"setting.offline-data.failure-log" | translate}} (<span ng-bind="
+                            offlineData.failedRecords.length"></span>)</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                       <div dynamic-height class="scroll-height" ng-include src="'modules/setting/pendingRecords.html'"></div>
+                     </ion-slide>
+                    <ion-slide>
+                       <div dynamic-height class="scroll-height" ng-include src="'modules/setting/successRecords.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                       <div dynamic-height class="scroll-height" ng-include src="'modules/setting/failedRecords.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

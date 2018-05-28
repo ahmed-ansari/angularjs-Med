@@ -1,0 +1,102 @@
+<ion-scroll direction="y" class="scrollPtHtGI">
+<div class="list">
+    <div class="item">
+        Distributor<span class="item-note">{{getVariableDataFromObject(singleproduct.product, 'Distributor__c')}}</span>
+    </div>
+    
+    <div class="item">
+        Consumer Site<span class="item-note"><a href="{{getVariableDataFromObject(singleproduct.product,'Consumer_site__c')}}" target="_blank">{{getVariableDataFromObject(singleproduct.product,'Consumer_site__c')}}</a></span>  
+    </div>
+
+    <div class="item">
+        Controlled Substance <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Controlled_Substance__c')}}</span>
+    </div> 
+
+    <div class="item">
+        Product Category <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Product_Category__c')}}
+        </span>
+    </div> 
+
+    <div class="item">
+        Price Type <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Price_Type__c')}}
+        <span>
+    </div>
+
+    <div class="item">
+        Device Class <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Device_Class__c')}}</span>
+    </div>
+
+    <div class="item">
+        Status <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Status__c')}}</span>
+    </div>
+    <div class="item">
+        Ship Method <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Ship_Method__c')}}</span>
+    </div>
+    <div class="item">
+        UOM <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'UOM__c')}}</span>
+    </div>
+
+    <div class="item">
+        Structure type<span class="item-note">{{getVariableDataFromObject(singleproduct.product, 'Structure_Type__c')}}</span>
+    </div>
+
+    <div class="item">
+        Quantity in each UOM <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Quantity_in_each_UOM__c')}}</span>
+    </div>
+    <div class="item">
+        Description <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Description__c')}}</span>
+    </div>
+    <div class="item">
+        Clinical Investigation Number <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Clinical_Investigation_Number__c')}}</span>
+    </div>
+    <div class="item">
+        Concomitant products <span class="item-note">{{singleproduct.product.MedConnectDev__Similar_Product__r.Name}}</span>
+    </div>
+
+    <div class="item">
+        Model Number <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Model_Number__c')}}
+
+    </span>
+    </div>
+
+    <div class="item">
+        Catalog Number <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Catalog_Number__c')}}</span>
+    </div>
+
+     <div class="item">
+        Is Bundle <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Is_Bundle__c')}}</span>
+    </div>
+
+     <div class="item">
+        Is Part <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Is_Part__c')}}</span>
+    </div>
+
+    <div class="item">
+        Repair Site <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Repair_Site__c')}}</span>
+    </div>
+
+    <div class="item">
+        Radiation Emitting Device? <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Radiation_Emitting_Device__c')}}</span>
+    </div>
+
+    <div class="item">
+        Service/Maintenance Contract <span class="item-note"><a href="#/app/servicecontract/{{singleproduct.product.MedConnectDev__Service_Maintenance_Contract__r.Id}}">{{singleproduct.product.MedConnectDev__Service_Maintenance_Contract__r.Name}}</a></span>
+    </div>
+
+    <div class="item">
+        Product Part Number <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Product_Part_Number__c')}}</span>
+    </div>
+
+    <div class="item">
+        Can user return impacted product? <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'is_ready_to_return__c')}}</span>
+    </div>
+
+    <div class="item">
+        Product Recall Required? <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Product_Recall_Required__c')}}</span>
+    </div>
+
+    <div class="item">
+        Device License No <span class="item-note">{{getVariableDataFromObject(singleproduct.product,'Device_License_No__c')}}</span>
+    </div>
+</div>
+</ion-scroll>

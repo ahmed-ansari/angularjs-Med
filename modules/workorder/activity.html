@@ -1,0 +1,86 @@
+<ion-view view-title="Activity">
+    <ion-nav-buttons side="right">
+    <div syncup></div>
+    <div offline></div>
+    <div username></div>
+
+    <span class="step size-32">
+        <i class="icon ion-grid" ng-click="singleActivity.popover.show($event)"></i>        
+    </span>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border module-detail activity_detail">
+            <div class="col">
+                <h3>{{singleActivity.activity.Name}}</h3>
+                <a class="hyperLinks whiteLink" href="#/app/workorder/{{singleActivity.activity.MedConnectDev__Work_Order__c}}"><i class="icon ion-link"></i> <span ng-bind="singleActivity.activity.MedConnectDev__Work_Order__r.Name"></span></a>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Assigned Tools</a>
+                            <a href="javascript:;" class="ion-home1">Repair Analysis</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <ion-scroll direction="y" class="scroll-height">
+                            <div ng-include src="'modules/workorder/activity_detail.html'"></div>
+                        </ion-scroll>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list ng-show="singleActivity.assigned_tools.length > 0">
+                            <ion-item class="cntTitle">
+                                <div class="row">
+                                    <div class="col"><b>Tool ID</b></div>
+                                    <div class="col"><b>Tool Name</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scroll-heightCt">
+                                <ion-item ng-repeat="assigned_tool in singleActivity.assigned_tools">
+                                    <div class="row">
+                                        <div class="col item-text-wrap"><a href="#" ng-click="singleActivity.checkForAssignToolsDetails(assigned_tool.Id)">{{assigned_tool.Name}}</a></div>
+                                        <div class="col item-text-wrap">{{assigned_tool.MedConnectDev__Tool_Name__c}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleActivity.assigned_tools.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list ng-show="singleActivity.repair_analysis.length > 0">
+                            <ion-item class="cntTitle">
+                                <div class="row">
+                                    <div class="col"><b>Repair ID</b></div>
+                                    <div class="col"><b>Status</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scroll-heightCt">
+                                <ion-item ng-repeat="repair_analysis in singleActivity.repair_analysis">
+                                    <div class="row">
+                                        <div class="col"><a href="#/app/repair-analysis/{{repair_analysis.Id}}/{{singleActivity.ass_id}}">{{repair_analysis.Name}}</a></div>
+                                        <div class="col">{{repair_analysis.MedConnectDev__Status__c}}</div>
+                                      
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleActivity.repair_analysis.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+    </ion-view>

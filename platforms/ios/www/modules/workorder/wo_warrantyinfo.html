@@ -1,0 +1,40 @@
+<div class="list" ng-show="singleWorkOrder.warranty_info_data">
+    <div class="item">
+        Asset Warranty<span class="item-note" ng-bind="singleWorkOrder.warranty_info.Name"></<span>
+    </div>
+    <div class="item">
+        Asset Name <span class="item-note" ng-bind="singleWorkOrder.warranty_info.MedConnectDev__Asset__r.Name"></span>
+    </div>
+    <div class="item">
+        Product Name <span class="item-note" ng-bind="singleWorkOrder.warranty_info.MedConnectDev__Product_Name__c">
+        </span>
+    </div>
+    <div class="item">
+        Start Date <span class="item-note" ng-bind="singleWorkOrder.warranty_info.MedConnectDev__Start_Date__c">
+        </span>
+    </div>
+    <div class="item">
+        Parent Product <span class="item-note" ng-bind="singleWorkOrder.warranty_info.MedConnectDev__Asset__r.MedConnectDev__Product__r.MedConnectDev__Parent_Product_Name__r.Name">
+        </span>
+    </div>
+    <div class="item">
+        Material Covered <span class="item-note">
+        {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Material_Covered__c}}% -- {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Duration_of_Material_Coverage__c}} {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Unit_of_Time_for_Material_Coverage__c}}, <b>Valid till  {{singleWorkOrder.warranty_info.MedConnectDev__Material_End_Date__c}}</b>
+        </span>
+    </div>
+    <div class="item">
+        Labor Covered <span class="item-note">
+        {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Labor_Covered__c}}% -- {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Duration_of_Labor_Coverage__c}} {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Unit_of_Time_for_Labor_Coverage__c}}, <b>Valid till  {{singleWorkOrder.warranty_info.MedConnectDev__Labor_End_Date__c}}</b>
+        </span>
+    </div>
+    <div class="item">
+        Expense Covered <span class="item-note">
+        {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Expense_Covered__c}}% -- {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Duration_of_Expense_Coverage__c}} {{singleWorkOrder.warranty_info.MedConnectDev__Warranty__r.MedConnectDev__Unit_of_Time_for_Expense_Coverage__c}}, <b>Valid till  {{singleWorkOrder.warranty_info.MedConnectDev__Expense_End_Date__c}}</b>
+        </span>
+    </div>
+</div>
+<div class="card" ng-show="!singleWorkOrder.warranty_info_data">
+    <div class="item item-text-wrap" style="text-align:center;">
+        <p>No Warranty Info Found</p>
+    </div>
+</div>

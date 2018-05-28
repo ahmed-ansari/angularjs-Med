@@ -1,0 +1,20 @@
+<div class="list">
+    <div class="item">
+        Loaner Item Name 
+        <span class="item-note" ng-bind="::singleLoaner.Loaner_data.Name"></<span>
+    </div>
+      <div class="item">
+        RMA Order Name 
+        <span class="item-note" > {{getVariableDataFromObject(singleLoaner.Loaner_data,'RMA_Order__r','Name')}}</span>
+    </div>
+
+    <div class="item">
+        Asset 
+        <span class="item-note" > {{getVariableDataFromObject(singleLoaner.Loaner_data,'Asset__r','Name')}}</span>
+    </div>
+    <div class="item">
+        Order Status
+        <span class="item-note" > {{getVariableDataFromObject(singleLoaner.Loaner_data,'Order_Status__c')}}</span>
+    </div>     
+</div>
+

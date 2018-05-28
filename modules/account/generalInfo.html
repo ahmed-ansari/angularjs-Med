@@ -1,0 +1,84 @@
+<div class="list">
+    <div class="item item-divider">
+        Account Information
+    </div>
+   
+    <div class="item" >
+        Parent Account<span class="item-note">
+        {{::singleaccount.account.Parent.Name}}
+         </span>
+    </div>
+   
+    <div class="item">
+        Account Record Type<span class="item-note" ng-bind="::singleaccount.account.RecordType.Name"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.typeRatingPreferred(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Type<span class="item-note" ng-bind="::singleaccount.account.Type"></span>
+    </div>
+    
+    <div class="item" ng-show="singleaccount.FSD.typeRatingPreferred(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Rating <span class="item-note" ng-bind="::singleaccount.account.Rating"></span>
+    </div>  
+    <div class="item fax">
+        Fax <span class="item-note" ng-bind="::singleaccount.account.Fax"></span>
+    </div>
+    <div class="item">
+        Email Address <a ng-href="javascript:void(0)" class="item-note blue-text" ng-click="singleaccount.sendEmail()">{{getVariableDataFromObject(singleaccount.account,'Email_Address__c')}}</a>
+    </div>
+    
+    <div class="item" ng-show="singleaccount.FSD.typeRatingPreferred(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Preferred Shipping Method <span class="item-note">{{getVariableDataFromObject(singleaccount.account,'Preferred_Shipping_Method__c')}}</span>
+    </div>
+    <div class="item item-divider">
+        Description Information
+    </div>
+    <span class="item" ng-bind="::singleaccount.account.Description"></span>
+    <div class="item item-divider">
+        Address Information
+    </div>
+    <div class="item">
+        Account Site <span class="item-note hyperLinks" ng-bind="singleaccount.account.Site" ng-click="singleaccount.openWebLink(singleaccount.account.Site)"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Billing(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Billing Street <span class="item-note" ng-bind="::singleaccount.account.BillingStreet"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Billing(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Billing City <span class="item-note" ng-bind="::singleaccount.account.BillingCity"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Billing(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Billing State / Province <span class="item-note" ng-bind="::singleaccount.account.BillingState"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Billing(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Billing Zip / Postal Code <span class="item-note" ng-bind="::singleaccount.account.BillingPostalCode"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Billing(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Billing Country <span class="item-note" ng-bind="::singleaccount.account.BillingCountry"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Shipping(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Shipping Street <span class="item-note" ng-bind="::singleaccount.account.ShippingStreet"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Shipping(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Shipping City <span class="item-note" ng-bind="::singleaccount.account.ShippingCity"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Shipping(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Shipping State / Province <span class="item-note" ng-bind="::singleaccount.account.ShippingState"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Shipping(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Shipping Zip / Postal Code <span class="item-note" ng-bind="::singleaccount.account.ShippingPostalCode"></span>
+    </div>
+    <div class="item" ng-show="singleaccount.FSD.Shipping(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Shipping Country <span class="item-note" ng-bind="::singleaccount.account.ShippingCountry"></span>
+    </div>
+    
+    <div class="item item-divider">
+        Additional Information
+    </div>
+    <div class="item" >
+        Active
+        <span class="item-note">{{getVariableDataFromObject(singleaccount.account,'Active__c')}}</<span>
+    </div>
+
+    <div class="item" ng-show="singleaccount.FSD.customer_priority(singleaccount.account.RecordType.Name,singleaccount.account.Parent.RecordType.Name)">
+        Customer Priority <span class="item-note">{{getVariableDataFromObject(singleaccount.account,'CustomerPriority__c')}}</span>
+    </div>
+</div>

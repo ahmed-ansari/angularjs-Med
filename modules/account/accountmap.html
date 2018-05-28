@@ -1,0 +1,21 @@
+<ion-view view-title="Home">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <h2 ng-bind="accountmap.account.Name"></h2>
+            </div>
+            <p style="text-indent:10px" ng-bind="::accountmap.account.addr">
+            </p>
+        </div>
+        <br>
+        <ng-map zoom="14" center="{{accountmap.account.addr}}" style="height:90%">
+            <marker position="{{accountmap.account.addr}}" title=" {{accountmap.account.Name}}" animation="Animation.BOUNCE"></marker>
+        </ng-map>
+    </ion-content>
+</ion-view>

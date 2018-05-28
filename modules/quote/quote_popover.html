@@ -1,0 +1,11 @@
+	<ion-popover-view>
+    <ion-content>
+        <div class="list" ng-click="singleQuote.popover.hide()">
+            <a class="item" ng-show="!singleQuote.sign" href="#/app/add-quote/{{singleQuote.quote.MedConnectDev__Work_Order__c}}/{{singleQuote.quoteId}}/norevise" ><i class="icon ion-edit"></i> Quote</a>
+            <a class="item" ng-show="singleQuote.sign && !singleQuote.revise" href="#/app/add-quote/{{singleQuote.quote.MedConnectDev__Work_Order__c}}/{{singleQuote.quoteId}}/revise" ><i class="icon ion-forward"></i> Revise</a>
+            <a class="item" ng-show="!singleQuote.sign" href="#/app/add-quote-expense/null/{{singleQuote.quoteId}}/{{singleQuote.quote.Name}}" ><i class="icon ion-android-add-circle"></i> Expense</a>
+            <a class="item" ng-show="!singleQuote.sign" href="#/app/add-quote-labour/null/{{singleQuote.quoteId}}/{{singleQuote.quote.Name}}" ><i class="icon ion-android-add-circle"></i> Labor</a>
+            <a class="item" ng-show="!singleQuote.sign" href="#/app/add-quote-material/null/{{singleQuote.quoteId}}/{{singleQuote.workOrderID}}/{{singleQuote.quote.Name}}/" ><i class="icon ion-android-add-circle"></i> Material</a>     
+        </div>
+    </ion-content>
+</ion-popover-view>

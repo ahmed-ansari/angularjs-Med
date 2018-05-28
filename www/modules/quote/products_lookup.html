@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Products</h1>
+        <span ng-click="closeModal()">X</span>
+    </ion-header-bar>
+    <ion-content>
+        <div class="searchDivBox search-bar">
+            <label class="item-input-wrapper textbox-search searchDivBox wid-92">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder='Search product' ng-model="quoteMaterial.searchproduct" class="width-100">           
+            </label>
+                 <i class="icon ion-close-round" ng-click="quoteMaterial.searchproduct = ''" ng-show="quoteMaterial.searchproduct.length > 0"></i>
+        </div>
+        <ion-list>
+            <!-- <ion-item>
+            <div class="row">
+                <div class="col"><b>Id</b></div>
+                <div class="col"><b>Name</b></div>
+            </div> 
+          </ion-item> -->
+            <ion-item ng-repeat="product in quoteMaterial.products | filter:quoteMaterial.searchproduct">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" ng-click="quoteMaterial.select_the_product(product.Id, product.Name)">{{product.Name}}</a>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <!-- <p>lengtht: {{quoteMaterial.products.length}}</p> -->
+        <!-- <div class="card" ng-show="quoteMaterial.products.length  == 0">
+            <div class="item item-text-wrap">
+                <p>No Product found</p>
+            </div>
+        </div> -->
+        <div class="card " ng-show="(quoteMaterial.products | filter:quoteMaterial.searchproduct).length==0 ">
+            <div class="item item-text-wrap" >
+                 <p>No Product found</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

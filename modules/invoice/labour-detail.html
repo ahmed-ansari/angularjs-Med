@@ -1,0 +1,71 @@
+<ion-view title="Quote">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <span class="step size-32">
+        <i class="icon ion-grid" ng-click="invoiceLabour.popover.show($event)"></i>
+    </span>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail NameHdr">
+            <div class="col">
+                <h2 ng-bind="invoiceLabour.labour.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subDetailsHdr">
+            <div class="col col-30">
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box>
+                    <ion-slide>
+                        <div class="list">
+                            <div class="item">
+                                Activity Type<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Activity_Type__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Hours Worked<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Hours_Worked__c')}}</span>
+                            </div>
+                             <div class="item">
+                                Applied Rate Type<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Applied_Rate_Type__c')}}</span>
+                            </div>
+                             <div class="item">
+                                Rate<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Rate__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Discount<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Discount__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Discount Type<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Discount_Type__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Warranty Coverage<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Warranty_Coverage2__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Gross Line Amount<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Gross_Line_Amount__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Line Amount<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Line_Amount__c')}}</span>
+                            </div>
+                            <div class="item">
+                                Billable<span class="item-note">{{getVariableDataFromObject(invoiceLabour.labour, 'Billable__c')}}</span>
+                            </div>
+                            <div class="item item-divider">
+                                Description Information
+                            </div>
+                            <span class="item">{{getVariableDataFromObject(invoiceLabour.labour, 'Description__c')}}</span>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

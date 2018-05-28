@@ -1,0 +1,32 @@
+<div mob-nav></div>
+<h1>{{quiz.friendname}}</h1>
+<div class="container1">
+
+    <form action="">
+        <!-- 
+          <div ng-repeat="quest in quiz.allQuestions.data" q-id="{{quest.question.qid}}" q-title="quest.question.title" q-ans="quest.question.answers" question class="quest-{{quest.question.qid}}" ng-class="{questActive: quiz.isQuestSelected({{quest.question.qid}})}" question-active="quiz.questActive"> 
+          </div>
+        -->
+
+      <div
+          question
+          ng-repeat="quest in quiz.allQuestions.data"
+          q-item="quest"
+          q-id="{{quest.question.qid}}"
+          q-title="{{quest.question.title}}"
+          q-ans="quest.question.answers"
+
+          q-valid="quiz.isAnswerValid(msg)"
+          q-reset="quiz.resetQuestion(reset)"
+          question-active="quiz.qObj.questActive"
+          
+          ng-class="{aactive: quiz.isQuestSelected({{quest.question.qid}})}"
+          class="quest-{{quest.question.qid}} questi"
+      >
+
+      </div>
+
+    
+
+    </form>
+  </div>

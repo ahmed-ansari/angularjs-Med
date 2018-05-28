@@ -1,0 +1,120 @@
+<ion-view title="Expense">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div ng-show="invoiceLabor.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div>
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add-quote-expense">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                     <h3 ng-bind="(invoiceExpense.expenseId && invoiceExpense.expenseId != 'null') ? 'Edit Expense' : 'Create Expense'"></h3>
+                </div>
+            </div>
+            <div class="row contact-detail">
+                <div class="col">
+                <br>
+                      <span class="grey-color"> Invoice Detail: </span><span ng-bind="invoiceExpense.invoiceName"></span>
+                </div>
+            </div>
+            <form name="invoiceExpense.expenseForm" novalidate="" ng-submit="invoiceExpense.expenseSave(invoiceExpense.expenseForm)">
+                <div class="row">
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="invoiceExpense.inv.type">
+                            <option value="">Expense Type</option>
+                            <option value="Airfare">Airfare</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Food - Breakfast">Food - Breakfast</option>
+                            <option value="Food - Lunch">Food - Lunch</option>
+                            <option value="Food - Dinner">Food - Dinner</option>
+                            <option value="Gas">Gas</option>
+                            <option value="Lodging">Lodging</option>
+                            <option value="Mileage">Mileage</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                            <option value="Parking">Parking</option>
+                            <option value="Parts">Parts</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Rental Cars">Rental Cars</option>
+                            <option value="Tolls">Tolls</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col exp-checkbox">
+                            <ion-checkbox ng-model="invoiceExpense.inv.billable">  </ion-checkbox>
+                            <span>Billable</span>
+                        </div>
+
+
+                        <div class="col exp-checkbox">
+                            <ion-checkbox ng-model="invoiceExpense.inv.applyWarranty"></ion-checkbox>
+                            <span class="apply-warranty"> Apply Warranty </span>
+                        </div>
+                         <div class="col exp-checkbox">
+                            <i class="ion-ios-checkmark" ng-show="invoiceExpense.inv.warrantyValid"></i>
+                            <i class="ion-ios-circle-outline" ng-hide="invoiceExpense.inv.warrantyValid"></i>
+                            <span class="warranty-field">Warranty Valid</span>
+                        </div>
+
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceExpense.expenseForm.amount.$invalid && invoiceExpense.expenseForm.amount.$dirty}">
+                            <span class="input-label">Expense Amount</span>
+                            <input type="tel" name="amount" ng-required="true" ng-model="invoiceExpense.inv.amount" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" required>
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceExpense.expenseForm.amount.$error" ng-show='invoiceExpense.expenseForm.$submitted || invoiceExpense.expenseForm.amount.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                              <div class="form-error" ng-message="maxlength">Value outside of valid range <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : invoiceExpense.expenseForm.discount.$invalid && invoiceExpense.expenseForm.discount.$dirty}">
+                            <span class="input-label">Discount</span>
+                            <input type="tel" name="discount" ng-model="invoiceExpense.inv.discount" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" >
+                        </label>
+                        <div class="form-errors" ng-messages="invoiceExpense.expenseForm.discount.$error" ng-show='invoiceExpense.expenseForm.$submitted || invoiceExpense.expenseForm.discount.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength">Value outside of valid range <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col images">
+                        <select name="discountType" id="discountType" class="select_parent_width custom-select" ng-model="invoiceExpense.inv.discountType">
+                            <option value="">Discount Type</option>
+                            <option value="Percent">Percent</option>
+                            <option value="Amount">Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="description" id="" cols="30" rows="5" ng-model="invoiceExpense.inv.description" ng-maxlength="240"></textarea>
+                        </label>
+                          <div class="form-errors" ng-messages="invoiceExpense.expenseForm.description.$error" ng-show='invoiceExpense.expenseForm.$submitted || invoiceExpense.expenseForm.description.$dirty'>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="invoiceExpense.takeMeBack()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

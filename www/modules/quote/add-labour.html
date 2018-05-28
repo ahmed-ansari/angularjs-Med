@@ -1,0 +1,146 @@
+<ion-view title="Labour">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+       <!--  <div ng-show="expense.isLock">
+            <i class="icon ion-ios-locked step size-32" style="color:#5E747F;"></i>
+        </div> -->
+    </ion-nav-buttons>
+    <ion-content padding="false">
+        <div class="add-quote-expense">
+            <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                    <h3 ng-bind="(quoteLabour.labourId && quoteLabour.labourId !== 'null') ? 'Edit Labor' : 'Create Labor'"></h3>
+                </div>
+            </div>
+            <div class="row contact-detail">
+                <div class="col">
+                    <span class="grey-color">Quote: </span><span ng-bind="quoteLabour.quoteName"></span>
+                </div>
+            </div>
+            <form name="quoteLabour.labourForm" novalidate="" ng-submit="quoteLabour.labourSave(quoteLabour.labourForm)">
+                <div class="row">
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="quoteLabour.lab.Activitytype" ng-change="quoteLabour.changeRateOnActivity(quoteLabour.lab.Activitytype)">
+                            <option value=""> --Activity Type-- </option>
+                            <option value="Callback">Callback</option>
+                            <option value="Clinical Support">Clinical Support</option>
+                            <option value="Demonstration">Demonstration</option>
+                            <option value="Diagnostic">Diagnostic</option>
+                            <option value="Dispatch">Dispatch</option>
+                            <option value="Inspection">Inspection</option>
+                            <option value="Installation">Installation</option>
+                            <option value="Uninstallation">Uninstallation</option>
+                            <option value="Repair">Repair</option>
+                            <option value="Service Request">Service Request</option>
+                            <option value="Preventive Maintenance">Preventive Maintenance</option>
+                            <option value="Receiving">Receiving</option>
+                            <option value="Shipping">Shipping</option>
+                            <option value="Transfer">Transfer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="quoteLabour.lab.RateType">
+                            <option value="">--Applied Rate Type--</option>
+                            <option value="Per Hour">Per Hour</option>
+                            <option value="Flat Rate">Flat Rate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteLabour.labourForm.hours.$invalid && quoteLabour.labourForm.hours.$dirty}">
+                            <span class="input-label">Hours Worked</span>
+                            <input type="text" name="hours" ng-required="true" ng-model="quoteLabour.lab.hours" ng-pattern="/^[0-9]{1,7}$/" required ng-maxlength="3">
+                        </label>
+                        <div class="form-errors" ng-messages="quoteLabour.labourForm.hours.$error" ng-show='quoteLabour.labourForm.$submitted || quoteLabour.labourForm.hours.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="maxlength">Length Not More than 3<i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteLabour.labourForm.rate.$invalid && quoteLabour.labourForm.rate.$dirty}">
+                            <span class="input-label">Rate</span>
+                            <input type="text" name="rate" ng-required="true" ng-model="quoteLabour.lab.rate" ng-pattern="/^[0-9]{1,7}$/" required ng-maxlength="4">
+                        </label>
+                        <div class="form-errors" ng-messages="quoteLabour.labourForm.rate.$error" ng-show='quoteLabour.labourForm.$submitted || quoteLabour.labourForm.rate.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength">Length Not More than 4<i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : quoteLabour.labourForm.discount.$invalid && quoteLabour.labourForm.discount.$dirty}">
+                            <span class="input-label">Discount</span>
+                            <input type="tel" name="discount"  ng-model="quoteLabour.lab.discount" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/">
+                        </label>
+                        <div class="form-errors" ng-messages="quoteLabour.labourForm.discount.$error" ng-show='quoteLabour.labourForm.$submitted || quoteLabour.labourForm.discount.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength">Length Not More than 4<i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col images">
+                        <select name="type" id="type" class="select_parent_width custom-select" ng-model="quoteLabour.lab.discountType">
+                            <option value=""> --Discount Type-- </option>
+                            <option value="Percent">Percent</option>
+                            <option value="Amount">Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="quoteLabour.lab.billable"> </ion-checkbox>
+                        <span>Billable</span>
+                    </div>
+                     <div class="col exp-checkbox">
+                        <ion-checkbox ng-model="quoteLabour.lab.applyWarranty"> </ion-checkbox>
+                        <span class="apply-warranty">Apply Warranty</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="description" id="" cols="30" rows="5" ng-model="quoteLabour.lab.description" ng-maxlength="240"></textarea>
+                        </label>
+                        <div class="form-errors" ng-messages="quoteLabour.labourForm.description.$error" ng-show='quoteLabour.labourForm.$submitted || quoteLabour.labourForm.description.$dirty'>                           
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+               <!--  <div class="row" ng-if="quoteLabour.labourId.length > 4 && quoteLabour.labourId !== 'null'">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Reason for Change</span>
+                            <textarea name="change_reason" id="" cols="30" rows="5" ng-required="true" ng-model="quoteLabour.lab.change_reason" ng-maxlength="240"></textarea>
+                        </label>
+                        <div class="form-errors" ng-messages="quoteLabour.labourForm.change_reason.$error" ng-show='quoteLabour.labourForm.$submitted || quoteLabour.labourForm.change_reason.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                             <div class="form-error" ng-message="maxlength"> The value is too long <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                        <!-- ng-disabled="activity.activityForm.$invalid || activity.activityForm.$pending" -->
+                    </div>
+                    <div class="col">
+                        <div class="button button-outline  button-assertive" ng-click="quoteLabour.takeMeBack()">
+                            Cancel
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

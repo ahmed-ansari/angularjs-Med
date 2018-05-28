@@ -1,0 +1,60 @@
+<ion-modal-view style="width:94%; left: 3%; right: 3%;">
+   <ion-header-bar>
+      <h1 class = "title">Inventory Line Items</h1>
+      <span ng-click="closeModal()">X</span>
+   </ion-header-bar>
+	
+  <ion-content>
+         <div class="searchDivBox">  
+          <label class="item-input-wrapper textbox-search searchDivBox">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="search" placeholder='Search Inventory LineItems' ng-model="invLineItems" class="search-input">
+          </label>
+          <i class="icon ion-close-round search-cross" ng-click="invLineItems = ''" ng-show="invLineItems.length > 0"></i>
+        </div>
+
+      	<ion-list>
+          <ion-item>
+            <div class="row">
+                <div class="col item-text-wrap"><b>Name</b></div>
+                <div class="col item-text-wrap"><b>Asset</b></div>
+                <div class="col item-text-wrap"><b>Product</b></div>
+                <div class="col item-text-wrap"><b>Lot Number</b></div>
+                <div class="col item-text-wrap"><b>Qunatity</b></div>
+            </div> 
+          </ion-item>
+      		<ion-item ng-repeat="lineItem in installAsset.lineItemRecords |filter:invLineItems| orderBy: 'Name'"">
+      			<div class="row">
+              <div class="col item-text-wrap">
+                <a href="#" ng-click="installAsset.fetchLineItem(lineItem.Id, lineItem.Name)">{{lineItem.Name}}</a>
+              </div>
+              
+              <div class="col item-text-wrap">
+                {{lineItem.MedConnectDev__Asset__r.Name}}
+              </div> 
+ 
+              <div class="col item-text-wrap">
+                {{lineItem.MedConnectDev__Product__r.Name}}
+              </div>  
+
+              <div class="col item-text-wrap">
+                {{lineItem.MedConnectDev__Lot_No__r.MedConnectDev__Lot_Number__c}}
+              </div>  
+
+              <div class="col item-text-wrap">
+                {{lineItem.MedConnectDev__Quantity__c}}
+              </div>  
+
+            </div>
+      		</ion-item>
+  		  </ion-list>
+
+      <div class="card" ng-show="installAsset.lineItemRecords.length == 0">
+        <div class="item item-text-wrap">
+            <p>No inventory line items found</p>
+        </div>
+      </div>
+
+   </ion-content>
+   
+</ion-modal-view>

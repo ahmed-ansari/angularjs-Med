@@ -1,0 +1,111 @@
+<ion-view title="Repair Analysis Installation">
+	<ion-content>
+		<div class="install-asset">
+			<div class="row detail-top-blue-banner white-btm-border module-detail">
+	            <div class="col">
+	                <h3>{{installAsset.RAName}}</h3>
+	            </div>
+        	</div>
+
+        	<div class="subHeader">
+        		<b>Selections</b>
+        	</div>
+
+        	<form name="installAsset.installForm" novalidate="" class="installForm">
+	        	<div class="row">
+	        		<div class="col-25 label-center">
+	        			Material BOM
+	        		</div>
+	        		<div class="col-75 pos_rel">
+	        			<label class="item-input item-floating-label prodLabel" ng-class="{ 'has-error' : installAsset.installForm.install_asset_materialBOM.$invalid && installAsset.installForm.install_asset_materialBOM.$dirty}">
+                            <span class="input-label"></span>
+                            <input type="text" id="install_asset_materialBOM" name="install_asset_materialBOM" ng-model="installAsset.materialBOMName" class="install_asset">
+                            <input type="hidden" ng-model="installAsset.materialBOMId"/>
+                        </label>
+                        <img src="assets/images/search_icon.png" class="search_icon" ng-click="installAsset.loadBOM()"></img>
+	        		</div>
+				</div>
+
+				<div class="row">
+	        		<div class="col-25 label-center">
+	        			Source Inventory
+	        		</div>
+	        		<div class="col-75 pos_rel">
+	        			<label class="item-input item-floating-label prodLabel" ng-class="{ 'has-error' : installAsset.installForm.install_asset_src_inventory.$invalid && installAsset.installForm.install_asset_src_inventory.$dirty}">
+                            <span class="input-label"></span>
+                            <input type="text" id="install_asset_src_inventory" name="install_asset_src_inventory" ng-model="installAsset.srcInventory" class="install_asset" required>
+                            <input type="hidden" ng-model="installAsset.srcInventoryId"/>
+                        </label>
+                        <img src="assets/images/search_icon.png" class="search_icon" ng-click="installAsset.loadSrcInventory()"></img>
+
+                        <div class="form-errors" ng-messages="installAsset.installForm.install_asset_src_inventory.$error" ng-show='installAsset.installForm.$submitted || installAsset.installForm.install_asset_src_inventory.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                        </div>
+
+	        		</div>
+				</div>
+
+				<div class="row">
+	        		<div class="col-25 label-center">
+	        			Destination Inventory
+	        		</div>
+	        		<div class="col-75 pos_rel">
+	        			<label class="item-input item-floating-label prodLabel">
+                            <span class="input-label"></span>
+                            <input type="text" id="install_asset_dest_inventory" name="install_asset_dest_inventory" ng-model="installAsset.destInventory" class="install_asset">
+                            <input type="hidden" ng-model="installAsset.destInventoryId"/>
+                        </label>
+                        <img src="assets/images/search_icon.png" class="search_icon" ng-click="installAsset.loadDestInventory()"></img>
+	        		</div>
+				</div>
+
+				<div class="row">
+	        		<div class="col-25 label-center">
+	        			Inventory Line Item
+	        		</div>
+	        		<div class="col-75 pos_rel">
+	        			<label class="item-input item-floating-label prodLabel" ng-class="{ 'has-error' : installAsset.installForm.install_asset_src_inventory.$invalid && installAsset.installForm.install_asset_src_inventory.$dirty}">
+                            <span class="input-label"></span>
+                            <input type="text" id="install_asset_inventory" name="install_asset_inventory" ng-model="installAsset.inventoryItem" class="install_asset" required>
+                            <input type="hidden" ng-model="installAsset.inventoryItemId"/>
+                        </label>
+                        <img src="assets/images/search_icon.png" class="search_icon" ng-click="installAsset.loadInventoryLineItem()"></img>
+
+                        <div class="form-errors" ng-messages="installAsset.installForm.install_asset_inventory.$error" ng-show='installAsset.installForm.$submitted || installAsset.installForm.install_asset_inventory.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                        </div>
+	        		</div>
+				</div>
+
+				<div class="row">
+	        		<div class="col-25 label-center">
+	        			Quantity
+	        		</div>
+	        		<div class="col-75">
+	        			<label class="item-input item-floating-label prodLabel" ng-class="{ 'has-error' : installAsset.installForm.install_asset_src_inventory.$invalid && installAsset.installForm.install_asset_src_inventory.$dirty}">
+                            <span class="input-label"></span>
+                            <input type="tel" id="install_asset_quantity" name="install_asset_quantity" ng-model="installAsset.quantity" class="install_asset" ng-pattern="/^[0-9]{1,9}$/" required>
+                        </label>
+                        <div class="form-errors" ng-messages="installAsset.installForm.install_asset_quantity.$error" ng-show='installAsset.installForm.$submitted || installAsset.installForm.install_asset_quantity.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Invalid Number <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                        </div>
+	        		</div>
+				</div>
+
+
+				<div class="row buttonTop">
+                    <div class="col">
+                        <button class="button themeBtn" ng-disabled="disableBtns" ng-click="installAsset.install(installAsset.installForm)"> Install </button> 
+                    </div>
+                    <div class="col">
+                        <button class="button button-outline button-assertive" ng-click="installAsset.backToRA()"> Cancel </button>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

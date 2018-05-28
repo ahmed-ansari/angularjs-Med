@@ -1,0 +1,479 @@
+.bom_chart {
+    text-align: center;
+}
+
+.module-detail {
+    h3 {
+        color: #fff;
+    }
+}
+
+table.google-visualization-orgchart-table {
+    margin: 0 auto;
+}
+
+div#chart_div {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.google-visualization-orgchart-node {
+    border: none !important;
+}
+
+.google-visualization-orgchart-lineleft {
+    border-left: 2px solid #3388dd;
+}
+
+.woActionButtons {
+    margin: 5%;
+}
+
+.leftMargin {
+    margin-left: 5%;
+}
+
+.rightPosition {
+    float: right;
+}
+
+#clearsignid,
+#setsignid {
+    display: none;
+}
+
+.popup-container .popup {
+    width: 300px
+}
+
+.timer-row {
+    border: 1px solid grey;
+    border-radius: 5px;
+    background: #e6e6e6;
+    b {
+        font-size: 18px;
+    }
+}
+
+.select_parent_width {
+    width: inherit;
+    height: 60px;
+    /*-webkit-appearance: menulist-button;*/
+    border: none;
+}
+
+.add-activity {
+    h3 {
+        color: #fff;
+    }
+    .checkbox input:before,
+    .checkbox .checkbox-icon:before {
+        border-color: #515151;
+    }
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .act-checkbox {
+        .item {
+            border: 0;
+        }
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+    }
+    .input-label {
+        display: inline;
+    }
+}
+
+.add-expense {
+    .checkbox input:before,
+    .checkbox .checkbox-icon:before {
+        border-color: #515151;
+    }
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .exp-checkbox {
+        .item {
+            border: 0;
+        }
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+    }
+    .input-label {
+        display: inline;
+    }
+}
+.add-quote {
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+    }
+    .input-label {
+        display: inline;
+    }
+}
+
+.add-repair-analysis {
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+    }
+    ::-webkit-input-placeholder {
+        color: #444444;
+    }
+    :-moz-placeholder {
+        /* Firefox 18- */
+        color: #444444;
+    }
+    ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #444444;
+    }
+    :-ms-input-placeholder {
+        color: #444444;
+    }
+}
+
+.wo-codes {
+    h3 {
+        padding: 10px;
+    }
+}
+
+.angucomplete-holder1 {
+    background: url("https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/search_button.png") 150px 0px no-repeat;
+}
+
+.create-tool {
+    checkbox input:before,
+    .checkbox .checkbox-icon:before {
+        border-color: #515151;
+    }
+    .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .exp-checkbox {
+        .item {
+            border: 0;
+        }
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+        position: static!important;
+    }
+    .search_icon {
+        vertical-align: middle;
+        width: 5%;
+        display: inline-block;
+        float: right;
+        position: absolute;
+        right: 0;
+        bottom: 1.6em;
+    }
+    input#create_tool_product {
+        width: 96%;
+        display: inline-block;
+        float: left;
+        vertical-align: middle;
+    }
+    .pos_rel {
+        position: relative;
+    }
+}
+
+.assign_tool {
+    label.item.item-checkbox {
+        border: none;
+        padding-left: 0;
+        margin-left: -0.6em;
+    }
+    ion-item.item-accordion.item {
+        margin: 0em 2em 0 2em;
+    }
+    ion-item.stable.item {
+        margin: 2em 2em 0 2em;
+    }
+    .downArrow {
+        float: right;
+        vertical-align: middle;
+        display: inline-block;
+        padding-top: 0.2em;
+    }
+    .accordion_hdr {
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+
+.zeroPadd {
+    padding: 0;
+}
+
+.assign_Btns {
+    padding-left: 2em;
+    padding-top: 1em;
+}
+
+.images {
+    background: url('../images/dropdown.png') no-repeat right #fff;
+    margin: 0.4em;
+    border-bottom: 1px solid #4CB2D0;
+}
+
+.custom-select {
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+.sign-img {
+    img {
+        width: 200px;
+    }
+}
+
+.wo-footer {
+    height: 10%;
+    padding-left: 2%;
+    padding-bottom: 2%
+}
+
+.height-60 {
+    height: percentage($number: 0.6);
+}
+
+.zeroRecordDiv {
+    text-align: center;
+}
+
+.detail-top-blue-banner {
+    h3 {
+        color: #fff;
+    }
+}
+
+.item-input {
+    textarea {
+        margin-top: 5px;
+    }
+}
+
+.whiteLink {
+    color: #fff !important;
+}
+
+.contact-detail {
+    a {
+        color: #fff !important;
+    }
+}
+
+.assign-user {
+    color: #444;
+}
+
+.activity-detail {
+    .item-note {
+        
+    }
+}
+
+label.item.item-checkbox.ng-valid.ng-not-empty, label.item.item-checkbox.ng-empty.ng-valid {
+    border: none!important;
+}
+
+.padMedLeft {
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+.medBtn {
+    font-size: 17px!important;
+}
+
+.relative {
+    position: relative!important;
+}
+
+.install-asset {
+    .subHeader {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+    }
+
+    .installForm {
+        padding: 10px;
+    }
+
+        .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .exp-checkbox {
+        .item {
+            border: 0;
+        }
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+        position: static!important;
+    }
+    .search_icon {
+        vertical-align: middle;
+        width: 3em;
+        display: inline-block;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 0.3em;
+    }
+    input.install_asset {
+        width: 96%;
+        display: inline-block;
+        float: left;
+        vertical-align: middle;
+    }
+    .pos_rel {
+        position: relative;
+    }
+}
+
+.uninstall-asset {
+    .subHeader {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+    }
+
+    .uninstallForm {
+        padding: 10px;
+    }
+
+        .item {
+        color: #464646;
+    }
+    .item-input {
+        border-bottom: 1px solid #ddd;
+    }
+    .button {
+        width: 125px;
+    }
+    .exp-checkbox {
+        .item {
+            border: 0;
+        }
+    }
+    .item-floating-label .input-label {
+        opacity: 1;
+        position: static!important;
+    }
+    .search_icon {
+        vertical-align: middle;
+        width: 3em;
+        display: inline-block;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 0.3em;
+    }
+    input.uninstall_asset {
+        width: 96%;
+        display: inline-block;
+        float: left;
+        vertical-align: middle;
+    }
+    .pos_rel {
+        position: relative;
+    }
+}
+
+.themeBtn {
+    background: #4CB2D0!important;
+    color: #fff!important;
+}
+
+.label-center {
+    margin-top: 1em;
+}
+
+.search-cross {
+    position: absolute;
+    top: 0.5em;
+    right: 0;
+    padding-right: 1em;
+}
+
+.search-input {
+    width: 100%!important;
+    padding-right: 4em!important;
+}
+
+.delete_icon {
+    width: 1.75em;
+}
+.mar-top-20 {
+    margin-top: 20px !important;
+    display: inline-block !important;
+}
+.opacity-true {
+    opacity : 1 !important;
+}
+
+.full-popover {
+    height: 340px !important;
+}
+
+.buttonTop {
+    padding-top: 2em!important;
+}
+
+.item-floating-label .input-label {
+        opacity: 1;
+    }
+    .input-label {
+        display: inline;
+    }
+
+.hLink {
+    text-decoration: underline!important;
+}

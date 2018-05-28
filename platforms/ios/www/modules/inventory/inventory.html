@@ -1,0 +1,110 @@
+<ion-view title="Inventory">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail subTopHdr">
+            <div class="col">
+                <h2 ng-bind="singleinventory.inventory.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subtmHdr">
+             <div class="col">
+                <p>Owner Name</p>
+                <b>
+                     {{::singleinventory.inventory.Owner.Name}}
+                </b>
+            </div>
+            <div class="col">
+                <p>Owner ID</p>
+                <b>
+                     {{::singleinventory.inventory.OwnerId}}
+                </b>
+            </div>
+            
+            <div class="col">
+                <p>Account</p>
+                <b>
+                     <a href="#/app/accounts/{{singleinventory.inventory
+.MedConnectDev__Account__c}}">{{::singleinventory.inventory.MedConnectDev__Owner_Account__r.Name}}</a>
+                </b>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="">Inventory Line Items</a>
+                            <a href="javascript:;" class=""> Inventory Transactions </a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <ion-list ng-show="singleinventory.InventoryLineItemsList.length > 0">
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Inventory Line Item Name</b></div>
+                                    <div class="col"><b>Product </b></div>
+                                    <div class="col"><b>Status</b></div>
+                                    <div class="col col-10"><b>Quantity</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll direction="y" class="scrollPtHt">
+                                <ion-item ng-repeat="InventoryLineItem in singleinventory.InventoryLineItemsList">
+                                    <div class="row">
+                                        <div class="col"><a href="#/app/inventoryItemDetail/{{InventoryLineItem.Id}}">{{::InventoryLineItem.Name}}</a></div>
+                                        <div class="col">
+                                            <a href="#/app/products/{{::InventoryLineItem.MedConnectDev__Product__c}}">{{::InventoryLineItem.MedConnectDev__Product__r.Name}}</a>
+                                        </div>
+                                        <div class="col">{{getVariableDataFromObject(InventoryLineItem,'Status__c')}}</div>
+                                        <div class="col col-10">{{getVariableDataFromObject(InventoryLineItem,'Quantity__c')}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleinventory.InventoryLineItemsList.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                     <ion-slide>
+                        <ion-list ng-show="singleinventory.InventoryTransactionLists.length > 0">
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Inventory Transaction ID</b></div>
+                                    <div class="col"><b>Source Inventory</b></div>
+                                    <div class="col"><b>Destination Inventory</b></div>
+                                    <div class="col col-10"><b>Type</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll style="display:inline">
+                                <ion-item ng-repeat="InventoryTransaction in singleinventory.InventoryTransactionLists">
+                                    <div class="row">
+                                        <div class="col"><a href="#/app/inventoryTransactionsDetail/{{InventoryTransaction.Id}}">{{InventoryTransaction.Name}}</a></div>
+                                        <div class="col">
+                                        <a href="#/app/inventory/{{InventoryTransaction.MedConnectDev__Source_Inventory__c}}">{{InventoryTransaction.MedConnectDev__Source_Inventory__r.Name}}</a></div>
+                                        <div class="col">
+                                          <a href="#/app/inventory/{{InventoryTransaction.MedConnectDev__Destination_Inventory__c}}"> {{InventoryTransaction.MedConnectDev__Destination_Inventory__r.Name}}
+                                          </a>
+                                           </div>
+                                        <div class="col col-10">{{InventoryTransaction.MedConnectDev__Type__c}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleinventory.InventoryTransactionLists.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

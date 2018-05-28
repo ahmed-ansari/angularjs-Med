@@ -1,0 +1,124 @@
+<ion-view title="Contact">
+    <!-- <ion-nav-buttons side="right">
+        <a class="button button-clear" href="#/app/edit-contact/{{singlecontact.contact.Id}}">Edit</a>     
+    </ion-nav-buttons> -->
+    <ion-tabs class="tabs-icon-top tabs-striped tabs-top tabs-background-positive tabs-color-light">
+        <ion-tab title="General" icon="ion-information-circled">
+            <ion-view view-title="General">
+                <ion-content class="has-header">
+                    <div class="list card">
+                        <div class="item">
+                            <h2>{{::singlecontact.contact.Name}}</h2>
+                            <p>{{::singlecontact.contact.Title}}</p>
+                        </div>
+                        <a class="item item-icon-left" href="tel:{{singlecontact.contact.Phone}}">
+                            <i class="icon ion-ios-telephone"></i>Call Office
+                            <p>{{::singlecontact.contact.Phone}}</p>
+                        </a>
+                        <a class="item item-icon-left" href="tel:{{singlecontact.contact.MobilePhone}}">
+                            <i class="icon ion-ios-telephone"></i>Call Mobile
+                            <p>{{::singlecontact.contact.MobilePhone}}</p>
+                        </a>
+                        <a class="item item-icon-left" href="sms:{{singlecontact.contact.MobilePhone}}">
+                            <i class="icon ion-ios-chatbubble"></i>SMS
+                            <p>{{::singlecontact.contact.MobilePhone}}</p>
+                        </a>
+                        <a class="item item-icon-left" href="mailto:{{singlecontact.contact.Email}}">
+                            <i class="icon ion-ios-email"></i>Email
+                            <p>{{::singlecontact.contact.Email}}</p>
+                        </a>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="Incidents" icon="ion-android-list">
+            <ion-view view-title="Home2">
+                <ion-content class="has-header">
+                    <ion-list>
+                        <ion-item>
+                            <div class="row">
+                                <div class="col"><b>Name</b></div>
+                                <div class="col"><b>Priority</b></div>
+                                <div class="col"><b>Status</b></div>
+                                <div class="col"><b>Subject</b></div>
+                            </div>
+                        </ion-item>
+                        <ion-item ng-repeat="incident in singlecontact.incidents">
+                            <div class="row">
+                                <div class="col">{{::incident.Name}}</div>
+                                <div class="col">{{::incident.MedConnectDev__Priority__c}}</div>
+                                <div class="col">{{::incident.MedConnectDev__Status__c}}</div>
+                                <div class="col">{{::incident.MedConnectDev__Subject__c}}</div>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                    <div class="card" ng-show="singlecontact.incidents.length == 0">
+                        <div class="item item-text-wrap">
+                            No Record Found!
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="Service Request" icon="ion-android-list">
+            <ion-view view-title="Home2">
+                <ion-content class="has-header">
+                    <ion-list>
+                        <ion-item>
+                            <div class="row">
+                                <div class="col"><b>Name</b></div>
+                                <div class="col"><b>Product Name</b></div>
+                                <div class="col"><b>Asset Name</b></div>
+                                <div class="col"><b>Status</b></div>
+                            </div>
+                        </ion-item>
+                        <ion-item ng-repeat="service_request in singlecontact.service_request">
+                            <div class="row">
+                                <div class="col">{{::service_request.Name}}</div>
+                                <div class="col">{{::service_request.MedConnectDev__Product_Name__c}}</div>
+                                <div class="col">{{::service_request.MedConnectDev__Asset__r.Name}}</div>
+                                <div class="col">{{::service_request.MedConnectDev__Processing_Status__c}}</div>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                    <div class="card" ng-show="singlecontact.service_request.length == 0">
+                        <div class="item item-text-wrap">
+                            No Record Found!
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="Open Activity" icon="ion-android-list">
+            <ion-view view-title="Home2">
+                <ion-content class="has-header">
+                    <ion-list>
+                        <ion-item>
+                            <div class="row">
+                                <div class="col"><b>Subject</b></div>
+                                <div class="col col-50"><b>Account Name</b></div>
+                                <div class="col"><b>Status</b></div>
+                                <div class="col"><b>Priority</b></div>
+                                <div class="col"><b>Activity Date</b></div>
+                            </div>
+                        </ion-item>
+                        <ion-item ng-repeat="open_activity in singlecontact.open_activity">
+                            <div class="row">
+                                <div class="col">{{::open_activity.Subject}}</div>
+                                <div class="col col-50">{{::open_activity.Account.Name}}</div>
+                                <div class="col">{{::open_activity.Status}}</div>
+                                <div class="col">{{::open_activity.Priority}}</div>
+                                <div class="col">{{::open_activity.ActivityDate}}</div>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                    <div class="card" ng-show="singlecontact.open_activity.length == 0">
+                        <div class="item item-text-wrap">
+                            No Record Found!
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

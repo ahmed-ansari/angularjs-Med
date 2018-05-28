@@ -1,0 +1,104 @@
+<ion-view title="Assign Tools">
+	<ion-nav-buttons side="right">
+    	  <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content>
+    	<div class="assign_tool">
+    		<ion-list>
+        <div>
+            <ion-item class="stable" ng-click="assignTool.toggleSuggested()">
+              <span class="accordion_hdr">Suggested Tools</span>
+              
+              <img ng-src="assets/images/dropdown.png" class="downArrow" ng-show="assignTool.isSuggestedOn">
+              <img ng-src="assets/images/dropright.png" class="downArrow" ng-show="!assignTool.isSuggestedOn">
+            </ion-item>
+
+            <ion-item class="item-accordion" ng-show="assignTool.isSuggestedOn && assignTool.suggestedToolList.length > 0">
+              <div class="row assignToolHdr">
+                <div class="col col-10"></div>
+                <div class="col col-20"><b>Tool ID</b></div>
+                <div class="col col-30"><b>Tool Name</b></div>
+                <div class="col col-40"><b>Description</b></div>
+              </div>
+
+            <ion-scroll direction="y" style="height:400px">  
+              <div class="row" ng-repeat = "list in assignTool.suggestedToolList">
+                  <div class="col col-10">
+                    <ion-checkbox ng-model="isSuggChecked[$index]" ng-click="toggleSuggestedSel(list)" value={{list}}></ion-checkbox>
+                  </div>
+                  <div class="col col-20 item-text-wrap">{{list.Name}}</div>
+                  <div class="col col-30 item-text-wrap">{{list.MedConnectDev__Tool_Name__c}}</div>
+                  <div class="col col-40 item-text-wrap">{{list.MedConnectDev__Description__c}}</div>
+              </div>
+            </ion-scroll>
+            </ion-item> 
+
+            <ion-item ng-show="assignTool.isSuggestedOn && assignTool.suggestedToolList.length == 0">
+              <div ng-show="assignTool.suggestedToolList.length == 0" class="zeroRecordDiv">
+                <div class="item item-text-wrap">
+                    No Record Found!
+                </div>
+              </div>
+            </ion-item> 
+
+        </div>
+
+
+        <div>
+            <ion-item class="stable" ng-click="assignTool.toggleOthers()">
+              <span class="accordion_hdr">Other Tools</span>
+              <img ng-src="assets/images/dropdown.png" class="downArrow" ng-show="assignTool.isOthersOn">
+              <img ng-src="assets/images/dropright.png" class="downArrow" ng-show="!assignTool.isOthersOn">
+            </ion-item>
+
+            <ion-item class="item-accordion" ng-show="assignTool.isOthersOn && assignTool.othersToolList.length > 0">
+              <div class="row">
+                <div class="col col-10"></div>
+                <div class="col col-20"><b>Tool ID</b></div>
+                <div class="col col-30"><b>Tool Name</b></div>
+                <div class="col col-40"><b>Description</b></div>
+              </div>
+
+              <ion-scroll direction="y" style="height:400px">
+                <div class="row" ng-repeat = "list in assignTool.othersToolList">
+                    <div class="col col-10">
+                      <ion-checkbox ng-model="isOthersChecked[$index]" value={{list}}></ion-checkbox>
+                    </div>
+                    <div class="col col-20 item-text-wrap">{{list.Name}}</div>
+                    <div class="col col-30 item-text-wrap">{{list.MedConnectDev__Tool_Name__c}}</div>
+                    <div class="col col-40 item-text-wrap">{{list.MedConnectDev__Description__c}}</div>
+                </div>
+              </ion-scroll>
+
+            </ion-item> 
+
+            <ion-item ng-show="assignTool.isOthersOn && assignTool.othersToolList.length == 0">
+              <div ng-show="assignTool.othersToolList.length == 0" class="zeroRecordDiv">
+                <div class="item item-text-wrap">
+                    No Record Found!
+                </div>
+              </div>
+            </ion-item>
+        </div>
+      </ion-list>
+
+        <div class="row zeroPadd assign_Btns">
+          <div class="col zeroPadd">
+              <button class="button button-balanced" ng-click="assignTool.AssignSelectedTool()">
+                Assign
+              </button>
+          </div>
+          <div class="col zeroPadd">
+              <button class="button button-outline  button-assertive" ng-click="assignTool.backToActivityList()">
+                Cancel
+              </button>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+    	</div>
+
+	</ion-content>
+</ion-view>

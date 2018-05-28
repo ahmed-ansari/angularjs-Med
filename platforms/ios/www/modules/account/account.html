@@ -1,0 +1,226 @@
+<ion-view title="Account">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail NameHdr">
+            <div class="col">
+                <h2 ng-bind="singleaccount.account.Name"></h2>
+            </div>
+        </div>
+         <div class="row detail-top-blue-banner contact-detail subDetailsHdr">            
+            <div class="col col-30">
+                <p>Account</p>
+                <b ng-bind="singleaccount.account.AccountNumber"></b>
+            </div>          
+            <div class="col col-30">
+                <p>Phone</p>
+                <b ng-bind="singleaccount.account.Phone"></b>
+            </div>
+            <div class="col col-30">
+               <p>Website</p>
+                <a class="hyperLinks" ng-bind="singleaccount.account.Website" ng-click="singleaccount.openWebLink(singleaccount.account.Website)"></a>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Contacts</a>
+                            <a href="javascript:;" class="ion-home1">Incidents</a>
+                            <a href="javascript:;" class="ion-home1">Service Request</a>
+                            <a href="javascript:;" class="ion-home1">Service Contract</a>
+                            <a href="javascript:;" class="ion-home1">Asset</a>
+                            <a href="javascript:;" class="ion-home1">Open Activities</a>
+                            <a href="javascript:;" class="ion-home1">Activity History</a>
+                            <a href="javascript:;" class="ion-home1">Notes</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <ion-scroll class="accScrollGI" direction="y">
+                            <div ng-include src="'modules/account/generalInfo.html'"></div>
+                        </ion-scroll>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list>
+                            <ion-item>
+                                <div class="row titleHdr">
+                                    <div class="col"><b>Contact Name</b></div>
+                                    <div class="col"><b>Department</b></div>
+                                    <div class="col"><b>Mobile</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll class="accScroll" direction="y">
+                                <ion-item ng-repeat="contact in singleaccount.acontacts">
+                                    <div class="row">
+                                        <div class="col">
+                                            {{contact.Name}}
+                                    </div>
+                                        <div class="col">{{contact.Department}}</div>
+                                        <div class="col">{{contact.Phone}}</div>
+                                    </div>
+                                </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleaccount.acontacts.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list>
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Incident</b></div>
+                                    <div class="col"><b>Date Opened</b></div>
+                                    <div class="col"><b>Status</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll class="accScroll" direction="y">
+                            <ion-item ng-repeat="incident in singleaccount.aincidents">
+                                <div class="row">
+                                    <div class="col"> {{incident.Name}}</div>
+                                    <div class="col">{{incident.LastActivityDate}}</div>
+                                    <div class="col">{{getVariableDataFromObject(incident,'Status__c')}}</div>
+                                </div>
+                            </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleaccount.aincidents.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list>
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Service Request Number</b></div>
+                                    <div class="col"><b>Processing Status</b></div>
+                                    <div class="col"><b>Service Request Type</b></div>
+                                    <div class="col"><b>Billable</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll class="accScroll" direction="y">
+                            <ion-item ng-repeat="service_request in singleaccount.service_request">
+                                <div class="row">
+                                    <div class="col">{{service_request.Name}}</div>
+                                    <div class="col">{{getVariableDataFromObject(service_request,'Processing_Status__c')}}</div>
+
+                                    <div class="col">{{getVariableDataFromObject(service_request, 'SR_Type__c')}}</div>
+                                    
+                                    <div class="col">{{getVariableDataFromObject(service_request,'Billable__c')}}</div>
+                                </div>
+                            </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleaccount.service_request.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list>
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col item-text-wrap"><b>Service Contract</b></div>
+                                    <div class="col item-text-wrap"><b>Service Contract Number</b></div>
+                                    <div class="col item-text-wrap"><b>Active</b></div>
+                                    <div class="col item-text-wrap"><b>Contract Date</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll class="accScroll" direction="y">
+                            <ion-item ng-repeat="service_contract in singleaccount.service_contract">
+                                <div class="row">
+                                    <div class="col item-text-wrap">
+                                        <a ng-href="#/app/servicecontract/{{service_contract.Id}}">
+                                            {{service_contract.Name}}
+                                            </a>
+                                    </div>
+                                    <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract,'Contract_Number__c')}}</div>
+                                    <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract,'Active__c')}}</div>
+                                    <div class="col item-text-wrap">{{getVariableDataFromObject(service_contract, 'Contract_Signed__c') | date:'MM/dd/yyyy' }}</div> 
+                                </div>
+                            </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleaccount.service_contract.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list>
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Asset Name</b></div>
+                                    <div class="col"><b>Product </b></div>
+                                    <div class="col"><b>Serial No </b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll class="accScroll" direction="y">
+                            <ion-item ng-repeat="asset in singleaccount.asset">
+                                <div class="row">
+                                    <div class="col">
+                                        {{asset.Name}}
+                                    </div>
+                                    <div class="col">
+                                        {{getVariableDataFromObject(asset,'Product__r','Name')}}
+                                    </div>
+                                    <div class="col">{{getVariableDataFromObject(asset,'Serial_No__c')}}</div>
+                                </div>
+                            </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleaccount.asset.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-list>
+                            <ion-item>
+                                <div class="row">
+                                    <div class="col"><b>Subject</b></div>
+                                    <div class="col col-50"><b>Name</b></div>
+                                    <div class="col"><b>Related to</b></div>
+                                </div>
+                            </ion-item>
+                            <ion-scroll class="accScroll" direction="y">
+                            <ion-item ng-repeat="open_activity in singleaccount.open_activity">
+                                <div class="row">
+                                    <div class="col">{{open_activity.Subject}}</div>
+                                    <div class="col col-50">{{open_activity.Who.Name}}</div>
+                                    <div class="col">{{open_activity.Account.Name}}</div>
+                                </div>
+                            </ion-item>
+                            </ion-scroll>
+                        </ion-list>
+                        <div class="card" ng-show="singleaccount.open_activity.length == 0">
+                            <div class="item item-text-wrap">
+                                No Record Found!
+                            </div>
+                        </div>
+                    </ion-slide>                   
+                    <ion-slide>
+                        <div ng-include src="'modules/account/account_history.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div ng-include src="'modules/account/notes_attachment.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

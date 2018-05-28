@@ -1,0 +1,27 @@
+<ion-scroll direction="y" class="scrollPtHt">
+<div class="list">
+    <div class="item">
+        Work Order ID <span class="item-note" ng-bind="singleRA.repair_analysis.MedConnectDev__Work_Order__r.Name" style="color:black"></<span>
+    </div>
+
+    <div class="item">
+        Part Name <span class="item-note"><a href="#/app/products/{{singleRA.repair_analysis.MedConnectDev__Part_Name_Product__c}}" >{{singleRA.repair_analysis.MedConnectDev__Part_Name_Product__r.Name}}</a></span>
+    </div>
+    <div class="item">
+        Quantity <span class="item-note" ng-bind="singleRA.repair_analysis.MedConnectDev__Quantity__c">
+        </span>
+    </div> 
+    <div class="item">
+        Action <span class="item-note" ng-bind="singleRA.repair_analysis.MedConnectDev__Action__c">
+        </span>
+    </div>
+    <div class="item">
+        Status <span class="item-note" ng-bind="singleRA.repair_analysis.MedConnectDev__Status__c">
+        </span>
+    </div>
+    <div class="item item-divider">
+        Comments
+    </div>
+    <span class="item item-text-wrap" ng-bind="singleRA.repair_analysis.MedConnectDev__Comments__c"></span>
+</div>
+</ion-scroll>

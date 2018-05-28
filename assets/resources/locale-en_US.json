@@ -1,0 +1,40 @@
+{
+	"calendar.index.calendar" : "Calendar",
+	"calendar.index.map" : "Map",
+	"calendar.index.day" : "Day",
+	"calendar.index.week" : "Week",
+	"calendar.index.month" : "Month",
+
+	"contact.contact-list.contacts": "Contacts",
+	"contact.contact-list.search-contact": "Search Contact",
+
+	"nav.nav.contacts" : "Contacts",
+	"nav.nav.accounts" : "Accounts",
+	"nav.nav.products" : "Products",
+	"nav.nav.assets" : "Assets",
+	"nav.nav.inventory" : "Inventory",
+	"nav.nav.calendar" : "Calendar",
+	"nav.nav.setting" : "Settings",
+	"nav.nav.logout" : "Logout",
+
+	"setting.index.setting" : "Settings",
+	"setting.index.offline-data": "Offline Data",
+	"setting.index.sync": "Sync",
+	"setting.index.language": "Language",
+
+
+	"setting.pending-rec.no-pending-record": "No Pending Records!",
+	"setting.pending-rec.selected": "Selected",
+	"setting.success-rec.last-synced": "Last Synced",
+	"setting.success-rec.no-success-record": "No Success Records!",
+	"setting.success-rec.reason": "Reason!",
+	"setting.success-rec.no-failed-record": "No Failed Records!",
+	"setting.sync-setting.filter": "Filter",
+	"setting.sync-setting.sync": "Sync",
+	"setting.sync-setting.cancel": "Cancel",
+	"setting.offline-data.pending-queue": "Pending Queue",
+	"setting.offline-data.success-log": "Success Log",
+	"setting.offline-data.failure-log": "Failure Log",
+	"setting.filter.day": "day",
+	"setting.filter.days": "days"
+  }

@@ -1,0 +1,62 @@
+<ion-view view-title="Service Contract">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-items>
+                <ul class="list">
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>Name</b></div>
+                            <div class="col">{{servicecontract.service[0].Name}}</div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>Contract Number</b></div>
+                            <div class="col">{{servicecontract.service[0].MedConnectDev__Contract_Number__c}}</div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>Contract Duration</b></div>
+                            <div class="col">{{servicecontract.service[0].MedConnectDev__Contract_Duration_Months__c}}</div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>Weeks ot Renewal</b></div>
+                            <div class="col">{{servicecontract.service[0].MedConnectDev__Weeks_To_Renewal__c}}</div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>Start Date</b></div>
+                            <div class="col">{{servicecontract.service[0].MedConnectDev__Start_Date__c}}</div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>End Date</b></div>
+                            <div class="col">{{servicecontract.service[0].MedConnectDev__End_Date__c}}</div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="row">
+                            <div class="col"><b>Payment terms</b></div>
+                            <div class="col">{{servicecontract.service[0].MedConnectDev__Payment_Terms__c}}</div>
+                        </div>
+                    </li>
+                </ul>
+                </ion-item>
+        </ion-list>
+        <div class="card" ng-show="servicecontract.service[0].length == 0">
+            <div class="item item-text-wrap">
+                No Record Found!
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

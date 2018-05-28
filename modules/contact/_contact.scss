@@ -1,0 +1,74 @@
+.item-module {
+    // padding: 120px;
+    a {
+        text-decoration: none;
+    }
+    .icon {
+        font-size: 14px !important;
+        align-items: baseline;
+        padding-top: 2%;
+    }
+    .module-street {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90%;
+    }
+    .module-img {
+        width: 65%;
+    }
+    .module-img {
+        text-align: center;
+    }
+    .module-street {
+        color: #7a7b7a;
+    }
+    .module-number {
+        color: #3e3e3e;
+        font-size: 12px;
+    }
+    .module-website {
+        color: #3e3e3e;
+        font-size: 12px;
+    }
+    .module-name {
+        color: #5d737e;
+    }
+    .module-div {
+        display: block;
+    }
+    h2 {
+        font-size: 18px;
+        color: #3e3e3e;
+    }
+    .button {
+        color: $activeBlue !important;
+        background: #fff;
+    }
+}
+    
+.bar-header {
+    .ion-close-round {
+        margin-left: -12%;
+        font-size: 24px;
+        color: #4bb2ce !important;
+        padding: 6px 15px;
+        margin-top: 20px!important;
+    }
+}
+    
+.white-btm-border {
+    border: 1px solid #fff;
+}
+
+.contact-detail h2 {
+    display: inline;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.fax a {
+    text-decoration: none!important;
+    color: black!important;
+}

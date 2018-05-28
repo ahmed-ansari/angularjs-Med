@@ -1,0 +1,47 @@
+.item-product {
+    // padding: 120px;
+a {
+    text-decoration: none;
+}
+.icon {
+    font-size: 14px !important;
+    align-items: baseline;
+    padding-top: 2%;
+}
+.button{
+	color: $activeBlue !important;
+    background: #fff;
+}
+}
+
+.listHdrBar {
+    display: block!important;
+    padding-top: 0px!important;
+}
+
+.noMarginTop {
+    margin-top: 0!important;
+}
+
+.searchDivBox {
+    margin-top: 5px!important;
+}
+
+label.item-input-wrapper.textbox-search.searchDivBox {
+    margin-top: 5px!important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top:5px!important;
+}
+
+.search-bar .item-input-wrapper {
+    background: none;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+
+

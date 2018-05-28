@@ -1,0 +1,45 @@
+<ion-view title='Inventory'>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar-light bar-subheader">
+        <div class="bar bar-header item-input-inset listHdrBar inv-bar-header">
+            <div class="searchDivBox">
+                <label class="item-input-wrapper textbox-search searchDivBox">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="search" placeholder='Search Inventory' ng-model="inventorylist.searchinventory" />
+
+                </label>
+                <i class="icon ion-close-round" ng-click="inventorylist.searchinventory = ''" ng-show="inventorylist.searchinventory.length > 0"></i>
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <br>
+        <br>
+        <ion-list>
+            <ion-item ng-repeat="inventory in inventorylist.inventory | filter:inventorylist.searchinventory | orderBy: 'Name'" class="item-avatar-left1 item-icon-right1 item-button-right1 item-module">
+                <div class="row">
+                    <div class="col">
+                        <a href="#/app/inventory/{{inventory.Id}}" class="module-div">
+                            <h2 href="#/app/inventory/{{inventory.Id}}" ng-bind="inventory.Name"></h2>
+                        </a>
+                    </div>
+                </div>
+            </ion-item>
+            <div class="card " ng-show="(inventorylist.inventory | filter:inventorylist.searchinventory).length==0 ">
+                 <div class="item item-text-wrap " ng-bind="inventorylist.no_inventory" ng-hide="inventorylist.errorMessageStatus"></div>
+                <div class="item item-text-wrap " ng-bind="inventorylist.errorMessage" ng-show="inventorylist.errorMessageStatus"> </div>
+            </div>
+            <div class="card " ng-show="!inventorylist.inventory ">
+                <div class="item item-text-wrap " ng-bind="inventorylist.no_inventory" ng-hide="inventorylist.errorMessageStatus"></div>
+                <div class="item item-text-wrap " ng-bind="inventorylist.errorMessage" ng-show="inventorylist.errorMessageStatus"> </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

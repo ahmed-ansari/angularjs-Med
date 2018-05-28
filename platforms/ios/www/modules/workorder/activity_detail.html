@@ -1,0 +1,52 @@
+<div class="activity-detail">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <div class="list">
+
+        <div class="item">
+            Work Order <span class="item-note" style="color: #000;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Work_Order__r.Name}}</span>
+        </div>
+        <div class="item">
+            Type <span class="item-note" style="color: #000;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Type__c}}</span>
+        </div>
+        <div class="item">
+            Priority <span class="item-note" style="color: #000;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Priority__c}}</span>
+        </div>
+        <div class="item">
+            Status <span class="item-note" style="color: #000;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Status__c}}</span>
+        </div>
+        <div class="item">
+            Billable <span class="item-note" style="color: #000;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Billable__c}}</span>
+        </div>
+        <div class="item">
+            Start Time <span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Start_Time__c | date:'medium'}}</span>
+        </div>
+        <div class="item">
+            End Time <span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__End_Time_formula__c | date:'medium'}}</span>
+        </div>
+        <div class="item">
+            Travel Time  (mins)<span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Travel_Time_mins__c}}</span>
+        </div>
+        <div class="item">
+            Training Time (mins)<span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Training_Time_mins__c}}</span>
+        </div>
+        <div class="item">
+            Labor Time (mins)<span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Labor_Time_mins__c}}</span>
+        </div>
+        <div class="item">
+            Wait Time (mins)<span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Wait_Time_mins__c}}</span>
+        </div>
+        <div class="item">
+            Additional Time (mins)<span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Additional_Time_mins__c}}</span>
+        </div> 
+        <div class="item">
+            Time Outside Working Hours (mins)<span class="item-note" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Time_outside_Working_Hours_mins__c}}</span>
+        </div>
+        <div class="item">
+            Description <span class="item-note item-text-wrap" style="color: #000 !important;display: block;font-size: 16px !important;" ng-style="{'color': '#000','display': 'block','font-size': '16px !important'}">{{singleActivity.activity.MedConnectDev__Description__c}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<ion-view title="Work Order">
+    <ion-nav-buttons side="right">
+        <span class="step size-32">
+        	<i class="icon ion-grid" ng-click="singleWorkOrder.popover.show($event)"></i>        
+    	</span>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="add-activity">
+            <form name="activity.activityForm" novalidate="" ng-submit="activity.activitySave(activity.activityForm,act)">
+                <div class="row">
+                    <div class="col">
+                        <select name="type" id="type" class="select_parent_width" ng-model="act.type">
+                            <option value="">Type</option>
+                            <option value="Steps">Steps</option>
+                            <option value="Instructions">Instructions</option>
+                            <option value="Items">Items</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="priority" id="priority" class="select_parent_width" ng-model="act.priority">
+                            <option value="">Priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="status" id="status" class="select_parent_width" ng-model="act.status">
+                            <option value="">Status</option>
+                            <option value="Not Started">Not Started</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Complete">Complete</option>
+                            <option value="Assigned">Assigned</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="Pending Approval">Pending Approval</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.start_time.$invalid && activity.activityForm.start_time.$dirty}">
+                            <span class="input-label">Start Time</span>
+                            <input type="datetime-local" name="start_time" ng-model="act.start_time" required>
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.start_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.start_time.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.end_time.$invalid && activity.activityForm.end_time.$dirty}">
+                            <span class="input-label">End Time</span>
+                            <input type="datetime-local" name="end_time" ng-model="act.end_time" required>
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.end_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.end_time.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col act-checkbox">
+                        <ion-checkbox ng-model="act.billable">Billable</ion-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.travel_time.$invalid && activity.activityForm.travel_time.$dirty}">
+                            <span class="input-label">Travel Time</span>
+                            <input type="text" name="travel_time" ng-model="act.travel_time" ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.travel_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.travel_time.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.labor_time.$invalid && activity.activityForm.labor_time.$dirty}">
+                            <span class="input-label">Labor Time</span>
+                            <input type="text" name="labor_time" ng-model="act.labor_time" ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.labor_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.labor_time.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.wait_time.$invalid && activity.activityForm.wait_time.$dirty}">
+                            <span class="input-label">Wait Time</span>
+                            <input type="text" name="wait_time" ng-model="act.wait_time" ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.wait_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.wait_time.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.training_time.$invalid && activity.activityForm.training_time.$dirty}">
+                            <span class="input-label">Training Time</span>
+                            <input type="text" name="training_time" ng-model="act.training_time" ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.training_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.training_time.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.additional_time.$invalid && activity.activityForm.additional_time.$dirty}">
+                            <span class="input-label">Addtional Time</span>
+                            <input type="text" name="additional_time" ng-model="act.additional_time" required ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.additional_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.additional_time.$dirty'>
+                            <div class="form-error" ng-message="required">This field is required <i class="ion-information-circled"></i> </div>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                         <label class="item-input item-floating-label" ng-class="{ 'has-error' : activity.activityForm.outside_time.$invalid && activity.activityForm.outside_time.$dirty}">
+                            <span class="input-label">Time Outside Waiting Hours (mins)</span>
+                            <input type="text" name="outside_time" ng-model="act.outside_time" ng-pattern="/^[0-9]{1,7}$/">
+                        </label>
+                        <div class="form-errors" ng-messages="activity.activityForm.outside_time.$error" ng-show='activity.activityForm.$submitted || activity.activityForm.outside_time.$dirty'>
+                            <div class="form-error" ng-message="pattern"> Not Valid Number <i class="ion-information-circled"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item-input item-floating-label">
+                            <span class="input-label">Description</span>
+                            <textarea name="" id="" cols="30" rows="5" ng-model="act.description"></textarea>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="button button-positive" value="Save">
+                        <!-- ng-disabled="activity.activityForm.$invalid || activity.activityForm.$pending" -->
+                    </div>
+                    <div class="col">
+                        <button class="button button-outline  button-assertive">
+                            Cancel
+                        </button>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

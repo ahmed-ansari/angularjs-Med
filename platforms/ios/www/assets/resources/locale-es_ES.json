@@ -1,0 +1,12 @@
+{
+	"contact.contact-list.contacts": "Contactos",
+	"contact.contact-list.search-contact": "Seach Contacto",
+
+	"nav.nav.contacts" : "Contactos",
+	"nav.nav.accounts" : "Cuentas",
+	"nav.nav.calendar" : "Calendario",
+	"nav.nav.setting" : "Ajustes",
+
+	"setting.index.setting" : "Ajuste",
+	"setting.index.language": "Idioma"
+}

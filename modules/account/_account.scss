@@ -1,0 +1,86 @@
+#Account_chart_div {
+    .google-visualization-orgchart-lineleft {
+        border-left: 2px solid #3388dd;
+    }
+    .google-visualization-orgchart-node {
+        box-shadow: none;
+        div {
+            padding: 10px;
+        }
+    }
+}
+
+.ellipsis {
+    text-overflow: ellipsis;   
+    overflow: hidden;
+    display:block;
+}
+
+.acc_competitors {
+    padding: 0 5%;
+}
+
+.tabs_head {
+    padding: 2% 5% 0 5%;
+}
+
+.red-cirle {
+    color: red;
+}
+
+.green-cirle {
+    color: green;
+}
+
+.amber-cirle {
+    color: #ffbf00;
+}
+
+.color-legends {
+    padding: 10px;
+    .legend {
+        list-style: none;
+        clear: both
+    }
+    .legend li {
+        float: left;
+        margin-right: 10px;
+        width: 180px;
+        font-size: 13px
+    }
+    .legend span {
+        border: 1px solid #ccc;
+        float: left;
+        width: 30px;
+        height: 15px;
+        margin: 2px;
+    }
+    /* legend colors */
+    .legend .gen-acc {
+        background-color: PaleGreen;
+    }
+    .legend .idn-grp-name {
+        background-color: Gold;
+    }
+    .legend .curr-acc {
+        background-color: MistyRose;
+    }
+    .legend .bill-acc {
+        background-color: PaleTurquoise;
+    }
+    .legend .pur-acc {
+        background-color: LightCyan;
+    }
+    .legend .ship-acc {
+        background-color: #C9DAF9;
+    }
+}
+
+.phoneIcon {
+    width: 27%;
+}
+
+.blue-text {
+    color:blue !important;
+}
+

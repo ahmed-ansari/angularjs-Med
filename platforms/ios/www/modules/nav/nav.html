@@ -1,0 +1,59 @@
+<ion-side-menus>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-content class="has-header">
+            <ion-list>
+
+               <!--  <div ng-repeat="navigation in nav.mappingArr">
+                    <ion-item menu-close ui-sref="{{navigation.url}}" ui-sref-active="active-link">
+                        <span class="menu-icons"><img src="assets/images/{{navigation.img}}" alt="{{navigation.type}}"/> </span>{{navigation.type}} {{"setting.index.offline-data" | translate}}
+                    </ion-item>
+                </div> -->
+
+                <ion-item menu-close ui-sref="app.calendar" ui-sref-active="active-link">
+                        <span class="menu-icons">
+                           <span class="step size-21"><i class="icon ion-calendar"></i></span> 
+                        </span>{{"nav.nav.calendar" | translate}}
+                </ion-item>
+
+                <ion-item menu-close ui-sref="app.contactlist" ui-sref-active="active-link">
+                        <span class="menu-icons"> <span class="step size-21"><i class="icon ion-person"></i></span>  </span>{{"nav.nav.contacts" | translate}}
+                </ion-item>
+
+                 <ion-item menu-close ui-sref="app.accountlist" ui-sref-active="active-link">
+                        <span class="menu-icons"><span class="step size-21"><i class="icon ion-android-contact"></i></span> </span>{{"nav.nav.accounts" | translate}}
+                </ion-item>
+
+                <ion-item menu-close ui-sref="app.productlist" ui-sref-active="active-link">
+                        <span class="menu-icons"><span class="step size-21"><i class="icon ion-cube"></i></span> </span>{{"nav.nav.products" | translate}}
+                </ion-item>
+
+                <ion-item menu-close ui-sref="app.assetlist" ui-sref-active="active-link">
+                        <span class="menu-icons"><span class="step size-21"><i class="icon ion-ios-albums"></i></span> </span>{{"nav.nav.assets" | translate}}
+                </ion-item>
+
+                <ion-item menu-close ui-sref="app.inventorylist" ui-sref-active="active-link">
+                        <span class="menu-icons"><span class="step size-21"><i class="icon ion-folder"></i></span> </span>{{"nav.nav.inventory" | translate}}
+                </ion-item>
+
+                  <ion-item menu-close ui-sref="app.settings" ui-sref-active="active-link">
+                        <span class="menu-icons"><span class="step size-21"><i class="icon ion-gear-b"></i></span> </span>{{"nav.nav.setting" | translate}}
+                </ion-item>
+
+
+                <ion-item menu-close ng-click="nav.logout()" ui-sref="#">
+                    <span class="menu-icons"><span class="step size-21"><i class="icon ion-log-out"></i></span> </span></span> {{"nav.nav.logout" | translate}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

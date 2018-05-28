@@ -1,0 +1,127 @@
+<ion-view title="Service Contract">
+    <ion-nav-buttons side="right">
+        <div syncup></div>
+        <div offline></div>
+        <div username></div>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+        <div class="row detail-top-blue-banner white-btm-border contact-detail NameHdr">
+            <div class="col">
+                <h2 ng-bind="servicecontract.service.Name"></h2>
+            </div>
+        </div>
+        <div class="row detail-top-blue-banner contact-detail subDetailsHdr">
+            <div class="col col-30">
+                <span class="step size-18"><i class="icon ion-android-compass"></i></span>
+                <span><b ng-bind="servicecontract.service.MedConnectDev__Contract_Number__c"></b></span>
+            </div>
+            <div class="col col-30">
+                <span class="step size-18"><i class="icon ion-android-compass"></i></span>
+                <a class="hyperLinks" href="#/app/accounts/{{servicecontract.service.MedConnectDev__Account__c}}"><b ng-bind="servicecontract.service.MedConnectDev__Account__r.Name"></b></a>
+            </div>
+        </div>
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide1>
+                        <ion-scroll direction="y" class="scrollAtHt">
+                            <div class="list">
+                                <div class="item item-divider">
+                                    Information
+                                </div>
+                                 <div class="item">
+                                    Service/Maintenance Contract Name<span class="item-note">{{servicecontract.service.Name}}</span>
+                                </div>
+                                <div class="item">
+                                    Contract Number<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Contract_Number__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Active<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Active__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    SLA Terms<span class="item-note">{{servicecontract.service.MedConnectDev__SLA_Terms__r.Name}}</span>
+                                </div>
+                                <div class="item">
+                                    Contract Signed<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Contract_Signed__c')}}</span>
+                                </div>
+                                <div class="item item-divider">
+                                    Renewal Information
+                                </div>
+                                <div class="item">
+                                    Renewal Number<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Renewal_Number_View__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Renewal Date<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Renewal_Date__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Weeks To Renewal<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Weeks_To_Renewal__c')}}</span>
+                                </div>
+                                <div class="item item-divider">
+                                    Contract Details
+                                </div>
+                                <div class="item">
+                                    Start Date<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Start_Date__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    End Date<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'End_Date__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Contract Price<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Contract_Price__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Discount %<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Discount__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Discounted Price<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Discounted_Price__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Service Contract Notes<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Service_Contract_Notes__c')}}</span>
+                                </div>
+                                <div class="item item-divider">
+                                    Enterprise Coverage
+                                </div>
+                                <div class="item">
+                                    All Products Covered<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'All_Products_Covered__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    All Sites Covered<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'All_Sites_Covered__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    All Services Covered<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'All_Services_Covered__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    All Contacts Covered<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'All_Contacts_Covered__c')}}</span>
+                                </div>
+                                <div class="item item-divider">
+                                    Additional Information
+                                </div>
+                                <div class="item">
+                                    Activation Notes<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Activation_Notes__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Cancellation Notes<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Cancelation_Notes__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Renewal Notes<span class="item-note">{{getVariableDataFromObject(servicecontract.service, 'Renewal_Notes__c')}}</span>
+                                </div>
+                                <div class="item">
+                                    Cancelled On<span class="item-note">{{servicecontract.service.MedConnectDev__Canceled_On__c | date:'medium'}}</span>
+                                </div> 
+                                <div class="item">
+                                    Cancelled By<span class="item-note">{{servicecontract.service.MedConnectDev__Canceled_By__r.Name}}</span>
+                                </div>
+                            </div>
+                        </ion-scroll>
+                    </ion-slide1>
+                </ion-slide-box>
+                </tab-slidse-box>
+        </div>
+    </ion-content>
+</ion-view>

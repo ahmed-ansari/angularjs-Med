@@ -1,0 +1,16 @@
+<ion-view view-title="Home">
+    <ion-content class="padding">
+        <div class="card">
+            <div class="item item-text-wrap">
+                {{::contactmap.contact.Name}}
+            </div>
+            <p style="text-indent:10px">
+                &nbsp;&nbsp;{{::contactmap.contact.addr}}
+            </p>
+        </div>
+        <br>
+        <ng-map zoom="14" center="{{contactmap.contact.addr}}" style="height:90%">
+            <marker position="{{contactmap.contact.addr}}" title=" {{contactmap.contact.Name}}" animation="Animation.BOUNCE"></marker>
+        </ng-map>
+    </ion-content>
+</ion-view>

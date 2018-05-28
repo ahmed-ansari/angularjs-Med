@@ -1,0 +1,31 @@
+Account Details
+· Contact List
+SELECT Department,Id,MobilePhone,Name,Email,Phone,Speciality__c,Therapeutic_Area__c, Account.Name FROM Contact where AccountId='<AccountId>' And RecordTypeId != NULL
+
+MedConnectDev__Therapeutic_Area__c
+MedConnectDev__Institute_Speciality__c
+
+
+· Asset List
+SELECT Name,Date_Shipped__c,Installed_By__r.Name,Installed_Date__c,Product__r.Name,Serial_No__c,Service_Due_On__c,Type__c FROM Asset__c WHERE Account__c='<AccountId>'
+· Incidents List (Case in mvservice.com)
+SELECT Name,Contact__c,Contact__r.Name,CreatedDate,OwnerId,Owner.Name,Priority__c,Status__c,Subject__c FROM Incident__c WHERE Account__c='<AccountId>'
+· Service Request list (to be shared after development)
+· Open activity list
+SELECT (SELECT WhoId,Who.Name,Subject,AccountId,Account.Name,IsTask,Status,Priority,Owner.Name, ActivityDate FROM openactivities ORDER BY ActivityDate ASC, LastModifiedDate DESC) FROM Account  WHERE Id='<AccountId>'
+· Service contract list (to be shared after development)
+· Service contract details (to be shared after development)
+
+Contact Details
+· Incidents list (Case in mvservice.com)
+SELECT Name,CreatedDate,OwnerId,Owner.Name,Priority__c,Status__c,Subject__c FROM Incident__c WHERE Contact__c='<ContactId>'
+
+SELECT Name,CreatedDate,OwnerId,Owner.Name,MedConnectDev__Priority__c,MedConnectDev__Status__c,MedConnectDev__Subject__c FROM MedConnectDev__Incident__c WHERE MedConnectDev__Contact__c='0033600000IsvMrAAJ'
+
+0033600000IsvMrAAJ	John Martin
+
+
+· Service request list (to be shared after development)
+· Open Activity list
+SELECT (SELECT WhoId,Who.Name,Subject,AccountId,Account.Name,IsTask,Status,Priority,Owner.Name, ActivityDate FROM openactivities ORDER BY ActivityDate ASC, LastModifiedDate DESC) FROM Contact  WHERE Id='<ContactId>'
+

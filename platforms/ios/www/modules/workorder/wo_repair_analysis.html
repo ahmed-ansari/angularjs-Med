@@ -1,0 +1,33 @@
+<div class="wo-ra" ng-show="singleWorkOrder.repair_analysis.length > 0">
+    <ion-list>
+        <ion-item class="cntHdr">
+            <div class="row">
+                <div class="col"><b>Name</b></div>
+                <div class="col"><b>Part Name</b></div>
+                <div class="col"><b>Quantity</b></div>
+                <div class="col"><b>Status</b></div>
+                <div class="col"></div>
+            </div>
+        </ion-item>
+        <ion-scroll direction="y" class="scroll-height">
+        <ion-item ng-repeat="repair_analysis in singleWorkOrder.repair_analysis">
+            <div class="row">
+                <div class="col"> <a href="#/app/repair-analysis/{{repair_analysis.Id}}/{{singleWorkOrder.WO.MedConnectDev__Asset__c}}">{{repair_analysis.Name}}</a> </div>
+                <div class="col">{{repair_analysis.MedConnectDev__Defective_Part_Name__c}}</div>
+                <div class="col">{{repair_analysis.MedConnectDev__Quantity__c}}</div>
+                <div class="col">{{repair_analysis.MedConnectDev__Status__c}}</div>
+                <div class="col"><a href="#/app/camera/{{repair_analysis.Id}}/">
+                 <span class="step size-24">
+                 <i class="icon ion-camera"></i>
+                 </span></a></div>
+            </div>
+        </ion-item>
+    </ion-scroll>
+    </ion-list>
+</div>
+
+<div class="card" ng-show="singleWorkOrder.repair_analysis.length == 0">
+    <div class="item item-text-wrap">
+        No Repair Analysis Found!
+    </div>
+</div>

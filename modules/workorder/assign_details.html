@@ -1,0 +1,64 @@
+<ion-view view-title="Assigned Tools">
+    <ion-content>
+        <div class="module-detail">
+            <div class="row detail-top-blue-banner white-btm-border">
+                <div class="col">
+                    <h3 ng-bind="assignDetails.WO.Name"></h3>
+                </div>
+            </div>
+
+            <div class="row detail-top-blue-banner">
+                <div class="col-50">               
+                    <a class="hyperLinks whiteLink hLink" href="#/app/activity/{{assignDetails.WO.MedConnectDev__Work_Order_Activity__c}}"><i class="icon ion-link"></i><span ng-bind="assignDetails.WOA"></span></a>
+                </div>
+                <div class="col-50">
+                    <h3 class="whiteLink" ng-bind="assignDetails.detail.MedConnectDev__Tool_Name__c"></h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <div class="expense-detail">
+                            <div class="list">
+                                <div class="item">
+                                    Tool ID <span class="item-note" ng-bind="assignDetails.WO.Name"></span>
+                                </div>
+                                 <div class="item">
+                                    Product Name <span class="item-note" ng-bind="assignDetails.detail.MedConnectDev__Product__r.Name"></span>
+                                </div>
+                                 <div class="item">
+                                    Specification 1 <span class="item-note" ng-bind="assignDetails.detail.MedConnectDev__Specification_1__c"></span>
+                                </div>
+                                <div class="item">
+                                    Specification 2 <span class="item-note" ng-bind="assignDetails.detail.MedConnectDev__Specification_2__c"></span>
+                                </div>
+                                <div class="item">
+                                    Specification 3 <span class="item-note" ng-bind="assignDetails.detail.MedConnectDev__Specification_3__c"></span>
+                                </div>
+                                <div class="item">
+                                    Source <span class="item-note" ng-bind="assignDetails.detail.MedConnectDev__Source__c"></span>
+                                </div>
+                                <div class="item">
+                                    Owner <span class="item-note" ng-bind="assignDetails.detail.Owner.Name"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+
+
+    </ion-content>
+</ion-view>

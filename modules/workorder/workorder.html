@@ -1,0 +1,123 @@
+<ion-view title="Work Order">
+    <ion-nav-buttons side="right">
+     <div syncup></div>
+     <div offline></div>
+    <span class="step size-32">
+        <i class="icon ion-grid" ng-click="singleWorkOrder.popover.show($event)"></i>
+    </span>
+    </ion-nav-buttons>
+   
+    <ion-content scroll="false" class="has-footer"> 
+        <div class="subHeader" scroll="false">
+           <div class="row detail-top-blue-banner white-btm-border contact-detail">
+                <div class="col">
+                    <h2 ng-bind="singleWorkOrder.WO.Name"></h2>
+                </div>
+            </div>
+            <div class="row detail-top-blue-banner contact-detail">
+                <div class="col col-30">
+                    <p>Contact</p>
+                    <a class="hyperLinks" ng-href="#/app/contacts/{{singleWorkOrder.WO.MedConnectDev__Contact__c}}"><b ng-bind="singleWorkOrder.WO.MedConnectDev__Contact__r.Name"></b></a>
+
+                   <div><b ng-bind="singleWorkOrder.WO.MedConnectDev__Contact__r.Phone"></b> </div>
+                </div>
+                <div class="col col-30">
+                    <p>Account</p>
+                    <a class="hyperLinks" ng-href="#/app/accounts/{{singleWorkOrder.WO.MedConnectDev__Account__c}}"><b ng-bind="singleWorkOrder.WO.MedConnectDev__Account__r.Name"></b></a>
+                </div>
+                <div class="col col-30">
+                    <p> Scheduled At:</p>
+                    <b>{{singleWorkOrder.WO.MedConnectDev__Assigned_Start_Time__c | date : 'medium' }} - {{singleWorkOrder.WO.MedConnectDev__Assigned_End_Time__c | date : 'medium' }}</b>
+                </div>
+            </div>
+        </div> 
+        <div class="tab-container">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll direction="x" class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">General Info</a>
+                            <a href="javascript:;" class="ion-home1">Asset Info</a>
+                            <a href="javascript:;" class="ion-home1">Additional Info</a>
+                            <a href="javascript:;" class="ion-home1">BOM</a>
+                            <a href="javascript:;" class="ion-home1">Warranty Info</a>
+                            <a href="javascript:;" class="ion-home1">Repair Analysis</a>
+                            <a href="javascript:;" class="ion-home1">Activity</a>                            
+                            <a href="javascript:;" class="ion-home1">Quotes</a>
+                            <a href="javascript:;" class="ion-home1">Invoices</a>                           
+                            <a href="javascript:;" class="ion-home1" ng-hide="singleWorkOrder.hideExpenseTab">Expense</a>
+                            <a href="javascript:;" class="ion-home1" ng-show="singleWorkOrder.showRMA">RMA Order</a> 
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                    <!-- wo_generalInfo -->
+                        <div dynamic-height class="scroll-height" ng-include src="'modules/workorder/wo_generalInfo.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                    <!-- asset -->
+                        <div dynamic-height class="scroll-height" ng-include src="'modules/workorder/wo_asset_info.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                    <!-- wo_additional_info -->
+                        <div dynamic-height class="scroll-height" ng-include src="'modules/workorder/wo_additional_info.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                    <!-- BOM -->
+                        <div class="bom_chart" dynamic-height>
+                            <div id="chart_div"></div>
+                            <div class="card" ng-show="singleWorkOrder.no_BOMStatus">
+                                <div class="item item-text-wrap">
+                                    <p>No Data found</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                    <!-- wo_warrantyinfo -->
+                        <div ng-include src="'modules/workorder/wo_warrantyinfo.html'"></div>
+                    </ion-slide>
+                                    
+                    <ion-slide>
+                    <!-- wo_repair_analysis -->
+                        <div ng-include src="'modules/workorder/wo_repair_analysis.html'"></div>
+                    </ion-slide>
+                     <ion-slide>
+                     <!-- wo_activity -->
+                        <div ng-include src="'modules/workorder/wo_activity.html'"></div>
+                    </ion-slide>
+                    
+                    <ion-slide>
+                      <!-- wo_quote -->  
+                      <div ng-include src="'modules/workorder/wo_quote.html'"></div>
+                    </ion-slide>
+                    <ion-slide>
+                      <!-- wo_invoice -->  
+                      <div ng-include src="'modules/invoice/invoice-list.html'"></div>
+                    </ion-slide>                    
+                     <ion-slide>
+                     <!-- wo_expense -->
+                        <div ng-include src="'modules/workorder/wo_expense.html'"></div>
+                    </ion-slide>
+                     <ion-slide ng-show="singleWorkOrder.showRMA">
+                        <!-- wo_rma -->
+                        <div  ng-include src="'modules/workorder/wo_rmaorder.html'"></div>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </div>
+        <div class="wo_sign">
+            
+        </div>
+    </ion-content>
+
+    <ion-footer-bar class="wo-footer"> 
+        <button class="button button-balanced height-60" ng-disabled="disableBtns" ng-click="singleWorkOrder.acceptWorkOrder('accept')">Accept Order</button>
+        <button class="button button-clear button-assertive leftMargin" ng-disabled="disableBtns" ng-click="singleWorkOrder.acceptWorkOrder('reject')">Reject Order</button>
+        <button class="button button-positive rightPosition height-60 leftMargin"  ng-click="singleWorkOrder.showPopup()" ng-hide="singleWorkOrder.sign_img">Sign Here</button>
+        <div class="button rightPosition sign-img height-60" ng-bind-html="singleWorkOrder.sign_img" ng-show="singleWorkOrder.sign_img != ''"></div>   
+    </ion-footer-bar>
+
+
+</ion-view>

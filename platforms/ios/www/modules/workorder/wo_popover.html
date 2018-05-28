@@ -1,0 +1,11 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list" ng-click="singleWorkOrder.popover.hide()">
+          <a class="item" href="#/app/add-repair-analysis/{{singleWorkOrder.workOrderID}}/null" ><i class="icon ion-android-add-circle"></i> Repair Analysis</a>
+            <a class="item" href="#/app/add-activity/{{singleWorkOrder.workOrderID}}/null" ><i class="icon ion-android-add-circle"></i> Activity</a>
+            <a class="item" ng-hide="singleWorkOrder.hideExpenseTab" href="#/app/add-expense/{{singleWorkOrder.workOrderID}}/null" ><i class="icon ion-android-add-circle"></i> Expense</a>
+            <a class="item" href="#/app/add-quote/{{singleWorkOrder.workOrderID}}/null/norevise" ><i class="icon ion-android-add-circle"></i> Quote</a>  
+            <a class="item" href="#/app/add-invoice/{{singleWorkOrder.workOrderID}}/{{singleWorkOrder.WO.MedConnectDev__Account__c}}/{{singleWorkOrder.WO.MedConnectDev__Contact__c}}/null/null/null" ><i class="icon ion-android-add-circle"></i> Invoice</a>    
+        </div>
+    </ion-content>
+</ion-popover-view>
